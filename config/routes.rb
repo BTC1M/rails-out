@@ -5,4 +5,14 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources :places
+  resources :artists
+
+  resources :events do
+    resources :user_participations, only: [:new, :create, :destroy]
+    resources :artist_participations, only: [:new, :create, :destroy]
+  end
+
+  get "/dashboard", to:"pages#dashboard"
+
 end
