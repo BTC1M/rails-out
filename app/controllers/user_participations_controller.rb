@@ -1,0 +1,2 @@
+class UserParticipationsController < ApplicationController
+end
