@@ -6,10 +6,9 @@ puts 'Destroying previous seeds...'
 
 User.destroy_all
 Artist.destroy_all
-Event.destroy_all
 Place.destroy_all
+Event.destroy_all
 UserParticipation.destroy_all
-Review.destroy_all
 ArtistParticipation.destroy_all
 
 
@@ -25,7 +24,7 @@ User.create!(
 
 100.times do
   User.create!(
-    username: Faker::Name.first_name,
+    username: Faker::Name.unique.name,
     email: Faker::Internet.email,
     password: Faker::Internet.password,
     age: rand(18..50),
@@ -33,7 +32,7 @@ User.create!(
   )
 
   Artist.create!(
-    name: Faker::Music.band,
+    name: Faker::Music.unique.band,
     category: Faker::Music.genre,
     photo: Faker::Avatar.image,
     spotify_link: Faker::Internet.url(host: 'spotify.com')
@@ -47,6 +46,8 @@ User.create!(
     photo: Faker::Placeholdit.image
   )
 end
+puts 'Users, Artists and Places created...'
+
 
 100.times do
   Event.create!(
@@ -62,6 +63,7 @@ end
     place: Place.find_by_id(rand(1..100))
   )
 end
+puts 'Event created...'
 
 100.times do
   ArtistParticipation.create!(
@@ -69,19 +71,14 @@ end
     event: Event.find_by_id(rand(1..100))
   )
 end
+puts 'ArtistParticipation created...'
 
 2000.times do
   UserParticipation.create!(
     user: User.find_by_id(rand(1..100)),
     event: Event.find_by_id(rand(1..100))
   )
-
-  Review.create!(
-    content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id magni, impedit! Saepe deleniti blanditiis laboriosam eaque fugiat quos rerum illum quam, eos enim, eum asperiores! Placeat, magnam, delectus! Nulla, unde!',
-    stars: rand(1..5),
-    event: Event.find_by_id(rand(1..100)),
-    user: User.find_by_id(rand(1..100))
-  )
 end
+puts 'ArtistParticipation created...'
 
 puts 'Finished!'
