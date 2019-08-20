@@ -2,7 +2,7 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
-<div class="card-event align-left"> 
+<div class="card-event align-left">
 	<div class="color-line"> </div>
 	<%= image_tag "test.png", :class => "img_event" %>
 	<h3 class="title-event"> evenement title</h3>
@@ -33,8 +33,8 @@
     <% else %>
       <h5 class="card-title">You are not signed in.</h5>
       <%= form_for(:user, :url => session_path(:user)) do |f| %>
-        <%= f.text_field :email %>
-        <%= f.password_field :password %>
+        <%= f.text_field :email, placeholder: "email" %>
+        <%= f.password_field :password, placeholder: "password" %>
         <p></p>
         <%= f.check_box :remember_me %>
         <%= f.label :remember_me %>
