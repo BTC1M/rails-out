@@ -10,10 +10,75 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_19_134755) do
+ActiveRecord::Schema.define(version: 2019_08_19_145107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artist_participations", force: :cascade do |t|
+    t.bigint "artist_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_artist_participations_on_artist_id"
+    t.index ["event_id"], name: "index_artist_participations_on_event_id"
+  end
+
+  create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.string "category"
+    t.string "photo"
+    t.string "spotify_link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "price"
+    t.string "category"
+    t.date "date"
+    t.time "start_time"
+    t.time "end_time"
+    t.string "photo"
+    t.bigint "user_id"
+    t.bigint "place_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_events_on_place_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "name"
+    t.text "details"
+    t.string "category"
+    t.string "address"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "stars"
+    t.bigint "event_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_reviews_on_event_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "user_participations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_user_participations_on_event_id"
+    t.index ["user_id"], name: "index_user_participations_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -30,4 +95,12 @@ ActiveRecord::Schema.define(version: 2019_08_19_134755) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "artist_participations", "artists"
+  add_foreign_key "artist_participations", "events"
+  add_foreign_key "events", "places"
+  add_foreign_key "events", "users"
+  add_foreign_key "reviews", "events"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "user_participations", "events"
+  add_foreign_key "user_participations", "users"
 end
