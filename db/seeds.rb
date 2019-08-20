@@ -67,7 +67,7 @@ puts 'Event created...'
 
 100.times do
   ArtistParticipation.create!(
-    artist: User.find_by_id(rand(1..100)),
+    artist: Artist.find_by_id(rand(1..100)),
     event: Event.find_by_id(rand(1..100))
   )
 end
@@ -79,6 +79,6 @@ puts 'ArtistParticipation created...'
     event: Event.find_by_id(rand(1..100))
   )
 end
-puts 'ArtistParticipation created...'
+puts 'UserParticipation created...'
 
 puts 'Finished!'
