@@ -6,7 +6,6 @@ class User < ApplicationRecord
 
   has_many :events
   has_many :user_participations
-  has_many :reviews
 
   validates :username, uniqueness: true
 end
