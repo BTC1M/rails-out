@@ -6,6 +6,5 @@ class Place < ApplicationRecord
 
   validates :name, presence: true
   validates :category, presence: true
-  validates :reward, presence: true, numericality: { only_integer: true }
   validates :address, presence: true
 end
