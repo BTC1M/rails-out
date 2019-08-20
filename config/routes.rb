@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   resources :places
   resources :artists
 
-
   resources :events do
     resources :user_participations, only: [:new, :create, :destroy]
     resources :artist_participations, only: [:new, :create, :destroy]

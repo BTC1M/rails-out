@@ -4,12 +4,12 @@ puts 'Seeding :'
 
 puts 'Destroying previous seeds...'
 
-User.destroy_all
-Artist.destroy_all
-Place.destroy_all
 Event.destroy_all
+Place.destroy_all
 UserParticipation.destroy_all
 ArtistParticipation.destroy_all
+Artist.destroy_all
+User.destroy_all
 
 
 puts 'Creating new seeds...'
@@ -73,7 +73,7 @@ puts 'Event created...'
 end
 puts 'ArtistParticipation created...'
 
-2000.times do
+500.times do
   UserParticipation.create!(
     user: User.find_by_id(rand(1..100)),
     event: Event.find_by_id(rand(1..100))
