@@ -1,6 +1,19 @@
 <h1>Bienvenue sur OUT</h1>
 <p>La meilleure appli du monde</p>
 
+<div class="card">
+  <div class="card-body">
+    <% if user_signed_in? %>
+      <h5 class="card-title">Welcome <%= current_user.email %></h5>
+      <%= link_to 'Sign out', destroy_user_session_path, class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% else %>
+      <h5 class="card-title">You are not signed in.</h5>
+      <%= link_to "Sign in", new_user_session_path, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<p class="mt-5"></p>
 <p><%= link_to 'Profil', dashboard_path %></p>
 <p><%= link_to 'Map', events_path %></p>
 <p><%= link_to 'Artists', artists_path %></p>
