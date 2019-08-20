@@ -6,15 +6,27 @@
     <% if user_signed_in? %>
       <h5 class="card-title">Welcome <%= current_user.email %></h5>
       <%= link_to 'Sign out', destroy_user_session_path, class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %>
+      <p class="mt-5"></p>
+      <p><%= link_to 'Profil', dashboard_path %></p>
+      <p><%= link_to 'Map', events_path %></p>
+      <p><%= link_to 'Artists', artists_path %></p>
+      <p><%= link_to 'Discover', discover_path %></p>
     <% else %>
       <h5 class="card-title">You are not signed in.</h5>
-      <%= link_to "Sign in", new_user_session_path, class: "btn btn-primary" %>
+      <%= form_for(:user, :url => session_path(:user)) do |f| %>
+        <%= f.text_field :email %>
+        <%= f.password_field :password %>
+        <p></p>
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+        <%= f.submit 'Sign in' %>
+        <p></p>
+        <%= link_to "Forgot your password?", new_password_path(:user) %>
+      <% end %>
     <% end %>
   </div>
 </div>
 
-<p class="mt-5"></p>
-<p><%= link_to 'Profil', dashboard_path %></p>
-<p><%= link_to 'Map', events_path %></p>
-<p><%= link_to 'Artists', artists_path %></p>
-<p><%= link_to 'Discover', discover_path %></p>
+
+
+
