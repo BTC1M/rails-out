@@ -1,0 +1,128 @@
+body {
+	background: #252525;
+}
+
+//--------CART EVENT--------------------------//
+
+.card-event {
+	display:inline-block;
+	width: 286px;
+	height: 109px;
+	left: 31px;
+	top: 196px;
+	background: #343434;
+	border-radius: 3px;
+	color: #A0A0A0;
+	font-family: avenir;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 10px;
+	line-height: 12px;
+	text-align: center;
+	position: absolute;
+}
+
+.color-line {
+  line-height: 100%;
+  height: 3px;
+  width: 109px;
+  background-image: repeating-linear-gradient(to right,
+  red 0px, red 15px,
+  orange 15px, orange 31px,
+  yellow 15px, yellow 46px,
+  green 15px, green 62px,
+  blue 15px, blue 77px,
+  pink 15px, pink 93px,
+  purple 15px, purple 109px);
+  position: relative;
+  transform: rotate(-90deg);
+  top: 53px;
+  left: -53px;
+  border-radius-bottom-left: 5px
+
+}
+
+.card-event h3 {
+	font-size: 12px;
+	position: relative;
+	bottom: 73px;
+	right: -5px;
+}
+
+.card-event p {
+	position: relative;
+	bottom: 75px;
+	right: 15px;
+	line-height: 20px;
+}
+
+.img_event {
+	height: 85px;
+	width: 65px;
+	position: relative;
+	left: -90px;
+	top: 10px;
+}
+
+.logo_event {
+	margin-right: 7px;
+}
+
+//----------------------------------------------//
+
+//--------------CARD-ARTIST---------------------//
+
+.card-artist {
+	display:inline-block;
+	width: 109px;
+	height: 109px;
+	left: 31px;
+	top: 346px;
+	background: #343434;
+	border-radius: 3px;
+	color: #A0A0A0;
+	font-family: avenir;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 10px;
+	line-height: 12px;
+	text-align: center;
+	position: absolute;
+}
+
+.color-line {
+  line-height: 100%;
+  height: 3px;
+  width: 109px;
+  background-image: repeating-linear-gradient(to right,
+  red 0px, red 15px,
+  orange 15px, orange 31px,
+  yellow 15px, yellow 46px,
+  green 15px, green 62px,
+  blue 15px, blue 77px,
+  pink 15px, pink 93px,
+  purple 15px, purple 109px);
+  position: relative;
+  transform: rotate(-90deg);
+  top: 53px;
+  left: -53px;
+  border-radius-bottom-left: 5px
+
+}
+
+.card-artist h3 {
+font-size: 13px;
+line-height: 15px;
+font-weight: bold;
+position: absolute;
+left: 20px;
+}
+
+.img_artist-card {
+	height: 70px;
+	width: 70px;
+	position: absolute;
+	top: 25px;
+	right: 19px;
+	border-radius: 3px
+}
