@@ -1,0 +1,10 @@
+<!-- On code la map ici -->
+<h1>MAP</h1>
+
+<h4>Liste des évènements : </h4>
+
+<ul>
+<% @events.each do |event| %>
+<li><%= link_to event.title, event_path(event.id) %></li>
+<% end %>
+</ul>
