@@ -47,24 +47,27 @@ p, h1, h2, h3, h4, h5 {
 
 .card-event h3 {
 	font-size: 12px;
-	position: relative;
-	bottom: 43px;
-	right: -5px;
+	position: absolute;
+	bottom: 80px;
+	left: 97px;
+	text-align: left;
+
 }
 
 .card-event p {
-	position: relative;
-	bottom: 40px;
-	right: 15px;
+	position: absolute;
+	bottom: 0px;
+	left: 97px;
 	line-height: 20px;
+	text-align: left;
 }
 
 .img_event {
 	height: 85px;
 	width: 65px;
-	position: relative;
-	left: -90px;
-	top: 44px;
+	position: absolute;
+	left: 10px;
+	top: 13px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -149,7 +152,6 @@ top: -43px;
 	width: 286px;
 	height: 109px;
 	left: 31px;
-	top: 542px;
 	background: #343434;
 	border-radius: 3px;
 	color: #A0A0A0;
@@ -159,7 +161,9 @@ top: -43px;
 	font-size: 10px;
 	line-height: 12px;
 	text-align: center;
-	position: absolute;
+	position: relative;
+	top: -300px;
+	margin: 12px;
 }
 
 .color-line-next-event {
