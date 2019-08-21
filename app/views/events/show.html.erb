@@ -1,3 +1,12 @@
-<h1>events#show</h1>
+<div class="logo mx-auto">
+  <p class="out">out</p>
+</div>
 
-<h4>Details de l'évènement : <%= @event.title %></h4>
+<h1><%= @event.title %></h1>
+<h4><%= @event.category %></h4>
+<p><%= @event.description %></p>
+<ul>
+  <% @event.artist_participations.each do |artist_part| %>
+    <li> <%= link_to artist_part.artist.name, artist_path(artist_part.artist.id) %> </li>
+  <% end %>
+</ul>
