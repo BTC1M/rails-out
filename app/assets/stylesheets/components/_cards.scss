@@ -2,6 +2,10 @@ body {
 	background: #252525;
 }
 
+p, h1, h2, h3, h4, h5 {
+	font-family: "Roboto", "Helvetica", "sans-serif" !important;
+}
+
 //--------CART EVENT--------------------------//
 
 .card-event {
@@ -126,3 +130,117 @@ left: 20px;
 	right: 19px;
 	border-radius: 3px
 }
+
+//----------------------------------------------//
+
+//--------------CARD-NEXT-EVENT-----------------//
+
+.card-next-event {
+	display:inline-block;
+	width: 286px;
+	height: 109px;
+	left: 31px;
+	top: 496px;
+	background: #343434;
+	border-radius: 3px;
+	color: #A0A0A0;
+	font-family: avenir;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 10px;
+	line-height: 12px;
+	text-align: center;
+	position: absolute;
+}
+
+.color-line-next-event {
+  line-height: 100%;
+  height: 3px;
+  width: 286px;
+  background-image: repeating-linear-gradient(to right,
+  red 0px, red 40px,
+  orange 15px, orange 81px,
+  yellow 15px, yellow 122px,
+  green 15px, green 163px,
+  blue 15px, blue 204px,
+  pink 15px, pink 244px,
+  purple 15px, purple 286px);
+  position: relative;
+  top: 109px;
+  border-radius-bottom-left: 5px
+}
+
+.card-next-event h3 {
+	font-size: 12px;
+	position: relative;
+	bottom: 73px;
+	right: 10px;
+}
+
+.card-next-event p {
+	position: relative;
+	bottom: 75px;
+	right: 30px;
+	line-height: 20px;
+}
+
+.img_next_event {
+	height: 85px;
+	width: 65px;
+	position: relative;
+	left: -100px;
+	top: 10px;
+}
+
+.logo_next_event {
+	margin-right: 7px;
+}
+
+
+//----------------------------------------------//
+
+//------------CARD-NEXT-EVENT-DATE--------------//
+
+
+
+.card-next-event-date {
+position: absolute;
+width: 72px;
+height: 72px;
+top: 0px;
+bottom: 0px;
+background: #000000;
+border-radius: 3px;
+margin:auto 0 auto auto;
+right: -30px;
+}
+
+
+.card-next-event-date h2{
+position: absolute;
+left: 13px;
+color: white;
+top: 6px;
+font-size: 40px;
+font-style: normal;
+font-weight: 900;
+}
+
+.card-next-event-date h3{
+position: absolute;
+left: 9px;
+color: white;
+top: 42px;
+font-size: 16px;
+font-style: normal;
+font-weight: 900;
+}
+
+//----------------------------------------------//
+
+
+
+
+
+
+
