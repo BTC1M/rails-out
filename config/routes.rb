@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :artists, only: [:index, :show]
+  resources :artists, only: [:show]
 
   resources :events, only: [:index, :show] do
     resources :user_participations, only: [:new, :create, :destroy]

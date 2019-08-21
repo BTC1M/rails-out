@@ -14,8 +14,21 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
-    <!-- <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p> -->
+
+    <!-- ------ MODAL sur toutes les pages ----- -->
+    <% if !user_signed_in? && !request.original_url.include?(new_user_registration_path) && !request.original_url.include?(new_user_session_path) && !request.original_url.include?(new_user_password_path) %>
+      <%= link_to 'Sign in', modalsignin_path,  {'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary', id: "btn-sign-in", style: "visibility:hidden;"} %>
+      <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <%= render "shared/modalsignin" %>
+          </div>
+        </div>
+      </div>
+      <a data-controls-modal="modal-window" data-backdrop="static" data-keyboard="false" href="#">
+    <% end %>
+    <!-- --------------------------------------- -->
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
