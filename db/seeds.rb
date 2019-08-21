@@ -102,7 +102,7 @@ adresses.each do |adresse|
     price: rand(5..50),
     #category: Faker::Music.genre,
     category: event_categories.sample,
-    date: Faker::Date.between(from: Date.today, to: 17.days.from_now),
+    date: Faker::Date.between(from: Date.tomorrow, to: 17.days.from_now),
     start_time: '15:02:28',
     end_time: '15:02:28',
     photo: Faker::Placeholdit.image,
