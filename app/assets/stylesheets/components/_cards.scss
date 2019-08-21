@@ -47,29 +47,43 @@ p, h1, h2, h3, h4, h5 {
 
 .card-event h3 {
 	font-size: 12px;
-	position: relative;
-	bottom: 43px;
-	right: -5px;
+	position: absolute;
+	bottom: 80px;
+	left: 97px;
+  text-align: left;
 }
 
 .card-event p {
-	position: relative;
-	bottom: 40px;
-	right: 15px;
+	position: absolute;
+	bottom: 0px;
+	left: 97px;
+  text-align: left;
 	line-height: 20px;
 }
 
 .img_event {
 	height: 85px;
 	width: 65px;
-	position: relative;
-	left: -90px;
+	position: absolute;
+	left: 10px;
 	top: 44px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	margin: auto;
+}
+
+.img_event_artist {
+  height: 85px;
+  width: 65px;
+  position: absolute;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
 
 .logo_event {
