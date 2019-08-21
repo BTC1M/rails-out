@@ -50,8 +50,7 @@ p, h1, h2, h3, h4, h5 {
 	position: absolute;
 	bottom: 80px;
 	left: 97px;
-	text-align: left;
-
+  text-align: left;
 }
 
 .card-event p {
@@ -73,6 +72,18 @@ p, h1, h2, h3, h4, h5 {
 	justify-content: center;
 	align-items: center;
 	margin: auto;
+}
+
+.img_event_artist {
+  height: 85px;
+  width: 65px;
+  position: absolute;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
 
 .logo_event {
