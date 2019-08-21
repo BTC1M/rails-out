@@ -46,6 +46,9 @@ adresses << "1 Rue Saint-François de Sales, 13004 Marseille"
 adresses << "79 Avenue de Saint-Julien, 13012 Marseille"
 adresses << "11 Rue Glandeves, 13001 Marseille"
 
+music_categories = ['Electro', 'House', 'Techno', 'Funk', 'Rock', 'Hip-hop', 'Latino']
+event_categories = ['Concert', 'Festival', 'Bar', 'Club', 'Open air', 'Rooftop']
+
 User.create!(
   username: Faker::Name.first_name,
   email: 'admin@out.com',
@@ -75,7 +78,7 @@ end
 100.times do
   Artist.create!(
     name: Faker::Music.unique.band,
-    category: Faker::Music.genre,
+    category: music_categories.sample,
     photo: Faker::Avatar.image,
     spotify_link: Faker::Internet.url(host: 'spotify.com')
   )
@@ -97,7 +100,8 @@ adresses.each do |adresse|
     title: Faker::Book.title,
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quae asperiores quam obcaecati facere impedit dolore, vitae molestiae veniam ipsa. Quis error debitis, vel nam sapiente odio minima ullam possimus!',
     price: rand(5..50),
-    category: Faker::Music.genre,
+    #category: Faker::Music.genre,
+    category: event_categories.sample,
     date: Faker::Date.between(from: Date.today, to: 17.days.from_now),
     start_time: '15:02:28',
     end_time: '15:02:28',
