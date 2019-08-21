@@ -3,45 +3,38 @@
 </div>
 
 <div class="card-event align-left">
-	<div class="color-line"> </div>
-	<%= image_tag "test.png", :class => "img_event" %>
-	<h3 class="title-event"> evenement title</h3>
-	<p class="text-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %> place </p>
+  <div class="color-line"> </div>
+  <%= image_tag "test.png", :class => "img_event" %>
+  <h3 class="title-event"> evenement title</h3>
+  <p class="text-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %> place </p>
 </div>
 
 
 <div class="card-artist">
-	<div class="color-line"> </div>
-	<h3 class="card-title-artist"> name artist</h3>
-	<%= image_tag "artist-test.png", :class => "img_artist-card" %>
+  <div class="color-line"> </div>
+  <h3 class="card-title-artist"> name artist</h3>
+  <%= image_tag "artist-test.png", :class => "img_artist-card" %>
 </div>
 
 <div class="next-event">
-
 </div>
 
-<div class="card">
-  <div class="card-body">
-    <% if user_signed_in? %>
-      <h5 class="card-title">Welcome <%= current_user.email %></h5>
-      <%= link_to 'Sign out', destroy_user_session_path, class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %>
-      <p class="mt-5"></p>
-      <p><%= link_to 'Profil', dashboard_path %></p>
-      <p><%= link_to 'Map', events_path %></p>
-      <p><%= link_to 'Artists', artists_path %></p>
-      <p><%= link_to 'Discover', discover_path %></p>
-    <% else %>
-      <h5 class="card-title">You are not signed in.</h5>
-      <%= form_for(:user, :url => session_path(:user)) do |f| %>
-        <%= f.text_field :email, placeholder: "email" %>
-        <%= f.password_field :password, placeholder: "password" %>
-        <p></p>
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-        <%= f.submit 'Sign in' %>
-        <p></p>
-        <%= link_to "Forgot your password?", new_password_path(:user) %>
-      <% end %>
-    <% end %>
+<!-- ----------------------------------------------------------------- -->
+
+
+<% if user_signed_in? %>
+  <h5 class="card-title">Welcome <%= current_user.email %></h5>
+  <%= link_to 'Sign out', destroy_user_session_path, class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %>
+<% else %>
+  <h5 class="card-title">You are not signed in.</h5>
+  <%= link_to 'Sign in', modalsignin_path,  {'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary', id: "btn-sign-in"} %>
+  <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <%= render "modalsignin" %>
+      </div>
+    </div>
   </div>
-</div>
+<% end %>
+
+
