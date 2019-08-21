@@ -1,49 +1,110 @@
 <div class="logo mx-auto">
   <p class="out">OUT</p>
 </div>
-
 <div class="color-line-top d-flex"></div>
-
-<div class="card-event align-left">
-  <div class="color-line"> </div>
-  <%= image_tag "test.png", :class => "img_event" %>
-  <h3 class="title-event"> evenement title</h3>
-  <p class="text-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %> place </p>
+<div class="chapiter-night-event">
+  <p class="title-chapiter">évènements ce soir</p>
+  <p class="lign-chapiter"> </p>
 </div>
-
-
-<div class="card-artist">
-  <div class="color-line"> </div>
-  <h3 class="card-title-artist"> name artist</h3>
-  <%= image_tag "artist-test.png", :class => "img_artist-card" %>
-</div>
-
-<div class="card-next-event">
-<div class="color-line-next-event"> </div>
-  <%= image_tag "test.png", :class => "img_next_event" %>
-  <h3 class="title-event"> evenement title</h3>
-  <p class="text-next-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_next_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_next_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_next_event" %> place </p>
-  <div class="card-next-event-date d-flex flex-column"> 
-    <h2>05</h2> <br>
-    <h3> sept </h3>
+<div class="row">
+  <div class="app">
+    <ul class="hs">
+      <li> <div class="card-event ml-2">
+        <div class="color-line-event"> </div>
+        <%= image_tag "test.png", :class => "img_event" %>
+        <h3 class="title-event"> evenement title</h3>
+        <p class="text-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %> place </p>
+      </div> </li>
+      <li><div class="card-event">
+        <div class="color-line-event"> </div>
+        <%= image_tag "test.png", :class => "img_event" %>
+        <h3 class="title-event"> evenement title</h3>
+        <p class="text-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %> place </p>
+      </div></li>
+      <li><div class="card-event">
+        <div class="color-line-event"> </div>
+        <%= image_tag "test.png", :class => "img_event" %>
+        <h3 class="title-event"> evenement title</h3>
+        <p class="text-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %> place </p>
+      </div></li>
+      <li><div class="card-event">
+        <div class="color-line-event"> </div>
+        <%= image_tag "test.png", :class => "img_event" %>
+        <h3 class="title-event"> evenement title</h3>
+        <p class="text-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %> place </p>
+      </div></li>
+      <li><div class="card-event">
+        <div class="color-line-event"> </div>
+        <%= image_tag "test.png", :class => "img_event" %>
+        <h3 class="title-event"> evenement title</h3>
+        <p class="text-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %> place </p>
+      </div></li>
+    </ul>
+    <div class="chapiter-artist-month">
+      <p class="title-chapiter">artistes du moment</p>
+      <p class="lign-chapiter"> </p>
+    </div>
+    
+    <ul class="hs2">
+      <li class="li_height">
+        <div class="card-artist">
+          <div class="color-line"> </div>
+          <h3 class="card-title-artist"> name artist</h3>
+          <%= image_tag "artist-test.png", :class => "img_artist-card" %>
+        </div>
+      </li>
+      <li class="li_height">
+        <div class="card-artist">
+          <div class="color-line"> </div>
+          <h3 class="card-title-artist"> name artist</h3>
+          <%= image_tag "artist-test.png", :class => "img_artist-card" %>
+        </div>
+      </li>
+      <li class="li_height">
+        <div class="card-artist">
+          <div class="color-line"> </div>
+          <h3 class="card-title-artist"> name artist</h3>
+          <%= image_tag "artist-test.png", :class => "img_artist-card" %>
+        </div>
+      </li>
+      <li class="li_height">
+        <div class="card-artist">
+          <div class="color-line"> </div>
+          <h3 class="card-title-artist"> name artist</h3>
+          <%= image_tag "artist-test.png", :class => "img_artist-card" %>
+        </div>
+      </li>
+    </ul>
+    
   </div>
+  <div class="chapiter-next-event">
+    <p class="title-chapiter">évènements à venir</p>
+    <p class="lign-chapiter"> </p>
+  </div>
+  <div class="card-next-event">
+    <div class="color-line-next-event"> </div>
+    <%= image_tag "test.png", :class => "img_next_event" %>
+    <h3 class="title-event"> evenement title</h3>
+    <p class="text-next-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_next_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_next_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_next_event" %> place </p>
+    <div class="card-next-event-date d-flex flex-column">
+      <h2>05</h2> <br>
+      <h3> sept </h3>
+    </div>
 
-<!------------------------------------------------------>
-
-<% if user_signed_in? %>
-  <h5 class="card-title">Welcome <%= current_user.email %></h5>
-  <%= link_to 'Sign out', destroy_user_session_path, class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %>
-<% else %>
-  <!-- <h5 class="card-title">You are not signed in.</h5> -->
-  <%= link_to 'Sign in', modalsignin_path,  {'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary', id: "btn-sign-in", style: "visibility:hidden;"} %>
-  <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <%= render "modalsignin" %>
+    
+    <!------------------------------------------------------>
+    <% if user_signed_in? %>
+    <h5 class="card-title"><% current_user.email %></h5>
+    <% link_to 'Sign out', destroy_user_session_path, class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% else %>
+    <!-- <h5 class="card-title">You are not signed in.</h5> -->
+    <% link_to 'Sign in', modalsignin_path,  {'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary', id: "btn-sign-in", style: "visibility:hidden;"} %>
+    <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <% render "modalsignin" %>
+        </div>
       </div>
     </div>
-  </div>
-  <a data-controls-modal="modal-window" data-backdrop="static" data-keyboard="false" href="#">
-<% end %>
-
-
+    <a data-controls-modal="modal-window" data-backdrop="static" data-keyboard="false" href="#">
+      <% end %>
