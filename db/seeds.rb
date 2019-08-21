@@ -41,7 +41,7 @@ adresses << "2 Avenue Ferdinand Flotte, 13008 Marseille"
 adresses << "244 Chemin du Roucas Blanc, 13007 Marseille"
 adresses << "35 Rue Boudouresque, 13007 Marseille"
 adresses << "85 Boulevard Bompard, 13007 Marseille"
-adresses << "8 Place du Marché Île Ratonneau, 13007 Marseille"
+adresses << "26 Chemin de Sainte-Marthe, 13014 Marseille"
 adresses << "1 Rue Saint-François de Sales, 13004 Marseille"
 adresses << "79 Avenue de Saint-Julien, 13012 Marseille"
 adresses << "11 Rue Glandeves, 13001 Marseille"
@@ -54,7 +54,15 @@ User.create!(
   photo: Faker::Avatar.image
 )
 
-100.times do
+User.create!(
+  username: Faker::Name.first_name,
+  email: 'admin@gmail.com',
+  password: 'coucou',
+  age: rand(18..50),
+  photo: Faker::Avatar.image
+)
+
+98.times do
   User.create!(
     username: Faker::Name.unique.name,
     email: Faker::Internet.email,
@@ -62,7 +70,9 @@ User.create!(
     age: rand(18..50),
     photo: Faker::Avatar.image(format: "jpg")
   )
+end
 
+100.times do
   Artist.create!(
     name: Faker::Music.unique.band,
     category: Faker::Music.genre,

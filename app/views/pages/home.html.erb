@@ -2,6 +2,8 @@
   <p class="out">OUT</p>
 </div>
 
+<div class="color-line-top d-flex"></div>
+
 <div class="card-event align-left">
   <div class="color-line"> </div>
   <%= image_tag "test.png", :class => "img_event" %>
@@ -21,17 +23,14 @@
   <%= image_tag "test.png", :class => "img_next_event" %>
   <h3 class="title-event"> evenement title</h3>
   <p class="text-next-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_next_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_next_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_next_event" %> place </p>
-  <div class="card-next-event-date d-flex flex-column"> 
+  <div class="card-next-event-date d-flex flex-column">
     <h2>05</h2> <br>
     <h3> sept </h3>
   </div>
 
 <!------------------------------------------------------>
 
-<% if user_signed_in? %>
-  <h5 class="card-title">Welcome <%= current_user.email %></h5>
-  <%= link_to 'Sign out', destroy_user_session_path, class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %>
-<% else %>
+<% unless user_signed_in? %>
   <!-- <h5 class="card-title">You are not signed in.</h5> -->
   <%= link_to 'Sign in', modalsignin_path,  {'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary', id: "btn-sign-in", style: "visibility:hidden;"} %>
   <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
