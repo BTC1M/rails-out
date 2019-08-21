@@ -3,5 +3,11 @@ import "jquery";
 
 
 if ($("#btn-sign-in")) {
-$('#btn-sign-in').click();
+  $('#modal-window').modal({
+    backdrop: 'static',
+    keyboard: false
+  });
+  $('#btn-sign-in').click();
 }
+
+
