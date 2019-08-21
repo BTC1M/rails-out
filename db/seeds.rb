@@ -60,13 +60,13 @@ User.create!(
     email: Faker::Internet.email,
     password: Faker::Internet.password,
     age: rand(18..50),
-    photo: Faker::Avatar.image
+    photo: Faker::Avatar.image(format: "jpg")
   )
 
   Artist.create!(
     name: Faker::Music.unique.band,
     category: Faker::Music.genre,
-    photo: Faker::Avatar.image,
+    photo: Faker::Avatar.image(format: "jpg"),
     spotify_link: Faker::Internet.url(host: 'spotify.com')
   )
 end
@@ -91,7 +91,7 @@ adresses.each do |adresse|
     date: Faker::Date.between(from: Date.today, to: 17.days.from_now),
     start_time: '15:02:28',
     end_time: '15:02:28',
-    photo: Faker::Avatar.image,
+    photo: Faker::Placeholdit.image,
     user: User.find_by_id(rand(1..100)),
     place: place
   )
