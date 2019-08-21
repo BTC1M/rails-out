@@ -1,5 +1,22 @@
 <div class="logo mx-auto">
   <p class="out">OUT</p>
 </div>
+<div class="color-line-top"></div>
 
-<h1><%= @artist.name %></h1>
+<p class="artist_name text-center"><%= @artist.name.upcase %></p>
+
+<div class="artist_image" style="background-image: url(<%= @artist.photo %>);"></div>
+
+<div class="color-line-bottom"></div>
+
+<div class="ses_prochains_events d-flex align-items-center justify-content-between">
+  <div>ses prochains évènements</div>
+  <%= image_tag "like.png", size: "32x32"%>
+</div>
+
+
+
+
+
+
+

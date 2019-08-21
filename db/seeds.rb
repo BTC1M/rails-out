@@ -41,10 +41,13 @@ adresses << "2 Avenue Ferdinand Flotte, 13008 Marseille"
 adresses << "244 Chemin du Roucas Blanc, 13007 Marseille"
 adresses << "35 Rue Boudouresque, 13007 Marseille"
 adresses << "85 Boulevard Bompard, 13007 Marseille"
-adresses << "8 Place du Marché Île Ratonneau, 13007 Marseille"
+adresses << "26 Chemin de Sainte-Marthe, 13014 Marseille"
 adresses << "1 Rue Saint-François de Sales, 13004 Marseille"
 adresses << "79 Avenue de Saint-Julien, 13012 Marseille"
 adresses << "11 Rue Glandeves, 13001 Marseille"
+
+music_categories = ['Electro', 'House', 'Techno', 'Funk', 'Rock', 'Hip-hop', 'Latino']
+event_categories = ['Concert', 'Festival', 'Bar', 'Club', 'Open air', 'Rooftop']
 
 User.create!(
   username: Faker::Name.first_name,
@@ -54,19 +57,29 @@ User.create!(
   photo: Faker::Avatar.image
 )
 
-100.times do
+User.create!(
+  username: Faker::Name.first_name,
+  email: 'admin@gmail.com',
+  password: 'coucou',
+  age: rand(18..50),
+  photo: Faker::Avatar.image
+)
+
+98.times do
   User.create!(
     username: Faker::Name.unique.name,
     email: Faker::Internet.email,
     password: Faker::Internet.password,
     age: rand(18..50),
-    photo: Faker::Avatar.image
+    photo: Faker::Avatar.image(format: "jpg")
   )
+end
 
+100.times do
   Artist.create!(
     name: Faker::Music.unique.band,
-    category: Faker::Music.genre,
-    photo: Faker::Avatar.image,
+    category: music_categories.sample,
+    photo: Faker::Avatar.image(format: "jpg"),
     spotify_link: Faker::Internet.url(host: 'spotify.com')
   )
 end
@@ -87,11 +100,12 @@ adresses.each do |adresse|
     title: Faker::Book.title,
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quae asperiores quam obcaecati facere impedit dolore, vitae molestiae veniam ipsa. Quis error debitis, vel nam sapiente odio minima ullam possimus!',
     price: rand(5..50),
-    category: Faker::Music.genre,
-    date: Faker::Date.between(from: Date.today, to: 17.days.from_now),
+    #category: Faker::Music.genre,
+    category: event_categories.sample,
+    date: Faker::Date.between(from: Date.tomorrow, to: 17.days.from_now),
     start_time: '15:02:28',
     end_time: '15:02:28',
-    photo: Faker::Avatar.image,
+    photo: Faker::Placeholdit.image,
     user: User.find_by_id(rand(1..100)),
     place: place
   )

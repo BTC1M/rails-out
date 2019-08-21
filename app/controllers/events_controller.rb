@@ -1,20 +1,19 @@
 class EventsController < ApplicationController
-
   def index
-    @events = Event.all
+    @places = Place.geocoded # returns places with coordinates
+
+    @markers = @places.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { event: place.events.where("date > ?", Date.current).order(start_time: :asc).first}),
+        image_url: helpers.asset_url('red-dot.png')
+      }
+    end
   end
 
   def show
     @event = Event.find(params[:id])
   end
 
-private
-
-  def event_params
-    params.require(:event).permit(:title, :description, :price, :category, :date, :start_time, :end_time, :photo)
-  end
-
-  def set_event
-    @event = Event.find(params[:id])
-  end
 end
