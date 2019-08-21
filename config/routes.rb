@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  #resources :places
   resources :artists, only: [:index, :show]
 
   resources :events, only: [:index, :show] do
@@ -13,7 +12,9 @@ Rails.application.routes.draw do
     resources :artist_participations, only: [:new, :create, :destroy]
   end
 
-  get "/dashboard", to:"pages#dashboard"
-  get "/discover", to:"pages#discover"
+  get "/dashboard", to: "pages#dashboard"
+  get "/discover", to: "pages#discover"
+
+  get "/modalsignin" => 'pages#modalsignin', :as => :modalsignin
 
 end

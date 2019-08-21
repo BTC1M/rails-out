@@ -15,4 +15,12 @@ class PagesController < ApplicationController
     @events = Event.all
     @user = current_user
   end
+
+  def modalsignin
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
 end
