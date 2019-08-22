@@ -42,5 +42,9 @@
       <%= image_tag "euro.png", size: "22x22", class: "mr-2"%>
       <p class="align-self-center mb-0"><%= @event.price %></p>
     </div>
+    <p>Artistes :</p>
+    <% @event.artists.each do |artist| %>
+    <p><%= link_to artist.name, artist_path(artist.id) %></p>
+    <% end %>
   </div>
 </div>
