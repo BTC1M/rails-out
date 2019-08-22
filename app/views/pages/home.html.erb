@@ -195,18 +195,3 @@
   </div>
   <br>
 </div>
-
-<!------------------------------------------------------>
-
-<% unless user_signed_in? %>
-  <!-- <h5 class="card-title">You are not signed in.</h5> -->
-  <%= link_to 'Sign in', modalsignin_path,  {'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary', id: "btn-sign-in", style: "visibility:hidden;"} %>
-  <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <!-- <#%= render "modalsignin" %> -->
-      </div>
-    </div>
-    <a data-controls-modal="modal-window" data-backdrop="static" data-keyboard="false" href="#">
-  </a>
-<% end %>
