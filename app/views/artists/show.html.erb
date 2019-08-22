@@ -1,17 +1,40 @@
-<div class="logo mx-auto">
-  <p class="out">OUT</p>
-</div>
-<div class="color-line-top"></div>
+<div class="align-items-start">
+  <div class="logo mx-auto">
+    <p class="out">OUT</p>
+  </div>
+  <div class="color-line-top"></div>
 
-<p class="artist_name text-center"><%= @artist.name.upcase %></p>
+  <p class="artist_name text-center"><%= @artist.name.upcase %></p>
 
-<div class="artist_image" style="background-image: url(<%= @artist.photo %>);"></div>
+  <div class="artist_image" style="background-image: url(<%= @artist.photo %>);"></div>
 
-<div class="color-line-bottom"></div>
+  <div class="color-line-bottom"></div>
 
-<div class="ses_prochains_events d-flex align-items-center justify-content-between">
-  <div>ses prochains évènements</div>
-  <%= image_tag "like.png", size: "32x32"%>
+  <div class="ses_prochains_events d-flex align-items-center justify-content-between">
+    <div>ses prochains évènements</div>
+    <%= image_tag "like.png", size: "25x25"%>
+  </div>
+  <p class="lign-chapiter2"> </p>
+  <div>
+    <div class="app2">
+      <ul class="hs">
+        <% @artist.artist_participations.each do |artist_part| %>
+        <li>
+          <div class="card-event ml-2">
+            <div class="color-line-event"> </div>
+              <%= image_tag artist_part.event.photo, :class => "img_event_artist" %>
+              <h3 class="title-event"> <%= artist_part.event.title %></h3>
+              <p class="text-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %> <%= artist_part.event.title %> <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_event" %> artist_part.event.date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %> artist_part.event.place.id </p>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+      <div class="music d-flex justify-content-around align-items-center mt-4 mx-auto">
+        <p class="titre_music_card align-self-center">ECOUTER UN TITRE DE <%= @artist.name.upcase %></p>
+        <%= image_tag "play.png", :size => "30x30", :class => "play align-self-center" %>
+      </div>
+    </div>
+  </div>
 </div>
 
 

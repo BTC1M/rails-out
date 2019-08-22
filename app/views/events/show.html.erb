@@ -1,12 +1,13 @@
-<div class="logo mx-auto">
-  <p class="out">OUT</p>
-</div>
+<div class="align-items-start">
+  <div class="logo mx-auto">
+    <p class="out">OUT</p>
+  </div>
+  <div class="color-line-top"></div>
 
-<h1><%= @event.title %></h1>
-<h4><%= @event.category %></h4>
-<p><%= @event.description %></p>
-<ul>
-  <% @event.artist_participations.each do |artist_part| %>
-    <li> <%= link_to artist_part.artist.name, artist_path(artist_part.artist.id) %> </li>
-  <% end %>
-</ul>
+  <div class="artist_image mt-4" style="background-image: url(<%= @event.photo %>);">
+    <div class="card-next-event-date2 d-flex flex-column">
+      <h2>05</h2> <br>
+      <h3> sept </h3>
+    </div>
+  </div>
+</div>
