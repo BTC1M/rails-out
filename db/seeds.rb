@@ -103,8 +103,8 @@ adresses.each do |adresse|
     #category: Faker::Music.genre,
     category: event_categories.sample,
     date: Faker::Date.between(from: Date.tomorrow, to: 17.days.from_now),
-    start_time: '15:02:28',
-    end_time: '15:02:28',
+    start_time: '19:02:28',
+    end_time: '02:02:28',
     photo: Faker::Placeholdit.image,
     user: User.find_by_id(rand(1..100)),
     place: place

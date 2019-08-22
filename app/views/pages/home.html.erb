@@ -7,7 +7,7 @@
     <p class="title-chapiter">évènements ce soir</p>
     <p class="lign-chapiter"> </p>
   </div>
-  
+
     <div class="app">
       <ul class="hs">
         <li> <div class="card-event ml-2">
@@ -80,7 +80,7 @@
       <p class="title-chapiter">évènements à venir</p>
       <p class="lign-chapiter"> </p>
     </div>
-  
+
 </div>
 <div class="d-flex flex-column">
   <div class="card-next-event">
@@ -196,15 +196,15 @@
   <br>
 </div>
 
-<% unless user_signed_in? %>
+<!-- <% unless user_signed_in? %>  -->
   <!-- <h5 class="card-title">You are not signed in.</h5> -->
-  <%= link_to 'Sign in', modalsignin_path,  {'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary', id: "btn-sign-in", style: "visibility:hidden;"} %>
+  <!-- <%= link_to 'Sign in', modalsignin_path,  {'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary', id: "btn-sign-in", style: "visibility:hidden;"} %>
   <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <!-- <#%= render "modalsignin" %> -->
       </div>
     </div>
-    <a data-controls-modal="modal-window" data-backdrop="static" data-keyboard="false" href="#">
+   <!-- <a data-controls-modal="modal-window" data-backdrop="static" data-keyboard="false" href="#">
   </a>
-<% end %>
+<% end %> -->
