@@ -1,0 +1,87 @@
+// *, *::before, *::after {
+//   box-sizing: border-box;
+// }
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);  
+}
+
+.container input {
+  position: absolute;
+  left: -9999px;
+}
+
+.container label {
+  display: block;
+  position: relative;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  color: #fff;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+}
+
+.container label::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 10px;
+  width: 0px;
+  border-radius: 100px;
+}
+
+// .container label:first-of-type {
+//   transform: translateX(-40px);
+// }
+
+// .container label:last-of-type {
+//   transform: translateX(40px);
+// }
+
+.container input:checked + label {
+  background-color: #ab576c;
+}
+
+.container input:checked + label::before {
+  background-color: #fff;
+}
+.container label { 
+  display: block; 
+  width: 10px; 
+  height: 10px;
+  font-size: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  margin: 20px
+}
+
+.container p {
+  position: absolute;
+  bottom: -17px;
+  left: 5px;
+  text-align: center;
+  color: white;
+
+}
+
+.col {
+  width: 100px;
+  flex-grow: 0;
+  box-sizing: border-box;
+  margin: auto;
+  top: -65px;
+}
+
+
+
+
+
