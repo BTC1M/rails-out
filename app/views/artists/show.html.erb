@@ -34,13 +34,19 @@
         </li>
         <% end %>
       </ul>
-      <div class="music d-flex justify-content-around align-items-center mt-4 mx-auto">
-        <p class="titre_music_card align-self-center">ECOUTER UN TITRE DE <%= @artist.name.upcase %></p>
-        <%= image_tag "play.png", :size => "30x30", :class => "play align-self-center" %>
-      </div>
+      <!-- <div class="music d-flex justify-content-around align-items-center mt-4 mx-auto">
+        <p class="titre_music_card align-self-center">ECOUTER UN TITRE DE <%#= @artist.name.upcase %></p>
+        <%#= image_tag "play.png", :size => "30x30", :class => "play align-self-center" %>
+      </div> -->
     </div>
   </div>
 </div>
+
+<!-- A supprimer lorsque spotify_link sur seed créés -->
+<% @artist.spotify_link = "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/269892869&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" %>
+<!-- ----------------------------------------------- -->
+
+<iframe style="margin-bottom: 60px; margin-top: 25px;" width="100%" height="250" scrolling="no" frameborder="no" allow="autoplay" src=<%= @artist.spotify_link %>></iframe>
 
 
 

@@ -11,8 +11,63 @@ ArtistParticipation.destroy_all
 Artist.destroy_all
 User.destroy_all
 
+# --------------------------------------------------------
 
-puts 'Creating new seeds...'
+puts 'Creating users...'
+
+User.create!(
+  username: Faker::Name.first_name,
+  email: 'admin@out.com',
+  password: 'coucou',
+  age: rand(18..50),
+  photo: Faker::Avatar.image
+)
+
+User.create!(
+  username: Faker::Name.first_name,
+  email: 'admin@gmail.com',
+  password: 'coucou',
+  age: rand(18..50),
+  photo: Faker::Avatar.image
+)
+
+98.times do
+  User.create!(
+    username: Faker::Name.unique.name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password,
+    age: rand(18..50),
+    photo: Faker::Avatar.image(format: "jpg")
+  )
+end
+
+
+# --------------------------------------------------------
+
+puts 'Creating artists...'
+
+music_categories = ['Electro', 'House', 'Techno', 'Funk', 'Rock', 'Hip-hop', 'Latino']
+event_categories = ['Concert', 'Festival', 'Bar', 'Club', 'Open air', 'Rooftop']
+
+Artist.create!(
+    name: "Petit Biscuit",
+    category: "Electro",
+    photo: Faker::Avatar.image(format: "jpg"),
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/269892869&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  )
+
+99.times do
+  Artist.create!(
+    name: Faker::Music.unique.band,
+    category: music_categories.sample,
+    photo: Faker::Avatar.image(format: "jpg"),
+    spotify_link: Faker::Internet.url(host: 'spotify.com')
+  )
+end
+
+# --------------------------------------------------------
+
+puts 'Creating places and events...'
 
 adresses = []
 adresses << "9 Quai du Lazaret, 13002 Marseille"
@@ -46,46 +101,6 @@ adresses << "1 Rue Saint-François de Sales, 13004 Marseille"
 adresses << "79 Avenue de Saint-Julien, 13012 Marseille"
 adresses << "11 Rue Glandeves, 13001 Marseille"
 
-music_categories = ['Electro', 'House', 'Techno', 'Funk', 'Rock', 'Hip-hop', 'Latino']
-event_categories = ['Concert', 'Festival', 'Bar', 'Club', 'Open air', 'Rooftop']
-
-User.create!(
-  username: Faker::Name.first_name,
-  email: 'admin@out.com',
-  password: 'coucou',
-  age: rand(18..50),
-  photo: Faker::Avatar.image
-)
-
-User.create!(
-  username: Faker::Name.first_name,
-  email: 'admin@gmail.com',
-  password: 'coucou',
-  age: rand(18..50),
-  photo: Faker::Avatar.image
-)
-
-98.times do
-  User.create!(
-    username: Faker::Name.unique.name,
-    email: Faker::Internet.email,
-    password: Faker::Internet.password,
-    age: rand(18..50),
-    photo: Faker::Avatar.image(format: "jpg")
-  )
-end
-
-100.times do
-  Artist.create!(
-    name: Faker::Music.unique.band,
-    category: music_categories.sample,
-    photo: Faker::Avatar.image(format: "jpg"),
-    spotify_link: Faker::Internet.url(host: 'spotify.com')
-  )
-end
-
-puts 'Users and Artists created...'
-
 adresses.each do |adresse|
   place = Place.create!(
     name: Faker::FunnyName.name,
@@ -111,7 +126,9 @@ adresses.each do |adresse|
   )
 end
 
-puts 'Places and Event created...'
+# --------------------------------------------------------
+
+puts 'Creating participations...'
 
 100.times do
   ArtistParticipation.create!(
@@ -119,7 +136,6 @@ puts 'Places and Event created...'
     event: Event.find_by_id(rand(1..30))
   )
 end
-puts 'ArtistParticipation created...'
 
 500.times do
   UserParticipation.create!(
@@ -127,6 +143,5 @@ puts 'ArtistParticipation created...'
     event: Event.find_by_id(rand(1..30))
   )
 end
-puts 'UserParticipation created...'
 
 puts 'Finished!'
