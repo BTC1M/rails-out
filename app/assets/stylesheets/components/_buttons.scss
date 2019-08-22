@@ -1,0 +1,53 @@
+//---------btn-deconnexion-----------//
+
+.btn_deconnexion {
+position: relative;
+width: 53px;
+height: 18px;
+left: 115px;
+top: 13px;
+border: 1px solid #A1A1A1;
+box-sizing: border-box;
+border-radius: 1px;
+background-color: #252525;
+}
+
+.btn_deconnexion p {
+position: absolute;
+font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 7px;
+line-height: 8px;
+text-align: right;
+color: #A1A1A1;
+top: 4.5px;
+}
+
+//-----------btn-modifier-----------//
+
+.btn_modifier {
+position: relative;
+width: 53px;
+height: 18px;
+left: 115px;
+top: 110px;
+border: 1px solid #A1A1A1;
+box-sizing: border-box;
+border-radius: 1px;
+background-color: #252525;
+}
+
+.btn_modifier p {
+position: absolute;
+font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 7px;
+line-height: 8px;
+text-align: right;
+color: #A1A1A1;
+top: 4px;
+left:0px;
+right: 12.5px;
+}
