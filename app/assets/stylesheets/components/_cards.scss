@@ -50,7 +50,7 @@ p, h1, h2, h3, h4, h5 {
 	position: absolute;
 	bottom: 80px;
 	left: 97px;
-  text-align: left;
+	text-align: left;
 }
 
 .card-event p {
@@ -196,23 +196,26 @@ top: -43px;
 
 .card-next-event h3 {
 	font-size: 12px;
-	position: relative;
-	bottom: 73px;
-	right: 10px;
+	position: absolute;
+	bottom: 85px;
+	left: 90px;
+	text-align: left;
 }
 
 .card-next-event p {
-	position: relative;
-	bottom: 75px;
-	right: 30px;
+	position: absolute;
+	bottom: 5px;
+	left: 90px;
 	line-height: 20px;
+	text-align: left;
+
 }
 
 .img_next_event {
 	height: 85px;
 	width: 65px;
-	position: relative;
-	left: -100px;
+	position: absolute;
+	left: 10px;
 	top: 10px;
 }
 
@@ -237,27 +240,30 @@ background: #000000;
 border-radius: 3px;
 margin:auto 0 auto auto;
 right: -30px;
+text-align: center;
 }
 
 
 .card-next-event-date h2{
 position: absolute;
-left: 13px;
+left: 12px;
 color: white;
 top: 6px;
 font-size: 40px;
 font-style: normal;
 font-weight: 900;
+text-align: center;
 }
 
 .card-next-event-date h3{
 position: absolute;
-left: 9px;
+left: 18px;
 color: white;
 top: 42px;
 font-size: 16px;
 font-style: normal;
 font-weight: 900;
+text-align: center;
 }
 
 
