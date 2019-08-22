@@ -12,10 +12,11 @@
 
   <div class="ses_prochains_events d-flex align-items-center justify-content-between">
     <div>ses prochains évènements</div>
-    <%= image_tag "like.png", size: "32x32"%>
+    <%= image_tag "like.png", size: "25x25"%>
   </div>
-  <div class="row">
-    <div class="app">
+  <p class="lign-chapiter2"> </p>
+  <div>
+    <div class="app2">
       <ul class="hs">
         <% @artist.artist_participations.each do |artist_part| %>
         <li>
@@ -28,6 +29,10 @@
         </li>
         <% end %>
       </ul>
+      <div class="music d-flex justify-content-around align-items-center mt-4 mx-auto">
+        <p class="titre_music_card align-self-center">ECOUTER UN TITRE DE <%= @artist.name.upcase %></p>
+        <%= image_tag "play.png", :size => "30x30", :class => "play align-self-center" %>
+      </div>
     </div>
   </div>
 </div>
