@@ -5,9 +5,42 @@
   <div class="color-line-top"></div>
 
   <div class="artist_image mt-4" style="background-image: url(<%= @event.photo %>);">
-    <div class="card-next-event-date2 d-flex flex-column">
-      <h2>05</h2> <br>
-      <h3> sept </h3>
+    <div class="card-next-event-date2 d-flex flex-column justify-content-center align-items-center">
+      <% p= @event.date %>
+      <h2><%= p.strftime('%d') %></h2>
+      <h3> <%= p.strftime('%b') %> </h3>
+    </div>
+  </div>
+  <div class="event_description m-4 d-flex flex-column">
+    <div class="event_name d-flex mb-3">
+      <%= image_tag "heart.png", size: "22x22", class: "mr-2"%>
+      <p class="align-self-center mb-0"><%= @event.title.upcase %></p>
+    </div>
+    <div class="event_category d-flex mb-3">
+      <%= image_tag "note.png", size: "22x22", class: "mr-2"%>
+      <p class="align-self-center mb-0"><%= @event.category %> -
+        <% artist_category_array = [] %>
+        <% @event.artist_participations.each do |artist_participation| %>
+          <% unless artist_category_array.include?('#{artist_participation.artist.category}') %>
+            <%= artist_participation.artist.category %>
+            <% artist_category_array << artist_participation.artist.category %>
+          <% end %>
+        <% end %>
+        </p>
+    </div>
+    <div class="event_place d-flex mb-3">
+      <%= image_tag "pin.png", size: "22x22", class: "mr-2"%>
+      <p class="align-self-center mb-0"><%= @event.place.address %></p>
+    </div>
+    <div class="event_hour d-flex mb-3">
+      <%= image_tag "clock.png", size: "22x22", class: "mr-2"%>
+      <% start_time = @event.start_time %>
+      <% end_time = @event.end_time %>
+      <p class="align-self-center mb-0"><%= start_time.strftime('%R') %> - <%= end_time.strftime('%R') %></p>
+    </div>
+    <div class="event_price d-flex mb-3">
+      <%= image_tag "euro.png", size: "22x22", class: "mr-2"%>
+      <p class="align-self-center mb-0"><%= @event.price %></p>
     </div>
   </div>
 </div>
