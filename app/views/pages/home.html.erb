@@ -1,4 +1,3 @@
-<div class="bodyhome">
 <div class="logo mx-auto">
   <p class="out">OUT</p>
 </div>
@@ -77,9 +76,8 @@
       </li>
     </ul>
   </div>
-  <div class="color-line-top d-flex"></div>
-  <div class="chapiter-night-event">
-    <p class="title-chapiter">évènements ce soir</p>
+  <div class="chapiter-next-event">
+    <p class="title-chapiter">évènements à venir</p>
     <p class="lign-chapiter"> </p>
   </div>
   <div class="row">
@@ -183,6 +181,7 @@
         <h3> sept </h3>
       </div>
     </div>
+
     <div class="card-next-event">
       <div class="color-line-next-event">
       </div>
@@ -209,3 +208,16 @@
   </div>
 </div>
 
+<!------------------------------------------------------>
+
+<% unless user_signed_in? %>
+  <!-- <h5 class="card-title">You are not signed in.</h5> -->
+  <%= link_to 'Sign in', modalsignin_path,  {'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary', id: "btn-sign-in", style: "visibility:hidden;"} %>
+  <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <%= render "modalsignin" %>
+      </div>
+    </div>
+    <a data-controls-modal="modal-window" data-backdrop="static" data-keyboard="false" href="#">
+      <% end %>
