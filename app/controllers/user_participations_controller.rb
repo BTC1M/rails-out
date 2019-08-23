@@ -19,7 +19,10 @@ class UserParticipationsController < ApplicationController
 
   def destroy
     @user_participation = UserParticipation.find(params[:id])
-    @user_participation.destroy
+    # @user_participation.destroy
+    # Si il y a 2 participations pour le meme utilisateur, on supprime les 2
+    a = UserParticipation.where(user: current_user, event: @user_participation.event)
+    a.destroy_all
     redirect_to event_path(@user_participation.event.id), notice: 'Participation was successfully destroyed.'
   end
 
