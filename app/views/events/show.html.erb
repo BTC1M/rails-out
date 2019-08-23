@@ -54,11 +54,13 @@
     <div class="d-flex">
       <ul class="hs2 mt-2" style="position: relative; top: -40px;">
         <% @event.artists.each do |artist| %>
+        <%= link_to(artist_path(artist.id)) do %>
           <div class="card-artist">
             <div class="color-line"> </div>
             <h3 class="card-title-artist"> <%= artist.name %></h3>
             <%= image_tag artist.photo, :class => "img_artist-card" %>
           </div>
+        <% end %>
         <% end %>
       </ul>
     </div>
