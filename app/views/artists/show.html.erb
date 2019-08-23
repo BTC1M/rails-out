@@ -20,6 +20,7 @@
     <div class="app2">
       <ul class="hs">
         <% @artist.artist_participations.each do |artist_part| %>
+        <%= link_to(event_path(artist_part.event.id)) do %>
         <li>
           <div class="card-event ml-2">
             <div class="color-line-event"> </div>
@@ -52,6 +53,7 @@
               </p>
           </div>
         </li>
+        <% end %>
         <% end %>
       </ul>
       <!-- <div class="music d-flex justify-content-around align-items-center mt-4 mx-auto">
