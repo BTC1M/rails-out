@@ -92,6 +92,69 @@ p, h1, h2, h3, h4, h5 {
 
 //----------------------------------------------//
 
+//------------CARD-NEXT-EVENT-DATE--------------//
+
+.li-event-old {
+  margin-top: 250px;
+}
+
+.card-event-old {
+  display:inline-block;
+  width: 286px;
+  height: 109px;
+  // left: 31px;
+ // top: 56px;
+  background: #343434;
+  border-radius: 3px;
+  color: #A0A0A0;
+  font-family: avenir;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+  margin: auto;
+  position: relative;
+}
+
+.card-event-old h3 {
+  font-size: 12px;
+  position: absolute;
+  bottom: 80px;
+  left: 97px;
+  text-align: left;
+}
+
+.card-event-old p {
+  position: absolute;
+  bottom: 0px;
+  left: 97px;
+  line-height: 20px;
+  text-align: left;
+}
+
+.img_event_old {
+  height: 85px;
+  width: 65px;
+  position: absolute;
+  left: 10px;
+  top: 13px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  filter: grayscale(100%);
+}
+
+//----------------------------------------------//
+
+.li_height_artist {
+margin-top: -50px;
+top: 20px;
+
+}
+
 //--------------CARD-ARTIST---------------------//
 
 .card-artist {

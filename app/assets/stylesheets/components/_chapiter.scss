@@ -47,6 +47,21 @@ position: absolute;
   position: absolute;
   top: 104px;
 }
+
+.chapiter-your-old-event {
+  position: absolute;
+  top: 250px;
+}
+
+.chapiter-your-fav-artist {
+  position: absolute;
+  top: 445px;
+}
+
+.chapiter-selection-event {
+  position: absolute;
+  top: 35px;
+}
 //-_____________________________________________-//
 
 
@@ -75,9 +90,6 @@ position: absolute;
   grid-column: 1 / -1;
 }
 
-.app > * {
-  grid-column: 2 / -2;
-}
 
 .app > .full {
   grid-column: 1 / -1;
