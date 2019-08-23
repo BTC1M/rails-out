@@ -139,7 +139,7 @@ end
 
 500.times do
   UserParticipation.create!(
-    user: User.find_by_id(rand(1..100)),
+    user: User.find_by_id(rand(3..100)),
     event: Event.find_by_id(rand(1..30))
   )
 end

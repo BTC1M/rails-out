@@ -4,8 +4,11 @@
   </div>
   <div class="color-line-top d-flex"></div>
   <%= image_tag "artist-test.png", :class => "avatar"%>
-  <button class="btn_deconnexion"><p>deconnexion</p></button>
-  <button class="btn_modifier"><p>modifier</p></button>
+
+  <%= link_to 'Deconnexion', destroy_user_session_path, class: "btn_deconnexion", style: 'text-decoration: none !important;', method: :delete, data: { confirm: 'Are you sure?' } %>
+  <!-- <button class="btn_deconnexion"><p>Deconnexion</p></button> -->
+  <button class="btn_modifier"><p>Modifier</p></button>
+
   <div class="chapiter-your-style">
     <p class="title-chapiter">vos styles</p>
     <p class="lign-chapiter"> </p>
@@ -123,3 +126,12 @@
         </li>
       </ul>
     </div>
+
+<div class="container mt-5">
+    <div>Evènements auxquels je participe :</div>
+    <% current_user.user_participations.each do |user_participation| %>
+      <div>
+          <%= user_participation.event.title %>
+      </div>
+    <% end %>
+  </div>

@@ -5,7 +5,7 @@ class UserParticipationsController < ApplicationController
   end
 
   def create
-    @user_participation = UserParticipation.new(user_participation_params)
+    @user_participation = UserParticipation.new
     @event = Event.find(params[:event_id])
     @user_participation.event = @event
     @user_participation.user = current_user
