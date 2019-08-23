@@ -26,9 +26,29 @@
               <%= image_tag artist_part.event.photo, :class => "img_event_artist" %>
               <h3 class="title-event"> <%= artist_part.event.title %></h3>
               <p class="text-event">
-                <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %> <%= artist_part.event.title %> <br>
-                <%= image_tag "calendar.png", :size => "15x15", :class => "logo_event" %> artist_part.event.date <br>
-                <%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %> artist_part.event.place.id
+                <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %> <%= artist_part.event.category %> -<% artist_category_array_home = [] %>
+                  <% artist_part.event.artists.each do |artist| %>
+                    <% unless artist_category_array_home.include?(artist.category + " ") %>
+                      <% artist_category_array_home << artist.category + " " %>
+                    <% end %>
+                  <% end %>
+                  <% if artist_category_array_home.length > 3 %>
+                    <%= artist_category_array_home.first(3).join %>...
+                  <% else %>
+                    <%= artist_category_array_home.join %>
+                  <% end %><br>
+                <%= image_tag "time.png", :size => "15x15", :class => "logo_event" %>
+                  <% start_time = artist_part.event.start_time %>
+                  <% end_time = artist_part.event.end_time %>
+                  <% date_time = artist_part.event.date %>
+
+                  <%= date_time.strftime('%e') %> <%= date_time.strftime('%b') %> <%= start_time.strftime('%R') %> - <%= end_time.strftime('%R') %><br>
+                <%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %> <% adresse_for_card = artist_part.event.place.address %>
+                <% if adresse_for_card.length > 25 %>
+                  <%= adresse_for_card[0..25] + '...'%>
+                <% else %>
+                  <%= artist_part.event.place.address %>
+                <% end %>
               </p>
           </div>
         </li>
