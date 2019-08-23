@@ -10,188 +10,98 @@
 
     <div class="app">
       <ul class="hs">
-        <li> <div class="card-event ml-2">
-          <div class="color-line-event"> </div>
-          <%= image_tag "test.png", :class => "img_event" %>
-          <h3 class="title-event"> evenement title amour gloire</h3>
-          <p class="text-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %>name  <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %> place </p>
-        </div> </li>
-        <li><div class="card-event">
-          <div class="color-line-event"> </div>
-          <%= image_tag "test.png", :class => "img_event" %>
-          <h3 class="title-event"> evenement title de merde</h3>
-          <p class="text-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %> place </p>
-        </div></li>
-        <li><div class="card-event">
-          <div class="color-line-event"> </div>
-          <%= image_tag "test.png", :class => "img_event" %>
-          <h3 class="title-event"> evenement title</h3>
-          <p class="text-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %> place </p>
-        </div></li>
-        <li><div class="card-event">
-          <div class="color-line-event"> </div>
-          <%= image_tag "test.png", :class => "img_event" %>
-          <h3 class="title-event"> evenement title</h3>
-          <p class="text-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %> place </p>
-        </div></li>
-        <li><div class="card-event">
-          <div class="color-line-event"> </div>
-          <%= image_tag "test.png", :class => "img_event" %>
-          <h3 class="title-event"> evenement title</h3>
-          <p class="text-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %> place </p>
-        </div></li>
+        <% @events.each do |event| %>
+          <% if event.date == Date.tomorrow %>
+            <li>
+              <div class="card-event ml-2">
+              <div class="color-line-event"> </div>
+              <%= image_tag event.photo, :class => "img_event" %>
+              <h3 class="title-event"><%= event.title %></h3>
+              <p class="text-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %> <%= event.category %> -
+                <% artist_category_array_home = [] %>
+                <% event.artists.each do |artist| %>
+                  <% unless artist_category_array_home.include?(artist.category + " ") %>
+                    <% artist_category_array_home << artist.category + " " %>
+                  <% end %>
+                <% end %>
+                <% if artist_category_array_home.length > 3 %>
+                  <%= artist_category_array_home.first(3).join %>...
+                <% else %>
+                  <%= artist_category_array_home.join %>
+                <% end %><br>
+                <%= image_tag "time.png", :size => "15x15", :class => "logo_event" %>
+                  <% start_time = event.start_time %>
+                  <% end_time = event.end_time %>
+                  <%= start_time.strftime('%R') %> - <%= end_time.strftime('%R') %><br>
+                <%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %>
+                <% adresse_for_card = event.place.address %>
+                <% if adresse_for_card.length > 25 %>
+                  <%= adresse_for_card[0..25] + '...'%>
+                <% else %>
+                  <%= event.place.address %>
+                <% end %>
+                </p>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
       </ul>
       <div class="chapiter-artist-month">
         <p class="title-chapiter">artistes du moment</p>
         <p class="lign-chapiter"> </p>
       </div>
       <ul class="hs2">
-        <li class="li_height">
-          <div class="card-artist">
-            <div class="color-line"> </div>
-            <h3 class="card-title-artist"> name artist</h3>
-            <%= image_tag "artist-test.png", :class => "img_artist-card" %>
-          </div>
-        </li>
-        <li class="li_height">
-          <div class="card-artist">
-            <div class="color-line"> </div>
-            <h3 class="card-title-artist"> name artist</h3>
-            <%= image_tag "artist-test.png", :class => "img_artist-card" %>
-          </div>
-        </li>
-        <li class="li_height">
-          <div class="card-artist">
-            <div class="color-line"> </div>
-            <h3 class="card-title-artist"> name artist</h3>
-            <%= image_tag "artist-test.png", :class => "img_artist-card" %>
-          </div>
-        </li>
-        <li class="li_height">
-          <div class="card-artist">
-            <div class="color-line"> </div>
-            <h3 class="card-title-artist"> name artist</h3>
-            <%= image_tag "artist-test.png", :class => "img_artist-card" %>
-          </div>
-        </li>
+        <% @artists.first(10).each do |artist| %>
+          <li class="li_height">
+            <div class="card-artist">
+              <div class="color-line"> </div>
+              <h3 class="card-title-artist"> <%= artist.name %></h3>
+              <%= image_tag artist.photo, :class => "img_artist-card" %>
+            </div>
+          </li>
+        <% end %>
       </ul>
     </div>
     <div class="chapiter-next-event">
       <p class="title-chapiter">évènements à venir</p>
       <p class="lign-chapiter"> </p>
     </div>
-
 </div>
-<div class="d-flex flex-column">
-  <div class="card-next-event">
-    <div class="color-line-next-event">
+    <div class="d-flex flex-column">
+      <% @events.order(date: 'asc').each do |event| %>
+        <% if event.date < (Date.today + 7.day) %>
+          <div class="card-next-event">
+            <div class="color-line-next-event">
+            </div>
+            <%= image_tag event.photo, :class => "img_next_event" %>
+            <h3 class="title-event"><%= event.title %></h3>
+            <p class="text-next-event">
+              <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_next_event" %><%= event.category %> -<% artist_category_array_home = [] %>
+                  <% event.artists.each do |artist| %>
+                    <% unless artist_category_array_home.include?(artist.category + " ") %>
+                      <% artist_category_array_home << artist.category + " " %>
+                    <% end %>
+                  <% end %>
+                  <% if artist_category_array_home.length > 2 %>
+                    <%= artist_category_array_home.first(2).join %>...
+                  <% else %>
+                    <%= artist_category_array_home.join %>
+                  <% end %><br>
+              <%= image_tag "time.png", :size => "15x15", :class => "logo_next_event" %><% start_time = event.start_time %>
+                  <% end_time = event.end_time %>
+                  <%= start_time.strftime('%R') %> - <%= end_time.strftime('%R') %><br>
+              <%= image_tag "location-point.png", :size => "15x15", :class => "logo_next_event" %> <% adresse_for_card = event.place.address %>
+                <% if adresse_for_card.length > 20 %>
+                  <%= adresse_for_card[0..20] + '...'%>
+                <% else %>
+                  <%= event.place.address %>
+                <% end %> </p>
+            <div class="card-next-event-date d-flex flex-column">
+              <% p= event.date %>
+              <h2><%= p.strftime('%d') %></h2>
+              <h3> <%= p.strftime('%b') %> </h3>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
-    <%= image_tag "test.png", :class => "img_next_event" %>
-    <h3 class="title-event"> evenement title</h3>
-    <p class="text-next-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_next_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_next_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_next_event" %> place </p>
-    <div class="card-next-event-date d-flex flex-column">
-      <h2>05</h2> <br>
-      <h3> sept </h3>
-    </div>
-  </div>
-  <div class="card-next-event">
-    <div class="color-line-next-event">
-    </div>
-    <%= image_tag "test.png", :class => "img_next_event" %>
-    <h3 class="title-event"> evenement title</h3>
-    <p class="text-next-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_next_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_next_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_next_event" %> place </p>
-    <div class="card-next-event-date d-flex flex-column">
-      <h2>05</h2> <br>
-      <h3> sept </h3>
-    </div>
-  </div>
-  <div class="card-next-event">
-    <div class="color-line-next-event">
-    </div>
-    <%= image_tag "test.png", :class => "img_next_event" %>
-    <h3 class="title-event"> evenement title</h3>
-    <p class="text-next-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_next_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_next_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_next_event" %> place </p>
-    <div class="card-next-event-date d-flex flex-column">
-      <h2>05</h2> <br>
-      <h3> sept </h3>
-    </div>
-  </div>
-  <div class="card-next-event">
-    <div class="color-line-next-event">
-    </div>
-    <%= image_tag "test.png", :class => "img_next_event" %>
-    <h3 class="title-event"> evenement title</h3>
-    <p class="text-next-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_next_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_next_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_next_event" %> place </p>
-    <div class="card-next-event-date d-flex flex-column">
-      <h2>05</h2> <br>
-      <h3> sept </h3>
-    </div>
-  </div>
-  <div class="card-next-event">
-    <div class="color-line-next-event">
-    </div>
-    <%= image_tag "test.png", :class => "img_next_event" %>
-    <h3 class="title-event"> evenement title</h3>
-    <p class="text-next-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_next_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_next_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_next_event" %> place </p>
-    <div class="card-next-event-date d-flex flex-column">
-      <h2>05</h2> <br>
-      <h3> sept </h3>
-    </div>
-  </div>
-  <div class="card-next-event">
-    <div class="color-line-next-event">
-    </div>
-    <%= image_tag "test.png", :class => "img_next_event" %>
-    <h3 class="title-event"> evenement title</h3>
-    <p class="text-next-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_next_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_next_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_next_event" %> place </p>
-    <div class="card-next-event-date d-flex flex-column">
-      <h2>05</h2> <br>
-      <h3> sept </h3>
-    </div>
-  </div>
-  <div class="card-next-event">
-    <div class="color-line-next-event">
-    </div>
-    <%= image_tag "test.png", :class => "img_next_event" %>
-    <h3 class="title-event"> evenement title</h3>
-    <p class="text-next-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_next_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_next_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_next_event" %> place </p>
-    <div class="card-next-event-date d-flex flex-column">
-      <h2>05</h2> <br>
-      <h3> sept </h3>
-    </div>
-  </div>
-  <div class="card-next-event">
-    <div class="color-line-next-event">
-    </div>
-    <%= image_tag "test.png", :class => "img_next_event" %>
-    <h3 class="title-event"> evenement title</h3>
-    <p class="text-next-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_next_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_next_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_next_event" %> place </p>
-    <div class="card-next-event-date d-flex flex-column">
-      <h2>05</h2> <br>
-      <h3> sept </h3>
-    </div>
-  </div>
-  <div class="card-next-event">
-    <div class="color-line-next-event">
-    </div>
-    <%= image_tag "test.png", :class => "img_next_event" %>
-    <h3 class="title-event"> evenement title</h3>
-    <p class="text-next-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_next_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_next_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_next_event" %> place </p>
-    <div class="card-next-event-date d-flex flex-column">
-      <h2>05</h2> <br>
-      <h3> sept </h3>
-    </div>
-  </div>
-  <div class="card-next-event">
-    <div class="color-line-next-event">
-    </div>
-    <%= image_tag "test.png", :class => "img_next_event" %>
-    <h3 class="title-event"> evenement pourri de title</h3>
-    <p class="text-next-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_next_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_next_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_next_event" %> place </p>
-    <div class="card-next-event-date d-flex flex-column">
-      <h2>05</h2> <br>
-      <h3> sept </h3>
-    </div>
-  </div>
-  <br>
-</div>
