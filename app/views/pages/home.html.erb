@@ -1,14 +1,14 @@
-<div class="bodyhome">
+<div class="bodyhome d-flex flex-column">
   <div class="logo mx-auto">
     <p class="out">OUT</p>
   </div>
   <div class="color-line-top d-flex"></div>
-  <div class="chapiter-night-event">
-    <p class="title-chapiter">évènements ce soir</p>
-    <p class="lign-chapiter"> </p>
+  <div class="ses_prochains_events d-flex justify-content-start" style="height: 30px;">
+    <div style="position: relative;left: -93px;">évènements ce soir</div>
   </div>
+  <p class="lign-chapiter2" style="left: 0px;"> </p>
 
-    <div class="app">
+    <div class="app" style="margin-top: 0px;">
       <ul class="hs">
         <% @events.each do |event| %>
           <% if event.date == Date.tomorrow %>
@@ -46,10 +46,10 @@
           <% end %>
         <% end %>
       </ul>
-      <div class="chapiter-artist-month">
-        <p class="title-chapiter">artistes du moment</p>
-        <p class="lign-chapiter"> </p>
-      </div>
+      <div class="ses_prochains_events d-flex justify-content-start" style="height: 30px;">
+    <div>artists du moment</div>
+  </div>
+  <p class="lign-chapiter2"> </p>
       <ul class="hs2">
         <% @artists.first(10).each do |artist| %>
           <li class="li_height">
@@ -61,16 +61,16 @@
           </li>
         <% end %>
       </ul>
-    </div>
-    <div class="chapiter-next-event">
-      <p class="title-chapiter">évènements à venir</p>
-      <p class="lign-chapiter"> </p>
-    </div>
 </div>
+  <div class="text-center">
+    <div class="ses_prochains_events d-flex justify-content-start" style="height: 30px;">
+      <div style="position: relative; top: -300px; left: -40px;">évènements à venir</div>
+    </div>
+    <p class="lign-chapiter2" style="position: relative;left: 0px;top: -300px;"> </p>
     <div class="d-flex flex-column">
       <% @events.order(date: 'asc').each do |event| %>
         <% if event.date < (Date.today + 7.day) %>
-          <div class="card-next-event">
+          <div class="card-next-event" style="position: relative;left: -20px;">
             <div class="color-line-next-event">
             </div>
             <%= image_tag event.photo, :class => "img_next_event" %>
@@ -105,3 +105,5 @@
         <% end %>
       <% end %>
     </div>
+  </div>
+
