@@ -7,7 +7,7 @@ class EventsController < ApplicationController
         lat: place.latitude,
         lng: place.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { event: place.events.where("date > ?", Date.current).order(start_time: :asc).first}),
-        image_url: helpers.asset_url('red-dot.png')
+        image_url: helpers.asset_url('point-grey.png')
       }
     end
   end
@@ -15,5 +15,4 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
   end
-
 end
