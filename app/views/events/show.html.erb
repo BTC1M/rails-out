@@ -47,7 +47,7 @@
   <p class="mx-4"><%= @event.description %></p>
 
   <div class="ses_prochains_events mt-0 mb-2" style="height: 20px;">
-    <div>Les artistes</div>
+  <div>Les artistes</div>
   </div>
   <p class="lign-chapiter2 mb-2"> </p>
   <div class="app2">
@@ -63,4 +63,16 @@
       </ul>
     </div>
   </div>
+  <% if @event.users.include?(current_user) %>
+    <%# raise %>
+    <%#= @event.user_participations.last.user.email %>
+    <!-- Recuperation des user_participation ID dont le id_user correspond au current_user -->
+    <% @event.user_participations.each do |user_participation| %>
+    <div><%= user_participation.user.email %></div>
+    <% end %>
+    <div class="mb-5"></div>
+    <%#= link_to "Je n'y vais plus", event_user_participation_path(@event, @event.user_participations), method: :delete, data: { confirm: "Etes vous sûr?" }, class: "btn btn-secondary ml-4", style: "margin-bottom: 70px;" %>
+  <% else %>
+    <%= link_to "J'y vais!", event_user_participations_path(@event), method: :create, class: "btn btn-secondary ml-4", style: "margin-bottom: 70px;" %>
+  <% end %>
 </div>

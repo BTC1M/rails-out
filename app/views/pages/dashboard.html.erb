@@ -2,69 +2,56 @@
   <div class="logo mx-auto">
     <p class="out">OUT</p>
   </div>
-   <div class="color-line-top d-flex"></div>
-
-<%= image_tag "artist-test.png", :class => "avatar"%>
-
-<button class="btn_deconnexion"><p>deconnexion</p></button>
-<button class="btn_modifier"><p>modifier</p></button>
-
- <div class="chapiter-your-style">
-    <p class="title-chapiter">vos styles</p>
+  <div class="color-line-top d-flex"></div>
+  <%= image_tag "artist-test.png", :class => "avatar"%>
+  <%= link_to 'Deconnexion', destroy_user_session_path, class: "btn_deconnexion", style: 'text-decoration: none !important;', method: :delete, data: { confirm: 'Are you sure?' } %>
+  <!-- <button class="btn_deconnexion"><p>deconnexion</p></button> -->
+  <button class="btn_modifier"><p>Modifier</p></button>
+  <div class="chapiter-your-style">
+    <p class="title-chapiter">Vos goûts</p>
     <p class="lign-chapiter"> </p>
   </div>
+  <div class="container text-center row d-flex justify-content-center">
+    <div class="col">
+      <input id="toggle1" type="checkbox">
+      <label for="toggle1"><p>electro</p></label>
+    </div>
+    <div class="col">
+      <input id="toggle2" type="checkbox">
+      <label for="toggle2"><p>house</p></label>
+    </div>
+    <div class="col">
+      <input id="toggle3" type="checkbox">
+      <label for="toggle3"><p>techno</p></label>
+    </div>
+    <div class="col">
+      <input id="toggle4" type="checkbox">
+      <label for="toggle4"><p>funk</p></label>
+    </div>
+  </div>
+  <div class="container text-center row d-flex justify-content-center">
+    <div class="col">
+      <input id="toggle5" type="checkbox">
+      <label for="toggle5"><p>rock</p></label>
+    </div>
+    <div class="col">
+      <input id="toggle6" type="checkbox">
+      <label for="toggle6"><p>hip-hop</p></label>
+    </div>
+    <div class="col">
+      <input id="toggle7" type="checkbox">
+      <label for="toggle7"><p>latino</p></label>
+    </div>
+  </div>
 
-<div class="container text-center row d-flex justify-content-center">
- 
- <div class="col">
-  <input id="toggle1" type="checkbox">
-  <label for="toggle1"><p>electro</p></label>
+  <div class="container mt-5">
+    <div>Evènements auxquels je participe :</div>
+    <% current_user.user_participations.each do |user_participation| %>
+      <div>
+          <%= user_participation.event.title %>
+      </div>
+    <% end %>
+  </div>
+
 </div>
-
-<div class="col">
-  <input id="toggle2" type="checkbox">
-  <label for="toggle2"><p>house</p></label>
-</div>
-
-<div class="col">
-  <input id="toggle3" type="checkbox">
-  <label for="toggle3"><p>techno</p></label>
-</div>
-
-<div class="col">
-  <input id="toggle4" type="checkbox">
-  <label for="toggle4"><p>funk</p></label>
-</div>
-</div>
-
-<div class="container text-center row d-flex justify-content-center">
-  <div class="col">
-   <input id="toggle5" type="checkbox">
-  <label for="toggle5"><p>rock</p></label>
-</div>
-<div class="col">
-   <input id="toggle6" type="checkbox">
-  <label for="toggle6"><p>hip-hop</p></label>
-</div>
-<div class="col">
-  <input id="toggle7" type="checkbox">
-  <label for="toggle7"><p>latino</p></label>
-</div>
-</div>
-</div>
-
-
-
-
-
-
-<!-- <p>Gouts de l'utilisateur (style musical)</p>
-<p>Artistes préférés</p>
-<p>Faux anciens evenements</p>
-
-<%= link_to 'Sign out', destroy_user_session_path, class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %>
- -->
-
-
-
 
