@@ -5,14 +5,16 @@
 .container {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 46%;
   right: 50%;
-  transform: translate(-50%, -50%);  
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .container input {
   position: absolute;
   left: -9999px;
+  text-align: center;
 }
 
 .container label {
@@ -24,6 +26,7 @@
   white-space: nowrap;
   cursor: pointer;
   user-select: none;
+  text-align: center;
 }
 
 .container label::before {
@@ -35,6 +38,7 @@
   left: 10px;
   width: 0px;
   border-radius: 100px;
+  text-align: center;
 }
 
 // .container label:first-of-type {
@@ -47,29 +51,33 @@
 
 .container input:checked + label {
   background-color: #ab576c;
+  text-align: center;
 }
 
 .container input:checked + label::before {
   background-color: #fff;
+  text-align: center;
 }
 .container label { 
   display: block; 
   width: 10px; 
   height: 10px;
   font-size: 12px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 8px;
-  padding-top: 8px;
-  margin: 20px
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 12px;
+  padding-top: 12px;
+  margin: 20px;
+  text-align: center;
 }
 
 .container p {
   position: absolute;
-  bottom: -17px;
-  left: 5px;
-  text-align: center;
+  bottom: -12px;
+  left: 20px;
+  text-align: center !important;
   color: white;
+  text-align: center;
 
 }
 
@@ -79,6 +87,8 @@
   box-sizing: border-box;
   margin: auto;
   top: -65px;
+    text-align: center !important;
+
 }
 
 
