@@ -42,9 +42,25 @@
       <%= image_tag "euro.png", size: "22x22", class: "mr-2"%>
       <p class="align-self-center mb-0"><%= @event.price %></p>
     </div>
-    <p>Artistes :</p>
-    <% @event.artists.each do |artist| %>
-    <p><%= link_to artist.name, artist_path(artist.id) %></p>
-    <% end %>
+  </div>
+
+  <p class="mx-4"><%= @event.description %></p>
+
+  <div class="ses_prochains_events mt-0 mb-2" style="height: 20px;">
+    <div>Les artistes</div>
+  </div>
+  <p class="lign-chapiter2 mb-2"> </p>
+  <div class="app2">
+    <div class="d-flex">
+      <ul class="hs2 mt-2" style="position: relative; top: -40px;">
+        <% @event.artists.each do |artist| %>
+          <div class="card-artist">
+            <div class="color-line"> </div>
+            <h3 class="card-title-artist"> <%= artist.name %></h3>
+            <%= image_tag artist.photo, :class => "img_artist-card" %>
+          </div>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
