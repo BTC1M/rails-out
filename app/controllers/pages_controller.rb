@@ -10,6 +10,7 @@ class PagesController < ApplicationController
   def dashboard
     @events = Event.all
     @user = current_user
+    @artists = Artist.all
   end
 
   def discover
