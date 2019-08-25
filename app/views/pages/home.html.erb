@@ -75,7 +75,7 @@
     <div class="d-flex flex-column">
       <% @events.order(date: 'asc').each do |event| %>
       <%= link_to(event_path(event.id)) do %>
-        <% if event.date < (Date.today + 7.day) && event.date > Date.today %>
+        <% if event.date < (Date.today + 30.day) && event.date > Date.today %>
           <div class="card-next-event" style="position: relative;left: -20px;">
             <div class="color-line-next-event">
             </div>

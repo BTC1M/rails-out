@@ -1,3 +1,4 @@
 <h6><%= link_to event.title, event_path(event) %></h6>
+<p class="text-dark"><%= event.place.name %></p>
 <p class="text-info"><%= event.place.address %></p>
-<p class="text-dark"><strong>Le <%= event.date.strftime("%d %b %y") %> de <%= event.start_time.strftime("%H") %>h à <%= event.end_time.strftime("%H") %>h</strong></p>
+<p class="text-dark"><strong>Le <%= event.date.strftime("%d %b %y") %> de <%= event.start_time.strftime("%H:%M") %> à <%= event.end_time.strftime("%H:%M") %></strong></p>

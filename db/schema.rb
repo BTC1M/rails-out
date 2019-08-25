@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2019_08_21_104741) do
     t.time "start_time"
     t.time "end_time"
     t.string "photo"
+    t.string "buy_link"
     t.bigint "user_id"
     t.bigint "place_id"
     t.datetime "created_at", null: false
