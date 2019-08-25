@@ -4,7 +4,7 @@
   </div>
   <div class="color-line-top"></div>
 
-  <div class="artist_image mt-4" style="background-image: url(<%= @event.photo %>);">
+  <div class="artist_image mt-4" style="background-image: url(<%=asset_path(@event.photo)%>);">
     <div class="card-next-event-date2 d-flex flex-column justify-content-center align-items-center">
       <% p= @event.date %>
       <h2><%= p.strftime('%d') %></h2>
@@ -21,7 +21,7 @@
       <p class="align-self-center mb-0"><%= @event.category %> -
         <% artist_category_array = [] %>
         <% @event.artist_participations.each do |artist_participation| %>
-          <% unless artist_category_array.include?('#{artist_participation.artist.category}') %>
+          <% unless artist_category_array.include?(artist_participation.artist.category) %>
             <%= artist_participation.artist.category %>
             <% artist_category_array << artist_participation.artist.category %>
           <% end %>
@@ -40,7 +40,7 @@
     </div>
     <div class="event_price d-flex mb-3">
       <%= image_tag "euro.png", size: "22x22", class: "mr-2"%>
-      <p class="align-self-center mb-0"><%= @event.price %></p>
+      <p class="align-self-center mb-0"><%= @event.price == 0 ? "gratuit" : @event.price %></p>
     </div>
   </div>
 

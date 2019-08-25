@@ -7,7 +7,7 @@
   <p class="artist_name text-center"><%= @artist.name.upcase %></p>
   <p class="artist_category_show text-center"><%= @artist.category %></p>
 
-  <div class="artist_image" style="background-image: url(<%= @artist.photo %>);"></div>
+  <div class="artist_image" style="background-image: url(<%=asset_path(@artist.photo)%>);"></div>
 
   <div class="color-line-bottom"></div>
 
@@ -65,11 +65,12 @@
 </div>
 
 <!-- A supprimer lorsque spotify_link sur seed créés -->
-<% @artist.spotify_link = "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/269892869&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" %>
+<%# @artist.spotify_link = "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/269892869&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" %>
 <!-- ----------------------------------------------- -->
 
-<iframe style="margin-bottom: 60px; margin-top: 25px;" width="100%" height="250" scrolling="no" frameborder="no" allow="autoplay" src=<%= @artist.spotify_link %>></iframe>
-
+<% if @artist.spotify_link != nil %>
+  <iframe style="margin-bottom: 60px; margin-top: 25px;" width="100%" height="250" scrolling="no" frameborder="no" allow="autoplay" src=<%= @artist.spotify_link %>></iframe>
+<% end %>
 
 
 
