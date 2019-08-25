@@ -47,84 +47,155 @@ unknown_artist = Artist.create!(
 puts "Creating new seed..."
 
 Event.create!(
-    title: "Apéro Mojito Party Au Red Lion",
-    description: "Tous les lundis, c'est MOJITO PARTY 🍹
-    En partenariat avec Bacardi, viens siroter nos mojitos de 16h à 2h en HAPPY HOUR à 7€ (au lieu de 9€).
-    Au programme : coucher de soleil, musique, goodies, chapeau, lunette de soleil, etc ...
-    Toute la semaine, HAPPY HOUR sur une sélection de bières pression de 17h à 21h ✌✌",
-    price: 0,
+  title: "Apéro Mojito Party Au Red Lion",
+  description: "Tous les lundis, c'est MOJITO PARTY 🍹
+  En partenariat avec Bacardi, viens siroter nos mojitos de 16h à 2h en HAPPY HOUR à 7€ (au lieu de 9€).
+  Au programme : coucher de soleil, musique, goodies, chapeau, lunette de soleil, etc ...
+  Toute la semaine, HAPPY HOUR sur une sélection de bières pression de 17h à 21h ✌✌",
+  price: 0,
+  category: "Bar",
+  date: Date.new(2019,8,26),
+  start_time: '16:00:00',
+  end_time: '02:00:00',
+  photo: "https://scontent-mrs2-1.xx.fbcdn.net/v/t1.0-9/66439879_1212642738907403_8080812986958086144_o.jpg?_nc_cat=101&_nc_oc=AQnbIpRwLffcZ1KwlUQAgn6zmAj8A8BAW99OcEtR4HACISFodEWgaX8G31nkTZ1yeyg&_nc_ht=scontent-mrs2-1.xx&oh=a0f6520caba5fa59bc06f6eeb879f8e2&oe=5E10D0F8",
+  place: Place.create!(
+    name: "Red Lion",
+    details: "Un Pub irlandais, situé face aux plages de Borély à Marseille, le Red lion vous acceuille dans un cadre sympa et authentique pour déguster toutes ses bières pression, ses meilleurs whisky et pour les fans, les cocktails au « shaker » façon Viny au lounge.",
     category: "Bar",
-    date: Date.new(2019,8,26),
-    start_time: '16:00:00',
-    end_time: '02:00:00',
-    photo: "https://scontent-mrs2-1.xx.fbcdn.net/v/t1.0-9/66439879_1212642738907403_8080812986958086144_o.jpg?_nc_cat=101&_nc_oc=AQnbIpRwLffcZ1KwlUQAgn6zmAj8A8BAW99OcEtR4HACISFodEWgaX8G31nkTZ1yeyg&_nc_ht=scontent-mrs2-1.xx&oh=a0f6520caba5fa59bc06f6eeb879f8e2&oe=5E10D0F8",
-    place: Place.create!(
-      name: "Red Lion",
-      details: "Un Pub irlandais, situé face aux plages de Borély à Marseille, le Red lion vous acceuille dans un cadre sympa et authentique pour déguster toutes ses bières pression, ses meilleurs whisky et pour les fans, les cocktails au « shaker » façon Viny au lounge.",
-      category: "Bar",
-      address: "233 pierre mendes france, 13008 Marseille",
-      photo: "https://www.architecte-agencement-decoration.com/wp-content/uploads/2019/03/Pub-Anglais-Style-Victorien-The-Red-Lion-Marseille-Marseille-Edmond-Garnier-DCA-Decoration-Concept-Amenagement-2.jpg"
-    )
+    address: "231 Avenue Pierre Mendès France, 13008 Marseille",
+    photo: "https://www.architecte-agencement-decoration.com/wp-content/uploads/2019/03/Pub-Anglais-Style-Victorien-The-Red-Lion-Marseille-Marseille-Edmond-Garnier-DCA-Decoration-Concept-Amenagement-2.jpg"
   )
+)
 
 ArtistParticipation.create!(
-    artist: unknown_artist,
-    event: Event.find_by_title("Apéro Mojito Party Au Red Lion")
-  )
+  artist: unknown_artist,
+  event: Event.find_by_title("Apéro Mojito Party Au Red Lion")
+)
 
 # -----------------------------------------------------
 
 Event.create!(
-    title: "La Friche - ON AIR : SIDI&CO",
-    description: "Welcome to #onair2019 ! 🚀
-    Sidi&co investit le toit-terrasse pour ce dernier week-end d'août avec un événement original, alliant 3 artistes dont les genres, les styles musicaux et les cultures sont aux antipodes les uns des autres.
-    WARUM DJ SET / HARD FIST - LYON : ORIENTAL WAVES
-    DJ DZIRI DJ SET / SOUK SESSIONS - BRUXELLES : ORIENTAL TECHNO
-    ROZZMA LIVE / CRAMMED DISCS - LE CAIRE : AFRICAN BASS",
-    price: 0,
+  title: "La Friche - ON AIR : SIDI&CO",
+  description: "Welcome to #onair2019 ! 🚀
+  Sidi&co investit le toit-terrasse pour ce dernier week-end d'août avec un événement original, alliant 3 artistes dont les genres, les styles musicaux et les cultures sont aux antipodes les uns des autres.
+  WARUM DJ SET / HARD FIST - LYON : ORIENTAL WAVES
+  DJ DZIRI DJ SET / SOUK SESSIONS - BRUXELLES : ORIENTAL TECHNO
+  ROZZMA LIVE / CRAMMED DISCS - LE CAIRE : AFRICAN BASS",
+  price: 0,
+  category: "Rooftop",
+  date: Date.new(2019,8,30),
+  start_time: '19:00:00',
+  end_time: '23:00:00',
+  photo: "event2.jpeg",
+  place: Place.create!(
+    name: "La friche belle de mai",
+    details: "Des soirées musicales tous les week-ends de l'été sur le toit-terrasse de la Friche, ouvertes à tous et gratuites. De nombreux artistes assurent ce voyage estival musical avec vue panoramique sur Marseille. À bord, terrain de pétanque, jeux pour enfants, bar à cocktails et délices à grignoter. Prêts pour le décollage ?",
     category: "Rooftop",
-    date: Date.new(2019,8,30),
-    start_time: '19:00:00',
-    end_time: '23:00:00',
-    photo: "event2.jpeg",
-    place: Place.create!(
-      name: "La friche belle de mai",
-      details: "Des soirées musicales tous les week-ends de l'été sur le toit-terrasse de la Friche, ouvertes à tous et gratuites. De nombreux artistes assurent ce voyage estival musical avec vue panoramique sur Marseille. À bord, terrain de pétanque, jeux pour enfants, bar à cocktails et délices à grignoter. Prêts pour le décollage ?",
-      category: "Rooftop",
-      address: "41 Rue Jobin, 13003 Marseille",
-      photo: "https://pbs.twimg.com/profile_images/1103323851788873728/Rsa59Wn3_400x400.png"
-    )
+    address: "41 Rue Jobin, 13003 Marseille",
+    photo: "https://pbs.twimg.com/profile_images/1103323851788873728/Rsa59Wn3_400x400.png"
   )
+)
 
 ArtistParticipation.create!(
-    artist: Artist.create!(
-      name: "Warum",
-      category: "Electro",
-      photo: "warum.png",
-      spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/450173403&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-    ),
-    event: Event.find_by_title("La Friche - ON AIR : SIDI&CO")
-  )
+  artist: Artist.create!(
+    name: "Warum",
+    category: "Electro",
+    photo: "warum.png",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/450173403&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("La Friche - ON AIR : SIDI&CO")
+)
 
 ArtistParticipation.create!(
-    artist: Artist.create!(
-      name: "DJ DZIRI",
-      category: "Electro",
-      photo: "djdziri.png",
-      spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/593454987&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-    ),
-    event: Event.find_by_title("La Friche - ON AIR : SIDI&CO")
-  )
+  artist: Artist.create!(
+    name: "DJ DZIRI",
+    category: "Electro",
+    photo: "djdziri.png",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/593454987&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("La Friche - ON AIR : SIDI&CO")
+)
 
 ArtistParticipation.create!(
-    artist: Artist.create!(
-      name: "Rozzma",
-      category: "Electro",
-      photo: "rozzma.png",
-      spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/409116699&amp;color=ff5500"
-    ),
-    event: Event.find_by_title("La Friche - ON AIR : SIDI&CO")
+  artist: Artist.create!(
+    name: "Rozzma",
+    category: "Electro",
+    photo: "rozzma.png",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/409116699&amp;color=ff5500"
+  ),
+  event: Event.find_by_title("La Friche - ON AIR : SIDI&CO")
+)
+
+# -----------------------------------------------------
+
+Event.create!(
+  title: "Syndröme des lives",
+  description: "Avant la rentrée, syndröme vous offre une soirée qui sera essentiellement constituée de lives. Entrée à 3€ avant 21h.",
+  price: 5,
+  category: "Concert",
+  date: Date.new(2019,8,30),
+  start_time: '19:00:00',
+  end_time: '02:00:00',
+  photo: "syndrome.png",
+  place: Place.create!(
+    name: "Le Chapiteau - la belle de mai",
+    details: "Le Chapiteau est un bar culturel, un bar concert, un espace de création et de liberté où le sound-system ne s’arrête jamais. Ce sont toutes ces choses qui font du Chapiteau un lieu de vie unique à Marseille.",
+    category: "Open air",
+    address: "38 Traverse Notre Dame du Bon Secours, 13003 Marseille",
+    photo: "https://www.tourisme-marseille.com/wp-content/uploads/2017/08/le-chapiteau-la-belle-de-mai-bar-concerts-marseille-provence-4.jpg"
   )
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "Trader",
+    category: "Techno",
+    photo: "trader.png",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/625994979&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("Syndröme des lives")
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "Axiom",
+    category: "Drum & Bass",
+    photo: "axiom.png",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/179158679&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("Syndröme des lives")
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "Lö Pagani",
+    category: "Techno",
+    photo: "lopagani.png",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/576844590&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("Syndröme des lives")
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "Matthias Torm",
+    category: "Techno",
+    photo: "matthias-torm.png",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/514632324&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("Syndröme des lives")
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "Ghost",
+    category: "Techno",
+    photo: "ghost.png",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/571513629&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("Syndröme des lives")
+)
+
 
 # -----------------------------------------------------
 
@@ -132,9 +203,7 @@ ArtistParticipation.create!(
 
 
 
-
-
-
+# -----------------------------------------------------
 
 
 
