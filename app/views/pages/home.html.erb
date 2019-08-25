@@ -51,12 +51,13 @@
       <div class="ses_prochains_events d-flex justify-content-start" style="height: 30px;">
     <div class="taille_texte">artistes du moment</div>
   </div>
-  <p class="lign-chapiter2"> </p>
+    <p class="lign-chapiter2"> </p>
       <ul class="hs2">
         <% @artists.first(10).each do |artist| %>
+  <div class="d-flex">
           <li class="li_height">
           <%= link_to(artist_path(artist.id)) do %>
-            <div class="card-artist mt-5">
+            <div class="card-artist mt-3">
               <h3 class="card-title-artist"> <%= artist.name %></h3>
               <%= image_tag artist.photo, :class => "img_artist-card" %>
             </div>
@@ -64,12 +65,13 @@
           </li>
         <% end %>
       </ul>
+  </div>
 </div>
   <div class="text-center">
     <div class="ses_prochains_events d-flex justify-content-start" style="height: 30px;">
-      <div class="taille_texte" style="position: relative; top: -320px; left: -40px;">évènements à venir</div>
+      <div class="taille_texte" style="position: relative; top: -320px; left: -5px;">évènements à venir</div>
     </div>
-    <p class="lign-chapiter2" style="position: relative;left: 0px;top: -320px;"> </p>
+    <p class="lign-chapiter2" style="position: relative;left: 35px;top: -320px;"> </p>
     <div class="d-flex flex-column">
       <% @events.order(date: 'asc').each do |event| %>
       <%= link_to(event_path(event.id)) do %>
