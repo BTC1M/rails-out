@@ -211,7 +211,7 @@ Event.create!(
     name: "Le Sport Beach",
     details: "Situé à l’Escale Borély, à deux pas du bord de mer et de l’hippodrome, le Sport Beach est un bar-restaurant design et contemporain aux airs de Paradis. Loin de l’agitation du centre-ville, c’est au bord de la piscine, sur la terrasse surplombée de palmiers, que l’on déguste des plats méditerranéens le midi ou le soir, mélange d’audace culinaire et des fondamentaux de la gastronomie, ou bien que l’on sirote un cocktail en fin de journée devant le coucher de soleil.",
     category: "Pool party",
-    address: "138 Avenue Pierre Mendès, Marseille 13008",
+    address: "138 Avenue Pierre Mendès France, Marseille 13008",
     photo: "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/a5/1e/cadre-magnifique-avec.jpg"
   )
 )
@@ -257,13 +257,275 @@ ArtistParticipation.create!(
   event: Event.find_by_title("La frenchie - Ofenbach")
 )
 
+# -----------------------------------------------------
+
+Event.create!(
+  title: "Baou: barcelona Show with Yaya SEB Zito",
+  description: "🇪🇸 Barcelona SHOW présente Yaya & Seb Zito 🇪🇸
+  ▬▬▬▬▬▬▬▬▬LINE UP▬▬▬▬▬▬▬▬▬▬▬▬
+  ➫ Yaya (Desolat Music Group / Get Physical Music - 🇮🇹)
+  ➫ Seb Zito (FUSE - 🇬🇧)
+  ➫ Lo Coco (Noexcuses / Safe – 🇫🇷)
+  ▬▬▬▬▬▬▬▬▬BILLETTERIE▬▬▬▬▬▬▬▬▬▬▬▬
+  EARLY → 8€ (Hors frais de loc)
+  NORMAL → 10€ (Hors frais de loc)
+  LATE → 12€ (Hors frais de loc) ",
+  price: 10,
+  category: "Rooftop",
+  date: Date.new(2019,8,30),
+  start_time: '19:00:00',
+  end_time: '02:00:00',
+  photo: "https://www.residentadvisor.net/images/events/flyer/2019/8/fr-0830-1305337-front.jpg",
+  place: Place.create!(
+    name: "BAOU",
+    details: "En plein coeur du 16e arrondissement de Marseille, avec une vue panoramique sur la mer, l’Estaque et la ville, le Baou accueille la crème des DJs dans un lieu totalement insolite.",
+    category: "Rooftop",
+    address: "1 avenue de l'Argilité, 13016 Marseille",
+    photo: "https://marseille.love-spots.com/wp-content/uploads/2019/05/Le-Baou-Marseille_Club-plein-air_Love-Spots_08.jpg"
+  )
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "Yaya",
+    category: "Tech house",
+    photo: "yaya.png",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/464088450&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("Baou: barcelona Show with Yaya SEB Zito")
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "Seb Zito",
+    category: "Techno",
+    photo: "sebzito.png",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/318791023&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("Baou: barcelona Show with Yaya SEB Zito")
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "Fab Lo Coco",
+    category: "Tech house",
+    photo: "fablococo.png",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/408950547&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("Baou: barcelona Show with Yaya SEB Zito")
+)
+
+# -----------------------------------------------------
+
+Event.create!(
+  title: "Vendredi underground w/ JHSelf",
+  description: "JHSelf est un DJ/producteur international passionné de son, il nous arrive tout droit de Saint Tropez, où il distille avec goût une techno énergique et mélodique qui le caractérise. Accompagné de 2 de nos résidents, c'est une expédition mouvementée que nous vous préparons...",
+  price: 5,
+  category: "Club",
+  date: Date.new(2019,8,30),
+  start_time: '23:30:00',
+  end_time: '06:30:00',
+  photo: "underground-jhself.png",
+  place: Place.create!(
+    name: "Mambo",
+    details: "Le club travaille pour représenter au mieux la scène électronique locale, qui couve de nombreux talents.",
+    category: "Club",
+    address: "1 Boulevard Charles Livon, 13007 Marseille",
+    photo: "mambo.png"
+  )
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "JHSelf",
+    category: "Techno",
+    photo: "jhself.png",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/568443777&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("Vendredi underground w/ JHSelf")
+)
+
+
+# -----------------------------------------------------
+
+Event.create!(
+  title: "La Dame Noir",
+  description: "Des murs sombres, une déco aux allures seventies et un nom qui évoque le meilleur de la nuit marseillaise. La programmation musicale est assurée par la maison, avec des djs invités chaque week-end – comme Joie Iacono (Cazzo Pazzo – NYC/Berlin), Kezokichi Miyazaki (Blindetonation Records – Tokyo) ou Pete Herbet (Darkness/Paradise Row – London) & Antho Nabet (Darkness).",
+  price: 0,
+  category: "Club",
+  date: Date.today,
+  start_time: '00:00:00',
+  end_time: '06:00:00',
+  photo: "https://tarpin-bien.com/wp-content/uploads/2016/11/MAT_4444.jpg",
+  place: Place.create!(
+    name: "Trolleybus",
+    details: "La dame Noir records, accueille sur son autel des artistes aux productions Noir et décidées.
+7 eps déjà sortis et un calendrier chargé d’ondes disco, Voodoo & dancefloor aux tempos parfois inquiétants.",
+    category: "Club",
+    address: "43 Quai de Rive Neuve, 13007 Marseille",
+    photo: "https://letrolley.com/wp-content/uploads/2015/07/LDNx150.png"
+  )
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "Did Virgo",
+    category: "Deep house",
+    photo: "didvirgo.png",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/185342939&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("La Dame Noir")
+)
+
+# -----------------------------------------------------
+
+Event.create!(
+  title: "Different mood Family au Chapiteau",
+  description: "La famille Different Mood est de retour derrière les platines du chapiteau pour une soirée acidulée.
+  Dans le sac pour l'occasion beaucoup d'inspiration anglaise, des rythmes breakés, de la 303 en veux tu en voilà, de l'amour et des smileys sur les galettes pour cette soirée à la belle de Mai placée sous le signe de la rave.",
+  price: 3,
+  category: "Open air",
+  date: Date.new(2019,8,31),
+  start_time: '19:00:00',
+  end_time: '04:00:00',
+  photo: "different-mood.png",
+  place: Place.find_by_name("Le Chapiteau - la belle de mai")
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "DMOOD (Algo Guerriau / Jo.Z / Suave)",
+    category: "House",
+    photo: "dmood.png",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/316366105&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("Different mood Family au Chapiteau")
+)
+
+
+# -----------------------------------------------------
+
+Event.create!(
+  title: "La cabane des amis x Plage du Roucas Blanc 29/08",
+  description: "Les apéros du jeudi à la Paillote Borely ! 🚨 Une Paillote en bord de plage 🏝 Un beau coucher de soleil 🌅 Des mojitos succulents 🍸 Un Dj de folie 🎤🎧 Une clientèle 30-60 ans 👌❤️ Une ambiance déjantée ! 😱🎉 C’est tous les jeudis de l’été ! ",
+  price: 0,
+  category: "Beach",
+  date: Date.new(2019,8,29),
+  start_time: '18:30:00',
+  end_time: '01:00:00',
+  photo: "https://www.lanuitmagazine.com/lanuitmag/wp-content/uploads/2018/06/06-28-la-cabane-du-roucas-blanc-plage-du-roucas-blanc-768x432.jpg",
+  place: Place.create!(
+    name: "Buvette du roucas",
+    details: "Une cabane bleu ciel, la mer, le soleil, la plage. Bienvenue à la Cabane des Amis, notre paradis caché.",
+    category: "Beach",
+    address: "67 Prom. Georges Pompidou, 13008 Marseille",
+    photo: "paillote.jpg"
+  )
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "DJ Résident",
+    category: "Chill",
+    photo: "http://stemfellowship.org/wp-content/uploads/2019/05/unknown-person-1-1.jpg",
+    spotify_link: nil
+  ),
+  event: Event.find_by_title("La cabane des amis x Plage du Roucas Blanc 29/08")
+)
+
+
+# -----------------------------------------------------
+
+Event.create!(
+  title: "La cabane des amis x Plage du Roucas Blanc 05/09",
+  description: "Les apéros du jeudi à la Paillote Borely ! 🚨 Une Paillote en bord de plage 🏝 Un beau coucher de soleil 🌅 Des mojitos succulents 🍸 Un Dj de folie 🎤🎧 Une clientèle 30-60 ans 👌❤️ Une ambiance déjantée ! 😱🎉 C’est tous les jeudis de l’été ! ",
+  price: 0,
+  category: "Beach",
+  date: Date.new(2019,9,05),
+  start_time: '18:30:00',
+  end_time: '01:00:00',
+  photo: "https://www.lanuitmagazine.com/lanuitmag/wp-content/uploads/2018/06/06-28-la-cabane-du-roucas-blanc-plage-du-roucas-blanc-768x432.jpg",
+  place: Place.find_by_name("Buvette du roucas")
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "DJ Résident",
+    category: "Chill",
+    photo: "http://stemfellowship.org/wp-content/uploads/2019/05/unknown-person-1-1.jpg",
+    spotify_link: nil
+  ),
+  event: Event.find_by_title("La cabane des amis x Plage du Roucas Blanc 05/09")
+)
+
+# -----------------------------------------------------
+
+Event.create!(
+  title: "Acontraluz 2019",
+  description: "Le festival ACONTRALUZ revient cette année le 6 & 7 Septembre!
+  Au programme, des artistes techno et électro internationaux, des animations, des événements partenaires, un espace VIP et encore beaucoup d'autres surprises...",
+  price: 36,
+  category: "Festival",
+  date: Date.new(2019,9,6),
+  start_time: '18:00:00',
+  end_time: '05:00:00',
+  photo: "http://static.teckyo.com/uploads/2019/07/banni%C3%A8re_AC2019.jpg",
+  buy_link: "https://www.digitick.com/d/event/acontraluz-2019-jour-1/esplanade-du-j4/6136861",
+  place: Place.create!(
+    name: "Esplanade du J4",
+    details: "Lieu incontournable du festival de musique électronique Acontraluz 6ème édition",
+    category: "Festival",
+    address: "Esplanade Du J4, Marseille",
+    photo: "acontraluz.png"
+  )
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "Solomun",
+    category: "Electro",
+    photo: "https://www.acontraluz.fr/wp-content/uploads/2019/06/solomun2019.jpg",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/16683323&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("Acontraluz 2019")
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "Stephan Bodzin",
+    category: "Electro",
+    photo: "https://www.acontraluz.fr/wp-content/uploads/2019/05/stephanbodzin.jpg",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/235900201&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("Acontraluz 2019")
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "Sam Paganini",
+    category: "Techno",
+    photo: "https://www.acontraluz.fr/wp-content/uploads/2019/07/Sam-Paganini-sq-300x300.jpg",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/603243471&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("Acontraluz 2019")
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "Agoria",
+    category: "Electro",
+    photo: "https://www.acontraluz.fr/wp-content/uploads/2019/05/agoria.jpg",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/555621288&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("Acontraluz 2019")
+)
 
 # -----------------------------------------------------
 
 puts 'Finished!'
 
 #########################################################
-# ANCIENNE SEED (avec Faker)
+# SOME FAKE EVENTS (with Faker)
 #########################################################
 
 # puts 'Creating artists...'
