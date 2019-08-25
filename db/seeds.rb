@@ -33,12 +33,6 @@ User.create!(
 music_categories = ['Electro', 'House', 'Techno', 'Funk', 'Rock', 'Hip-hop', 'Latino']
 event_categories = ['Concert', 'Festival', 'Bar', 'Club', 'Open air', 'Rooftop']
 
-unknown_artist = Artist.create!(
-    name: "DJ Résident",
-    category: "Electro",
-    photo: "http://stemfellowship.org/wp-content/uploads/2019/05/unknown-person-1-1.jpg",
-    spotify_link: nil
-  )
 
 ##################################################################
 # CREATION DES EVENEMENTS
@@ -68,7 +62,12 @@ Event.create!(
 )
 
 ArtistParticipation.create!(
-  artist: unknown_artist,
+  artist: Artist.create!(
+    name: "DJ Résident",
+    category: "Electro",
+    photo: "http://stemfellowship.org/wp-content/uploads/2019/05/unknown-person-1-1.jpg",
+    spotify_link: nil
+  ),
   event: Event.find_by_title("Apéro Mojito Party Au Red Lion")
 )
 
@@ -199,15 +198,64 @@ ArtistParticipation.create!(
 
 # -----------------------------------------------------
 
+Event.create!(
+  title: "Le Sport Beach - FREAKY FRIDAY",
+  description: "Freaky Friday vous donne RDV tous les Vendredis au Sport Beach #souslespalmiers Un concentré de gaïté, d’énergie et de fête, c’est ça Freaky Friday. THE Freaky Friday, Crazy show ! Un canard géant, des pom-pom girls, un tifo, une pêche aux canards pour gagner des consos. Freaky Friday ne se refuse rien pour vous amuser. Party is love. Music is love. Love is love.",
+  price: 0,
+  category: "Open air",
+  date: Date.new(2019,8,30),
+  start_time: '19:00:00',
+  end_time: '02:00:00',
+  photo: "freaky-friday.png",
+  place: Place.create!(
+    name: "Le Sport Beach",
+    details: "Situé à l’Escale Borély, à deux pas du bord de mer et de l’hippodrome, le Sport Beach est un bar-restaurant design et contemporain aux airs de Paradis. Loin de l’agitation du centre-ville, c’est au bord de la piscine, sur la terrasse surplombée de palmiers, que l’on déguste des plats méditerranéens le midi ou le soir, mélange d’audace culinaire et des fondamentaux de la gastronomie, ou bien que l’on sirote un cocktail en fin de journée devant le coucher de soleil.",
+    category: "Pool party",
+    address: "138 Avenue Pierre Mendès, Marseille 13008",
+    photo: "https://media-cdn.tripadvisor.com/media/photo-s/13/5d/a5/1e/cadre-magnifique-avec.jpg"
+  )
+)
 
-
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "DJ Résident",
+    category: "Chill",
+    photo: "http://stemfellowship.org/wp-content/uploads/2019/05/unknown-person-1-1.jpg",
+    spotify_link: nil
+  ),
+  event: Event.find_by_title("Le Sport Beach - FREAKY FRIDAY")
+)
 
 
 # -----------------------------------------------------
 
+Event.create!(
+  title: "La frenchie - Ofenbach",
+  description: "Vendredi c’est La Frenchie ! Une soirée qui met à l’honneur les DJ et artistes français. De l’éclosion de la House aux prémices de la Techno en passant par la French Touch 1.0 (et 2.0) et le Disco, La Frenchie te fera voyager à travers cette formidable scène électronique nationale ! De 19h à 21h notre équipe de bartenders vous OFFRE le deuxième verre. Tickets sur place : 10€ de 19h à 20h, 15€ à partir de 20h puis 20€ à partir de 23h.",
+  price: 15,
+  category: "Rooftop",
+  date: Date.new(2019,8,30),
+  start_time: '19:00:00',
+  end_time: '02:00:00',
+  photo: "lafrenchie.png",
+  place: Place.create!(
+    name: "Rooftop R2",
+    details: "Le Rooftop, c’est le lieu incontournable du panorama Marseillais et l’un des toits-terrasse les plus exceptionnels d’Europe… On vient ici défier les lois de la gravité pour « s’envoyer en l’air » au son d’une programmation exceptionnelle.",
+    category: "Rooftop",
+    address: "9 Quai du Lazaret, 13002 Marseille",
+    photo: "http://www.airdemarseille.com/wp-content/uploads/2016/07/IMG_3972-1200x800.jpg"
+  )
+)
 
-
-
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "Ofenbach",
+    category: "Electronic",
+    photo: "https://www.sortiraparis.com/images/55/1665/303597-ofenbach-x-zig-zag.jpg",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/603220845&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("La frenchie - Ofenbach")
+)
 
 
 # -----------------------------------------------------
