@@ -1,4 +1,5 @@
-<h6><%= link_to event.title, event_path(event) %></h6>
+<a><%= link_to event.title.gsub(/^(.{14,}?).*$/m,'\1...'), event_path(event)%></a>
 <p class="text-dark"><%= event.place.name %></p>
-<p class="text-info"><%= event.place.address %></p>
+<p><%= event.place.address.gsub(/^(.{20,}?).*$/m,'\1...') %></p>
 <p class="text-dark"><strong>Le <%= event.date.strftime("%d %b %y") %> de <%= event.start_time.strftime("%H:%M") %> à <%= event.end_time.strftime("%H:%M") %></strong></p>
+<%= image_tag "test.png", :class => "img-mapboxgl-popup-content" %>
