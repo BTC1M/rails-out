@@ -531,10 +531,10 @@ ArtistParticipation.create!(
 
 # -----------------------------------------------------
 
-UserParticipation.create!(
-  user: User.find_by_username('Admin'),
-  event: Event.find_by_title('La Friche - ON AIR : SIDI&CO')
-)
+#UserParticipation.create!(
+#  user: User.find_by_username('Admin'),
+#  event: Event.find_by_title('La Friche - ON AIR : SIDI&CO')
+#)
 
 
 puts 'Finished!'
