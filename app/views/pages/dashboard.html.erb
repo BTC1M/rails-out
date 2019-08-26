@@ -86,7 +86,7 @@
   </div>
   <p class="lign-chapiter2"> </p>
   <ul class="hs2">
-    <% @artists.each do |artist| %>
+    <% current_user.find_liked_items.each do |artist| %>
       <li class="li_height">
       <% unless artist.name.match?("Résident") %>
         <%= link_to(artist_path(artist.id)) do %>

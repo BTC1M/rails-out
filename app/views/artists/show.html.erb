@@ -13,7 +13,15 @@
 
   <div class="ses_prochains_events d-flex align-items-center justify-content-between">
     <div>ses prochains évènements</div>
-    <%= image_tag "like.png", size: "25x25"%>
+    <% if current_user.voted_for? @artist %>
+      <%= link_to unlike_artist_path(@artist), method: :put do %>
+        <%= image_tag "like_full.png", size: "25x25"%>
+      <% end %>
+    <% else %>
+      <%= link_to like_artist_path(@artist), method: :put do %>
+        <%= image_tag "like.png", size: "25x25"%>
+      <% end %>
+    <% end %>
   </div>
   <p class="lign-chapiter2"> </p>
   <div>

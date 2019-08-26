@@ -7,9 +7,9 @@
   <div class="ses_prochains_events d-flex justify-content-start" style="height: 30px;">
     <div class="taille_texte">Selectionnés pour vous</div>
   </div>
-  <p class="lign-chapiter2" style="left: 0px;">Top events filtrés par les favorites et les artistes likés, triés par date</p>
+  <p class="lign-chapiter2" style="left: 0px;"></p>
 
-    <div class="d-flex flex-column justify-content-center" style="position: relative;top: 380px;">
+    <div class="d-flex flex-column justify-content-center" style="position: relative;top: 330px;">
       <% @events.order(date: 'asc').each do |event| %>
       <%= link_to(event_path(event.id)) do %>
         <% if event.date < (Date.today + 7.day) %>
