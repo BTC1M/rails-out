@@ -11,11 +11,13 @@ Event.destroy_all
 Place.destroy_all
 UserParticipation.destroy_all
 ArtistParticipation.destroy_all
+UserStyle.destroy_all
 Artist.destroy_all
 User.destroy_all
+Style.destroy_all
 
 User.create!(
-  username: Faker::Name.first_name,
+  username: 'Admin',
   email: 'admin@out.com',
   password: 'coucou',
   age: rand(18..50),
@@ -23,15 +25,22 @@ User.create!(
 )
 
 User.create!(
-  username: Faker::Name.first_name,
+  username: 'Admin2',
   email: 'admin@gmail.com',
   password: 'coucou',
   age: rand(18..50),
   photo: Faker::Avatar.image
 )
 
-music_categories = ['Electro', 'House', 'Techno', 'Funk', 'Rock', 'Hip-hop', 'Latino']
-event_categories = ['Concert', 'Festival', 'Bar', 'Club', 'Open air', 'Rooftop']
+
+music_categories = ['Electro','House','Techno','Minimal','Funk','Rock','Hip-Hop','Tech house','Drum & Bass', 'Progressive', 'Alternative', 'Autre']
+event_categories = ['Concert', 'Festival', 'Bar', 'Club', 'Open air', 'Rooftop', 'Beach']
+
+music_categories.each do |music_category|
+  Style.create!(
+    name: music_category
+  )
+end
 
 
 ##################################################################
@@ -521,6 +530,12 @@ ArtistParticipation.create!(
 )
 
 # -----------------------------------------------------
+
+UserParticipation.create!(
+  user: User.find_by_username('Admin'),
+  event: Event.find_by_title('La Friche - ON AIR : SIDI&CO')
+)
+
 
 puts 'Finished!'
 
