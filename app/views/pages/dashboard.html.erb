@@ -9,7 +9,7 @@
 </div>
   <%= image_tag "artist-test.png", :class => "avatar-large mt-3"%>
   <div class="ses_prochains_events d-flex flex-row align-items-center justify-content-start" style="width: 80%; margin:0px;">
-    <div>vos styles</div>
+    <div class="taille_texte">Vos styles</div>
   </div>
   <p class="lign-chapiter2" style="left: 0px;"> </p>
 
@@ -39,7 +39,7 @@
 </div>
 <!-- ---------------ANCIENS EVENEMENT------------------ -->
 <div class="ses_prochains_events d-flex flex-row align-items-center justify-content-start" style="height: 30px;">
-    <div class="taille_texte">vos evènements</div>
+    <div class="taille_texte">Vos evènements</div>
   </div>
   <p class="lign-chapiter2"> </p>
 
@@ -82,28 +82,22 @@
         <% end %>
       </ul>
   <div class="ses_prochains_events d-flex justify-content-start" style="height: 30px;">
-    <div class="taille_texte">vos artistes préférés</div>
+    <div class="taille_texte">Vos artistes préférés</div>
   </div>
   <p class="lign-chapiter2"> </p>
-      <ul class="hs2">
-        <% @artists.first(10).each do |artist| %>
-          <li class="li_height">
-          <%= link_to(artist_path(artist.id)) do %>
-            <div class="card-artist mt-5">
-              <h3 class="card-title-artist"> <%= artist.name %></h3>
-              <%= image_tag artist.photo, :class => "img_artist-card" %>
-            </div>
-            <% end %>
-          </li>
+  <ul class="hs2">
+    <% @artists.each do |artist| %>
+      <li class="li_height">
+      <% unless artist.name.match?("Résident") %>
+        <%= link_to(artist_path(artist.id)) do %>
+          <div class="card-artist mt-5">
+            <h3 class="card-title-artist"> <%= artist.name %></h3>
+            <%= image_tag artist.photo, :class => "img_artist-card" %>
+          </div>
+          <% end %>
         <% end %>
-      </ul>
-  <div class="container mt-5">
-    <div>Evènements auxquels je participe :</div>
-    <% current_user.user_participations.each do |user_participation| %>
-      <div>
-        <%= user_participation.event.title %>
-      </div>
+      </li>
     <% end %>
-  </div>
+  </ul>
 </div>
 
