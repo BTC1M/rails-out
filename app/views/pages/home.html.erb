@@ -35,11 +35,11 @@
                   <% end_time = event.end_time %>
                   <%= start_time.strftime('%R') %> - <%= end_time.strftime('%R') %><br>
                 <%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %>
-                <% adresse_for_card = event.place.address %>
-                <% if adresse_for_card.length > 25 %>
-                  <%= adresse_for_card[0..25] + '...'%>
+                <% placename_for_card = event.place.name %>
+                <% if placename_for_card.length > 25 %>
+                  <%= placename_for_card[0..25] + '...'%>
                 <% else %>
-                  <%= event.place.address %>
+                  <%= event.place.name %>
                 <% end %>
                 </p>
               </div>
@@ -99,11 +99,11 @@
               <%= image_tag "time.png", :size => "15x15", :class => "logo_next_event" %><% start_time = event.start_time %>
                   <% end_time = event.end_time %>
                   <%= start_time.strftime('%R') %> - <%= end_time.strftime('%R') %><br>
-              <%= image_tag "location-point.png", :size => "15x15", :class => "logo_next_event" %> <% adresse_for_card = event.place.address %>
-                <% if adresse_for_card.length > 20 %>
-                  <%= adresse_for_card[0..20] + '...'%>
+              <%= image_tag "location-point.png", :size => "15x15", :class => "logo_next_event" %> <% placename_for_card = event.place.name %>
+                <% if placename_for_card.length > 20 %>
+                  <%= placename_for_card[0..20] + '...'%>
                 <% else %>
-                  <%= event.place.address %>
+                  <%= event.place.name %>
                 <% end %> </p>
             <div class="card-next-event-date d-flex flex-column">
               <% p= event.date %>

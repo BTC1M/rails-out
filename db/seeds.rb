@@ -262,11 +262,11 @@ ArtistParticipation.create!(
 Event.create!(
   title: "Baou: barcelona Show with Yaya SEB Zito",
   description: "🇪🇸 Barcelona SHOW présente Yaya & Seb Zito 🇪🇸
-  ▬▬▬▬▬▬▬▬▬LINE UP▬▬▬▬▬▬▬▬▬▬▬▬
+  ▬▬▬▬▬LINE UP▬▬▬▬▬▬
   ➫ Yaya (Desolat Music Group / Get Physical Music - 🇮🇹)
   ➫ Seb Zito (FUSE - 🇬🇧)
   ➫ Lo Coco (Noexcuses / Safe – 🇫🇷)
-  ▬▬▬▬▬▬▬▬▬BILLETTERIE▬▬▬▬▬▬▬▬▬▬▬▬
+  ▬▬▬▬BILLETTERIE▬▬▬▬
   EARLY → 8€ (Hors frais de loc)
   NORMAL → 10€ (Hors frais de loc)
   LATE → 12€ (Hors frais de loc) ",
