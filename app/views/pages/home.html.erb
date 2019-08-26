@@ -57,9 +57,9 @@
           <% unless artist.name.match?("Résident") %>
             <li class="li_height">
             <%= link_to(artist_path(artist.id)) do %>
-              <div class="card-artist mt-5">
-                <h3 class="card-title-artist"> <%= artist.name %></h3>
+              <div class="card-artist mt-4">
                 <div class="img_artist-card" style="background-image: url(<%=asset_path(artist.photo)%>); background-position: center; background-size: cover;"></div>
+                <h3 class="card-title-artist"> <%= artist.name %></h3>
               </div>
               <% end %>
             </li>
