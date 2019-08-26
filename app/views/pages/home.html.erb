@@ -10,10 +10,11 @@
 
     <div class="app" style="margin-top: 0px;">
       <ul class="hs">
-        <% @events.each do |event| %>
+        <%# events_sorted = @events.sort_by {|obj| obj.start_time} %>
+        <% @events.order(start_time: 'asc').each do |event| %>
           <% if event.date == Date.today %>
             <li>
-              <%= link_to(event_path(event.id)) do %>
+            <%= link_to(event_path(event.id)) do %>
               <div class="card-event ml-2">
               <div class="color-line-event"> </div>
               <div class="img_event" style="background-image: url(<%=asset_path(event.photo)%>); background-position: center; background-size: cover;"></div>

@@ -393,7 +393,7 @@ Event.create!(
   price: 0,
   category: "Club",
   date: Date.today,
-  start_time: '00:00:00',
+  start_time: '23:00:00',
   end_time: '06:00:00',
   photo: "https://tarpin-bien.com/wp-content/uploads/2016/11/MAT_4444.jpg",
   place: Place.create!(
