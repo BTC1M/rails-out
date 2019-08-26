@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2>Créez votre compte</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -7,16 +7,20 @@
     <%= f.input :username,
                 required: true,
                 autofocus: true,
+                placeholder: "Pseudo",
                 input_html: { autocomplete: "username" }%>
     <%= f.input :email,
                 required: true,
+                placeholder: "Email",
                 input_html: { autocomplete: "email" }%>
     <%= f.input :password,
                 required: true,
+                placeholder: "Mot de passe",
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: true,
+                placeholder: "Confirmation du mot de passe",
                 input_html: { autocomplete: "new-password" } %>
   </div>
 
@@ -25,4 +29,5 @@
   </div>
 <% end %>
 
+<p class="mt-5"><%= "Vous avez déjà un compte ? Connectez vous ici : " %></p>
 <%= render "devise/shared/links" %>

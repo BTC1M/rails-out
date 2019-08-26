@@ -6,7 +6,7 @@ class UserParticipationsController < ApplicationController
     @user_participation.user = current_user
 
     if @user_participation.save
-      redirect_to event_path(@user_participation.event.id), notice: 'Participation was successfully created.'
+      redirect_to event_path(@user_participation.event.id), notice: 'Cet évènement a été ajouté à votre liste.'
     else
       render :new
     end
@@ -18,7 +18,7 @@ class UserParticipationsController < ApplicationController
     # Si il y a 2 participations pour le meme utilisateur, on supprime les 2
     a = UserParticipation.where(user: current_user, event: @user_participation.event)
     a.destroy_all
-    redirect_to event_path(@user_participation.event.id), notice: 'Participation was successfully destroyed.'
+    redirect_to event_path(@user_participation.event.id), notice: 'Evènement supprimé de votre liste.'
   end
 
   private
