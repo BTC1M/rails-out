@@ -1,2 +1,5 @@
-<h6><%= link_to event.title, event_path(event) %></h6>
-<p><%= event.place.address %></p>
+
+<a><%= link_to event.title.gsub(/^(.{14,}?).*$/m,'\1...'), event_path(event)%></a>
+<p><%= event.place.address.gsub(/^(.{20,}?).*$/m,'\1...') %></p>
+<h3><%= "#{event.price} €"%></h3>
+<%= image_tag "test.png", :class => "img-mapboxgl-popup-content" %>

@@ -13,5 +13,3 @@ if ($("#btn-sign-in")) {
   });
   $('#btn-sign-in').click();
 }
-
-
