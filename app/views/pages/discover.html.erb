@@ -16,7 +16,7 @@
           <div class="card-next-event" style="position: relative;left: -20px;">
             <div class="color-line-next-event">
             </div>
-            <%= image_tag event.photo, :class => "img_next_event" %>
+            <div class="img_next_event" style="background-image: url(<%=asset_path(event.photo)%>); background-position: center; background-size: cover;"></div>
             <h3 class="title-event"><%= event.title %></h3>
             <p class="text-next-event">
               <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_next_event" %><%= event.category %> -<% artist_category_array_home = [] %>

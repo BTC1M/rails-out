@@ -32,7 +32,7 @@
         <%= link_to(event_path(artist_part.event.id)) do %>
           <div class="card-event ml-2">
             <div class="color-line-event"> </div>
-              <%= image_tag artist_part.event.photo, :class => "img_event_artist" %>
+              <div class="img_event_artist" style="background-image: url(<%=asset_path(artist_part.event.photo)%>); background-position: center; background-size: cover;"></div>
               <h3 class="title-event"> <%= artist_part.event.title %></h3>
               <p class="text-event">
                 <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %> <%= artist_part.event.category %> -<% artist_category_array_home = [] %>
