@@ -4,14 +4,14 @@
   </div>
   <div class="color-line-top d-flex"></div>
   <div class="ses_prochains_events d-flex justify-content-start" style="height: 30px;">
-    <div class="taille_texte" style="position: relative;left: -70px;">évènements ce soir</div>
+    <div class="taille_texte" style="position: relative;left: -70px;">Evènements ce soir</div>
   </div>
   <p class="lign-chapiter2" style="left: 0px;"> </p>
 
     <div class="app" style="margin-top: 0px;">
       <ul class="hs">
         <% @events.each do |event| %>
-          <% if event.date == Date.tomorrow %>
+          <% if event.date == Date.today %>
             <li>
               <%= link_to(event_path(event.id)) do %>
               <div class="card-event ml-2">
@@ -49,33 +49,36 @@
         <% end %>
       </ul>
       <div class="ses_prochains_events d-flex justify-content-start" style="height: 30px;">
-    <div class="taille_texte">artistes du moment</div>
+    <div class="taille_texte">Artistes du moment</div>
   </div>
     <p class="lign-chapiter2"> </p>
       <ul class="hs2">
-        <% @artists.first(10).each do |artist| %>
-  <div class="d-flex">
-          <li class="li_height">
-          <%= link_to(artist_path(artist.id)) do %>
-            <div class="card-artist mt-3">
-              <h3 class="card-title-artist"> <%= artist.name %></h3>
-              <%= image_tag artist.photo, :class => "img_artist-card" %>
-            </div>
-            <% end %>
-          </li>
+        <% @artists.first(15).each do |artist| %>
+          <% unless artist.name.match?("Résident") %>
+            <li class="li_height">
+            <%= link_to(artist_path(artist.id)) do %>
+              <div class="card-artist mt-5">
+                <h3 class="card-title-artist"> <%= artist.name %></h3>
+                <%= image_tag artist.photo, :class => "img_artist-card" %>
+              </div>
+              <% end %>
+            </li>
+          <% end %>
         <% end %>
       </ul>
   </div>
 </div>
   <div class="text-center">
     <div class="ses_prochains_events d-flex justify-content-start" style="height: 30px;">
+
       <div class="taille_texte" style="position: relative; top: -320px; left: -5px;">évènements à venir</div>
+
     </div>
     <p class="lign-chapiter2" style="position: relative;left: 35px;top: -320px;"> </p>
     <div class="d-flex flex-column">
       <% @events.order(date: 'asc').each do |event| %>
       <%= link_to(event_path(event.id)) do %>
-        <% if event.date < (Date.today + 7.day) %>
+        <% if event.date < (Date.today + 30.day) && event.date > Date.today %>
           <div class="card-next-event" style="position: relative;left: -20px;">
             <div class="color-line-next-event">
             </div>

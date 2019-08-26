@@ -7,7 +7,7 @@ class Event < ApplicationRecord
   has_many :artists, through: :artist_participations
 
   validates :title, presence: true
-  validates :category, presence: true, acceptance: { accept: ['Concert', 'Festival', 'Bar', 'Club', 'Open air', 'Rooftop'] }
+  validates :category, presence: true#, acceptance: { accept: ['Concert', 'Festival', 'Bar', 'Club', 'Open air', 'Rooftop'] }
   validates :price, presence: true
   validates :date, presence: true
   validates :start_time, presence: true
