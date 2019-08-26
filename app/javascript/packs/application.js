@@ -7,9 +7,9 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 initMapbox();
 
 if ($("#btn-sign-in")) {
-  $('#modal-window').modal({
-    backdrop: 'static',
-    keyboard: false
-  });
+  // $('#modal-window').modal({
+  //   backdrop: 'static',
+  //   keyboard: false
+  // });
   $('#btn-sign-in').click();
 }

@@ -3,135 +3,107 @@
     <p class="out">OUT</p>
   </div>
   <div class="color-line-top d-flex"></div>
-  <%= image_tag "artist-test.png", :class => "avatar"%>
-
-  <%= link_to 'Deconnexion', destroy_user_session_path, class: "btn_deconnexion", style: 'text-decoration: none !important;', method: :delete, data: { confirm: 'Are you sure?' } %>
+  <div class="d-flex justify-content-end" style="width:100%;">
+  <%= link_to 'Deconnexion', destroy_user_session_path, class: "btn_deconnexion mt-2 mr-5", style: 'text-decoration: none !important;', method: :delete, data: { confirm: 'Are you sure?' } %>
   <!-- <button class="btn_deconnexion"><p>Deconnexion</p></button> -->
-  <button class="btn_modifier"><p>Modifier</p></button>
+</div>
+  <%= image_tag "artist-test.png", :class => "avatar-large mt-3"%>
+  <div class="ses_prochains_events d-flex flex-row align-items-center justify-content-start" style="width: 80%; margin:0px;">
+    <div>vos styles</div>
+  </div>
+  <p class="lign-chapiter2" style="left: 0px;"> </p>
 
-  <div class="chapiter-your-style">
-    <p class="title-chapiter">vos styles</p>
-    <p class="lign-chapiter"> </p>
+  <div class="d-flex flex-row justify-content-center flex-wrap mt-4 px-3">
+     <%= link_to do %>
+      <p class="preferences px-2 mx-2">Electro</p>
+     <% end %>
+     <%= link_to do %>
+      <p class="preferences px-2 mx-2">house</p>
+     <% end %>
+     <%= link_to do %>
+      <p class="preferences px-2 mx-2">techno</p>
+     <% end %>
+     <%= link_to do %>
+      <p class="preferences px-2 mx-2">funk</p>
+     <% end %>
+     <%= link_to do %>
+      <p class="preferences px-2 mx-2">rock</p>
+     <% end %>
+     <%= link_to do %>
+      <p class="preferences px-2 mx-2">hip-hop</p>
+     <% end %>
+     <%= link_to do %>
+      <p class="preferences px-2 mx-2">latino<p>
+    <% end %>
   </div>
-  <div class="container text-center row d-flex justify-content-center">
-    
-    <div class="col">
-      <input id="toggle1" type="checkbox">
-      <label for="toggle1"><p class="ml-1">electro</p></label>
-    </div>
-    <div class="col">
-      <input id="toggle2" type="checkbox">
-      <label for="toggle2"><p class="ml-1">house</p></label>
-    </div>
-    <div class="col">
-      <input id="toggle3" type="checkbox">
-      <label for="toggle3"><p class="ml-1">techno</p></label>
-    </div>
-    <div class="col">
-      <input id="toggle4" type="checkbox">
-      <label for="toggle4"><p class="ml-2">funk</p></label>
-    </div>
-  </div>
-  <div class="container text-center row d-flex justify-content-center">
-    <div class="col">
-      <input id="toggle5" type="checkbox">
-      <label for="toggle5"><p class="ml-2">rock</p></label>
-    </div>
-    <div class="col">
-      <input id="toggle6" type="checkbox">
-      <label for="toggle6"><p class="ml-1">hip-hop</p></label>
-    </div>
-    <div class="col">
-      <input id="toggle7" type="checkbox">
-      <label for="toggle7"><p class="ml-2">latino</p></label>
-    </div>
-  </div>
+</div>
 <!-- ---------------ANCIENS EVENEMENT------------------ -->
-</div>
-<div class="chapiter-your-old-event">
-  <p class="title-chapiter">vos anciens évènements</p>
-  <p class="lign-chapiter"> </p>
-</div>
-<div class="app">
-  <ul class="hs">
-    <li class="li-event-old"> <div class="card-event-old ml-2">
-      <div class="color-line-event"> </div>
-      <%= image_tag "test.png", :class => "img_event_old" %>
-      <h3 class="title-event"> evenement title amour gloire</h3>
-      <p class="text-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %>name  <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %> place </p>
-    </div> </li>
-    <li class="li-event-old"><div class="card-event-old">
-      <div class="color-line-event"> </div>
-      <%= image_tag "test.png", :class => "img_event_old" %>
-      <h3 class="title-event"> evenement title de merde</h3>
-      <p class="text-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %> place </p>
-    </div></li>
-    <li class="li-event-old"><div class="card-event-old">
-      <div class="color-line-event"> </div>
-      <%= image_tag "test.png", :class => "img_event_old" %>
-      <h3 class="title-event"> evenement title</h3>
-      <p class="text-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %> place </p>
-    </div class="li-event-old"></li>
-    <li class="li-event-old"><div class="card-event-old">
-      <div class="color-line-event"> </div>
-      <%= image_tag "test.png", :class => "img_event_old" %>
-      <h3 class="title-event"> evenement title</h3>
-      <p class="text-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %> place </p>
-    </div class="li-event-old"></li>
-    <li class="li-event-old"><div class="card-event-old">
-      <div class="color-line-event"> </div>
-      <%= image_tag "test.png", :class => "img_event_old" %>
-      <h3 class="title-event"> evenement title</h3>
-      <p class="text-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %>name <br><%= image_tag "calendar.png", :size => "15x15", :class => "logo_event" %> date <br><%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %> place </p>
-    </div></li>
-  </ul>
-</div>
-</div>
-</div>
-<!-- ---------------ARTISTES PREFERES------------------ -->
-</div>
-<div class="chapiter-your-fav-artist">
-  <p class="title-chapiter">vos artistes préférés</p>
-  <p class="lign-chapiter"> </p>
-</div>
-<div class="app" style="position: relative; top: -305px">
-<ul class="hs">
-        <li class="li_height_artist">
-          <div class="card-artist">
-            <div class="color-line"> </div>
-            <h3 class="card-title-artist"> name artist</h3>
-            <%= image_tag "artist-test.png", :class => "img_artist-card" %>
-          </div>
-        </li>
-        <li class="li_height_artist">
-          <div class="card-artist">
-            <div class="color-line"> </div>
-            <h3 class="card-title-artist"> name artist</h3>
-            <%= image_tag "artist-test.png", :class => "img_artist-card" %>
-          </div>
-        </li>
-        <li class="li_height_artist">
-          <div class="card-artist">
-            <div class="color-line"> </div>
-            <h3 class="card-title-artist"> name artist</h3>
-            <%= image_tag "artist-test.png", :class => "img_artist-card" %>
-          </div>
-        </li>
-        <li class="li_height_artist">
-          <div class="card-artist">
-            <div class="color-line"> </div>
-            <h3 class="card-title-artist"> name artist</h3>
-            <%= image_tag "artist-test.png", :class => "img_artist-card" %>
-          </div>
-        </li>
-      </ul>
-    </div>
+<div class="ses_prochains_events d-flex flex-row align-items-center justify-content-start" style="height: 30px;">
+    <div class="taille_texte">vos evènements</div>
+  </div>
+  <p class="lign-chapiter2"> </p>
 
-<div class="container mt-5">
+    <div class="app" style="margin-top: 0px;">
+      <ul class="hs">
+        <% current_user.user_participations.each do |user_participation| %>
+            <li>
+              <%= link_to(event_path(user_participation.event.id)) do %>
+              <div class="card-event ml-2">
+              <div class="color-line-event"> </div>
+              <%= image_tag user_participation.event.photo, :class => "img_event" %>
+              <h3 class="title-event"><%= user_participation.event.title %></h3>
+              <p class="text-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %> <%= user_participation.event.category %> -
+                <% artist_category_array_home = [] %>
+                <% user_participation.event.artists.each do |artist| %>
+                  <% unless artist_category_array_home.include?(artist.category + " ") %>
+                    <% artist_category_array_home << artist.category + " " %>
+                  <% end %>
+                <% end %>
+                <% if artist_category_array_home.length > 2 %>
+                  <%= artist_category_array_home.first(2).join %>...
+                <% else %>
+                  <%= artist_category_array_home.join %>
+                <% end %><br>
+                <%= image_tag "time.png", :size => "15x15", :class => "logo_event" %>
+                  <% start_time = user_participation.event.start_time %>
+                  <% end_time = user_participation.event.end_time %>
+                  <%= start_time.strftime('%R') %> - <%= end_time.strftime('%R') %><br>
+                <%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %>
+                <% adresse_for_card = user_participation.event.place.address %>
+                <% if adresse_for_card.length > 25 %>
+                  <%= adresse_for_card[0..25] + '...'%>
+                <% else %>
+                  <%= user_participation.event.place.address %>
+                <% end %>
+                </p>
+              </div>
+            <% end %>
+            </li>
+        <% end %>
+      </ul>
+  <div class="ses_prochains_events d-flex justify-content-start" style="height: 30px;">
+    <div class="taille_texte">vos artistes préférés</div>
+  </div>
+  <p class="lign-chapiter2"> </p>
+      <ul class="hs2">
+        <% @artists.first(10).each do |artist| %>
+          <li class="li_height">
+          <%= link_to(artist_path(artist.id)) do %>
+            <div class="card-artist mt-5">
+              <h3 class="card-title-artist"> <%= artist.name %></h3>
+              <%= image_tag artist.photo, :class => "img_artist-card" %>
+            </div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+  <div class="container mt-5">
     <div>Evènements auxquels je participe :</div>
     <% current_user.user_participations.each do |user_participation| %>
       <div>
-          <%= user_participation.event.title %>
+        <%= user_participation.event.title %>
       </div>
     <% end %>
   </div>
+</div>
+

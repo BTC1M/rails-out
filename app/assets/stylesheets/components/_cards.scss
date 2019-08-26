@@ -4,7 +4,7 @@ body {
 
 p, h1, h2, h3, h4, h5 {
 	font-family: "Roboto", "Helvetica", "sans-serif" !important;
-  color: #A1A1A1;
+  color: #D6D6D6;
 }
 
 //--------CART EVENT--------------------------//
@@ -161,7 +161,6 @@ top: 20px;
 	width: 109px;
 	height: 109px;
 	left: 9px;
-	top: 42px;
 	background: #343434;
 	border-radius: 3px;
 	color: #A0A0A0;
@@ -174,7 +173,6 @@ top: 20px;
 	color: #A0A0A0;
 	margin-right: auto;
 	margin-left: auto;
-	margin-top: 0;
 	margin-bottom: 0px;
 	position: relative;
 }
@@ -285,7 +283,8 @@ top: -43px;
 	text-align: center;
 	position: relative;
 	top: -300px;
-	margin: 12px;
+	margin-top: 0px;
+  margin-bottom: 22px;
 }
 
 .color-line-next-event {
