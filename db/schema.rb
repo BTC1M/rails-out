@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_26_090055) do
+
+ActiveRecord::Schema.define(version: 2019_08_26_104735) do
+#ActiveRecord::Schema.define(version: 2019_08_26_090055) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +77,12 @@ ActiveRecord::Schema.define(version: 2019_08_26_090055) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
+  create_table "styles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "user_participations", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "event_id"
@@ -81,6 +90,15 @@ ActiveRecord::Schema.define(version: 2019_08_26_090055) do
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_user_participations_on_event_id"
     t.index ["user_id"], name: "index_user_participations_on_user_id"
+  end
+
+  create_table "user_styles", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "style_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["style_id"], name: "index_user_styles_on_style_id"
+    t.index ["user_id"], name: "index_user_styles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -120,4 +138,6 @@ ActiveRecord::Schema.define(version: 2019_08_26_090055) do
   add_foreign_key "reviews", "users"
   add_foreign_key "user_participations", "events"
   add_foreign_key "user_participations", "users"
+  add_foreign_key "user_styles", "styles"
+  add_foreign_key "user_styles", "users"
 end

@@ -1,9 +1,4 @@
 class UserParticipationsController < ApplicationController
-  def new
-    @event = Event.find(params[:event_id])
-    @user_participation = UserParticipation.new
-  end
-
   def create
     @user_participation = UserParticipation.new
     @event = Event.find(params[:event_id])

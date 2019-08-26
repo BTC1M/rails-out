@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  # skip_before_action :authenticate_user!, only: [:home], :raise => false
+  skip_before_action :authenticate_user!, only: [:home, :discover]#, :raise => false
 
   def home
     @events = Event.all
@@ -11,6 +11,7 @@ class PagesController < ApplicationController
     @events = Event.all
     @user = current_user
     @artists = Artist.all
+    @styles = Style.all
   end
 
   def discover

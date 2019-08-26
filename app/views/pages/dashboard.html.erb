@@ -14,30 +14,27 @@
   <p class="lign-chapiter2" style="left: 0px;"> </p>
 
   <div class="d-flex flex-row justify-content-center flex-wrap mt-4 px-3">
-     <%= link_to do %>
-      <p class="preferences px-2 mx-2">Electro</p>
-     <% end %>
-     <%= link_to do %>
-      <p class="preferences px-2 mx-2">house</p>
-     <% end %>
-     <%= link_to do %>
-      <p class="preferences px-2 mx-2">techno</p>
-     <% end %>
-     <%= link_to do %>
-      <p class="preferences px-2 mx-2">funk</p>
-     <% end %>
-     <%= link_to do %>
-      <p class="preferences px-2 mx-2">rock</p>
-     <% end %>
-     <%= link_to do %>
-      <p class="preferences px-2 mx-2">hip-hop</p>
-     <% end %>
-     <%= link_to do %>
-      <p class="preferences px-2 mx-2">latino<p>
+
+    <% presence = nil %>
+    <% @styles.each do |style| %>
+      <% presence = false %>
+      <% current_user.styles.each do |mystyle| %>
+        <% if mystyle.name == style.name %>
+          <% presence = true %>
+        <% end %>
+      <% end %>
+
+      <% if presence == false %>
+        <%= link_to style.name, user_styles_path(style.id), method: :create, class: "preferences px-2 mx-2 my-1" %>
+      <% else %>
+        <%= link_to style.name, user_style_path(style.id), method: :delete, class: "preferences_selection px-2 mx-2 my-1" %>
+      <% end %>
     <% end %>
+
   </div>
 </div>
-<!-- ---------------ANCIENS EVENEMENT------------------ -->
+
+<!-- ---------------------------------------------- -->
 <div class="ses_prochains_events d-flex flex-row align-items-center justify-content-start" style="height: 30px;">
     <div class="taille_texte">Vos evènements</div>
   </div>
@@ -99,5 +96,6 @@
       </li>
     <% end %>
   </ul>
+
 </div>
 

@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+
+  resources :user_styles, only: [:create, :destroy]
+
   resources :artists, only: [:show, :upvote, :unvote] do
     member do
       put "like" => "artists#upvote"
@@ -13,8 +16,8 @@ Rails.application.routes.draw do
   end
 
   resources :events, only: [:index, :show] do
-    resources :user_participations, only: [:new, :create, :destroy]
-    resources :artist_participations, only: [:new, :create, :destroy]
+    resources :user_participations, only: [:create, :destroy]
+    resources :artist_participations, only: [:create, :destroy]
   end
 
   get "/dashboard", to: "pages#dashboard"
