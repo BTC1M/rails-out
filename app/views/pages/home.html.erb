@@ -1,12 +1,12 @@
-<div class="bodyhome d-flex flex-column">
-  <div class="logo mx-auto">
+<div class="bodyhome d-flex flex-column mt-4">
+  <div class="logo mx-auto my-5">
     <p class="out">OUT</p>
   </div>
-  <div class="color-line-top d-flex"></div>
+  <div class="color-line-top d-flex mb-3"></div>
   <div class="ses_prochains_events d-flex justify-content-start" style="height: 30px;">
-    <div class="taille_texte" style="position: relative;left: -70px;">Evènements ce soir</div>
+    <div class="taille_texte mb-2" style="position: relative;left: -70px;">Evènements ce soir</div>
   </div>
-  <p class="lign-chapiter2" style="left: 0px;"> </p>
+  <p class="lign-chapiter2 mb-2" style="left: 0px;"> </p>
 
     <div class="app" style="margin-top: 0px;">
       <ul class="hs">
@@ -49,10 +49,10 @@
           <% end %>
         <% end %>
       </ul>
-      <div class="ses_prochains_events d-flex justify-content-start" style="height: 30px;">
+      <div class="ses_prochains_events d-flex justify-content-start mt-3" style="height: 30px;">
     <div class="taille_texte">Artistes du moment</div>
   </div>
-    <p class="lign-chapiter2"> </p>
+    <p class="lign-chapiter2 mb-2"> </p>
       <ul class="hs2">
         <% @artists.first(15).each do |artist| %>
           <% unless artist.name.match?("Résident") %>
@@ -72,10 +72,10 @@
   <div class="text-center">
     <div class="ses_prochains_events d-flex justify-content-start" style="height: 30px;">
 
-      <div class="taille_texte" style="position: relative; top: -320px; left: -5px;">Evènements à venir</div>
+      <div class="taille_texte my-2" style="position: relative; top: -320px; left: -5px;">Evènements à venir</div>
 
     </div>
-    <p class="lign-chapiter2" style="position: relative;left: 35px;top: -320px;"> </p>
+    <p class="lign-chapiter2 my-2" style="position: relative;left: 35px;top: -320px;"> </p>
     <div class="d-flex flex-column">
       <% @events.order(date: 'asc').each do |event| %>
       <%= link_to(event_path(event.id)) do %>
