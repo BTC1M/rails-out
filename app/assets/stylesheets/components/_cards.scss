@@ -5,6 +5,7 @@ body {
 p, h1, h2, h3, h4, h5 {
 	font-family: "Roboto", "Helvetica", "sans-serif" !important;
   color: #D6D6D6;
+  font-size: 11px;
 }
 
 //--------CART EVENT--------------------------//
@@ -12,7 +13,7 @@ p, h1, h2, h3, h4, h5 {
 .card-event {
 	display:inline-block;
 	width: 286px;
-	height: 109px;
+	height: 130px;
 	// left: 31px;
 	// top: 196px;
 	background: #343434;
@@ -48,25 +49,24 @@ p, h1, h2, h3, h4, h5 {
 .card-event h3 {
 	font-size: 12px;
 	position: absolute;
-	bottom: 80px;
-	left: 97px;
+	bottom: 90px;
+	left: 137px;
 	text-align: left;
 }
 
 .card-event p {
 	position: absolute;
 	bottom: 0px;
-	left: 97px;
+	left: 137px;
 	line-height: 20px;
 	text-align: left;
 }
 
 .img_event {
-	height: 85px;
-	width: 65px;
+	height: 120px;
+	width: 120px;
 	position: absolute;
 	left: 10px;
-	top: 13px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -267,9 +267,8 @@ top: -43px;
 
 .card-next-event {
 	display:inline-block;
-	width: 286px;
-	height: 109px;
-	left: 22px;
+	width: 330px;
+	height: 130px;
 	background: #343434;
 	border-radius: 3px;
 	color: #A0A0A0;
@@ -298,33 +297,33 @@ top: -43px;
   pink 15px, pink 244px,
   purple 15px, purple 286px);
   position: relative;
-  top: 109px;
+  top: 128px;
   border-radius-bottom-left: 5px
 }
 
 .card-next-event h3 {
-	font-size: 12px;
+	font-size: 13px;
 	position: absolute;
-	bottom: 85px;
-	left: 90px;
+	bottom: 90px;
+	left: 115px;
 	text-align: left;
 }
 
 .card-next-event p {
 	position: absolute;
-	bottom: 5px;
-	left: 90px;
+	bottom: 0px;
+	left: 115px;
 	line-height: 20px;
 	text-align: left;
 
 }
 
 .img_next_event {
-	height: 85px;
-	width: 65px;
+	height: 120px;
+	width: 100px;
 	position: absolute;
-	left: 10px;
-	top: 10px;
+	left: 5px;
+	top: 5px;
 }
 
 .logo_next_event {
