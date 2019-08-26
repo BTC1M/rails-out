@@ -5,8 +5,15 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :artists, only: [:show]
+
   resources :user_styles, only: [:create, :destroy]
+
+  resources :artists, only: [:show, :upvote, :unvote] do
+    member do
+      put "like" => "artists#upvote"
+      put "unlike" => "artists#unvote"
+    end
+  end
 
   resources :events, only: [:index, :show] do
     resources :user_participations, only: [:create, :destroy]

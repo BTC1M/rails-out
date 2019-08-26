@@ -11,4 +11,6 @@ class User < ApplicationRecord
   has_many :styles, through: :user_styles
 
   validates :username, uniqueness: true
+
+  acts_as_voter
 end
