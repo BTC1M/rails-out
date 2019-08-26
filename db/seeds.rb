@@ -133,7 +133,7 @@ Event.create!(
 ArtistParticipation.create!(
   artist: Artist.create!(
     name: "Ofenbach",
-    category: "Electronic",
+    category: "Electron",
     photo: "https://www.sortiraparis.com/images/55/1665/303597-ofenbach-x-zig-zag.jpg",
     spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/603220845&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
   ),
@@ -151,7 +151,7 @@ Event.create!(
   ROZZMA LIVE / CRAMMED DISCS - LE CAIRE : AFRICAN BASS",
   price: 0,
   category: "Rooftop",
-  date: Date.new(2019,8,30),
+  date: Date.new(2019,8,31),
   start_time: '19:00:00',
   end_time: '23:00:00',
   photo: "eventfriche.png",
@@ -288,7 +288,7 @@ Event.create!(
 ArtistParticipation.create!(
   artist: Artist.create!(
     name: "DJ Résident",
-    category: "Chill",
+    category: "Autre",
     photo: "http://stemfellowship.org/wp-content/uploads/2019/05/unknown-person-1-1.jpg",
     spotify_link: nil
   ),
@@ -409,7 +409,7 @@ Event.create!(
 ArtistParticipation.create!(
   artist: Artist.create!(
     name: "Did Virgo",
-    category: "Deep house",
+    category: "House",
     photo: "didvirgo.png",
     spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/185342939&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
   ),
@@ -465,7 +465,7 @@ Event.create!(
 ArtistParticipation.create!(
   artist: Artist.create!(
     name: "DJ Résident",
-    category: "Chill",
+    category: "Autre",
     photo: "http://stemfellowship.org/wp-content/uploads/2019/05/unknown-person-1-1.jpg",
     spotify_link: nil
   ),
@@ -490,7 +490,7 @@ Event.create!(
 ArtistParticipation.create!(
   artist: Artist.create!(
     name: "DJ Résident",
-    category: "Chill",
+    category: "Autre",
     photo: "http://stemfellowship.org/wp-content/uploads/2019/05/unknown-person-1-1.jpg",
     spotify_link: nil
   ),
@@ -532,11 +532,166 @@ ArtistParticipation.create!(
 
 # -----------------------------------------------------
 
+Event.create!(
+  title: "Les apéros des halles",
+  description: "Les Halles vous donne RDV à partir du 31 Mai pour des APÉROS TAPAS tous les vendredis et samedis de l’été ✨
+  👉 Venez vous détendre face à la mer dans une ambiance conviviale sur la terrasse des Halles en dégustant les meilleurs TAPAS et PIZZAS de la région. 💓
+  🍴 FOOD * PRODUITS DE QUALITÉ GARANTIS * ➹ Provenance direct de nos étales gourmandes des Halles 😋 ➹ Dessert Maison de notre talentueuse Pâtissière 🍰 .
+  ➹ Large sélection de vins & spiritueux chez le CAVISTE 🥂 ➹ Cocktails de fruits frais avec et sans alcool au menu 🍹 ⭐ Au programme ⭐
+  ➹ Coucher de soleil garanti 🌞 ➹ Bon son assuré 🎸 ➹ Ambiance CHILL à souhait 😎 ➹ Rosé bien frais tout l’été ❄ ",
+  price: 0,
+  category: "Bar",
+  date: Date.new(2019,8,31),
+  start_time: '18:00:00',
+  end_time: '00:00:00',
+  photo: "halles.png",
+  place: Place.create!(
+    name: "Halles de la Major",
+    details: "Au pied de la Cathédrale de la Major, sous ses voûtes, Les Halles de la Major s’inscrivent dans un quartier en pleine extension. Situé entre le quartier du Panier et celui de la Joliette, venez découvrir ce lieu exceptionnel après une balade. Situé face à la mer, venez apprécier le cadre et la vue magnifique qui s’offre à vous aux Halles de la Major.",
+    category: "Bar",
+    address: "12 Quai de la Tourette, 13002 Marseille",
+    photo: "http://www.marseille-congres.com/sites/default/files/styles/partenaire_full_images/public/part_images/halles-major1.jpg?itok=4YLKNyhW"
+  )
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "DJ Résident",
+    category: "Autre",
+    photo: "http://stemfellowship.org/wp-content/uploads/2019/05/unknown-person-1-1.jpg",
+    spotify_link: nil
+  ),
+  event: Event.find_by_title("Les apéros des halles")
+)
+
+
+# -----------------------------------------------------
+
+Event.create!(
+  title: "PNRM x Wattsmyname - White party",
+  description: "PNRM - Samedi 31 Août au Baou Marseille
+  ⚪️Summer White party⚪️
+  SUMMER WHITE PARTY, la soirée tout en blanc
+  by Wattsmyname x PNRM 'All white everything'
+  •Tarif sur place 20€
+  •ou 10€ si vous êtes vêtu de blanc (Haut blanc minimum)
+  Entrée gratuite 19H-20H30",
+  price: 20,
+  category: "Open air",
+  date: Date.new(2019,8,31),
+  start_time: '19:00:00',
+  end_time: '02:00:00',
+  photo: "pnrm.png",
+  place: Place.find_by_name("BAOU")
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "Livoo",
+    category: "Hip-Hop",
+    photo: "livoo.png",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/593665629&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("PNRM x Wattsmyname - White party")
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "Mr. Faze",
+    category: "Hip-Hop",
+    photo: "faze.png",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/567330675&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("PNRM x Wattsmyname - White party")
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "Habba Babba",
+    category: "Autre",
+    photo: "habba.png",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/601338537&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("PNRM x Wattsmyname - White party")
+)
+
+
+# -----------------------------------------------------
+
+Event.create!(
+  title: "Opening ceremony",
+  description: "🎫 Entrée: FREE AVANT 1h00📍📍
+10€ avec conso après 1h00
+🍔 Snacking, Burgers maison...
+🍹 Cocktails
+🅿 Grand parking facile d'accès et Sécurisé.
+🕶 Réservez votre Table et espace ombragé : 06 82 84 41 54",
+  price: 0,
+  category: "Club",
+  date: Date.new(2019,8,31),
+  start_time: '23:30:00',
+  end_time: '06:00:00',
+  photo: "openingspartacus.png",
+  place: Place.create!(
+    name: "Spartacus",
+    details: "L'histoire d'amour entre le SPARTACUS Club et la musique électronique n'est pas toute jeune, cette année, nous avons célébré ces seize années de partage, de fête, de joie et d'amour.
+Cette histoire perdure depuis tant d'années, grâce aux nombreux artistes de qualité qui se sont succédés les uns après les autres.",
+    category: "Club",
+    address: "7 Boulevard Lacordaire, 13013 Marseille",
+    photo: "spartacus.png"
+  )
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "DJ Résident",
+    category: "Autre",
+    photo: "http://stemfellowship.org/wp-content/uploads/2019/05/unknown-person-1-1.jpg",
+    spotify_link: nil
+  ),
+  event: Event.find_by_title("Opening ceremony")
+)
+
+
+# -----------------------------------------------------
+
+Event.create!(
+  title: "DJ SET & LIVE",
+  description: "LITTLE BOB (DJ SET)
+Quand un morceau de musique donne envie de danser on dit qu’il groove ! Quand on dit qu’un DJ groove cela veut dire qu’il apporte de l’énergie et du fun sur les morceaux. Passionné depuis toujours de sons qui groovent, la musique, il l’aime et il aime aussi et surtout en faire profiter les autres !!!",
+  price: 0,
+  category: "Bar",
+  date: Date.new(2019,8,31),
+  start_time: '21:30:00',
+  end_time: '00:30:00',
+  photo: "mamashelter.png",
+  place: Place.create!(
+    name: "Mama Shelter",
+    details: "Mama Shelter propose des chambres design avec wifi et films gratuits, ainsi qu'un restaurant, un bar et un patio insolite à Marseille.",
+    category: "Bar",
+    address: "64 Rue de la Loubière, 13006 Marseille",
+    photo: "https://www.mamashelter.com/files/live/sites/mamashelter/files/HP%20Marseille/Restaurants/Restaurant/MamaShelter_Marseille_08_18_%2089_FA2.jpg"
+  )
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "Little Bob",
+    category: "Hip-Hop",
+    photo: "littlebob.png",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/287499736&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("DJ SET & LIVE")
+)
+
+
+# -----------------------------------------------------
+
+
 #UserParticipation.create!(
 #  user: User.find_by_username('Admin'),
 #  event: Event.find_by_title('La Friche - ON AIR : SIDI&CO')
 #)
-
 
 puts 'Finished!'
 
