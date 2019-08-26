@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :user_participations
 
   validates :username, uniqueness: true
+
+  acts_as_voter
 end
