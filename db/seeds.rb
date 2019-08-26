@@ -49,35 +49,95 @@ end
 
 puts "Creating new seed..."
 
+
 Event.create!(
-  title: "Apéro Mojito Party Au Red Lion",
-  description: "Tous les lundis, c'est MOJITO PARTY 🍹
-  En partenariat avec Bacardi, viens siroter nos mojitos de 16h à 2h en HAPPY HOUR à 7€ (au lieu de 9€).
-  Au programme : coucher de soleil, musique, goodies, chapeau, lunette de soleil, etc ...
-  Toute la semaine, HAPPY HOUR sur une sélection de bières pression de 17h à 21h ✌✌",
-  price: 0,
-  category: "Bar",
-  date: Date.new(2019,8,26),
-  start_time: '16:00:00',
-  end_time: '02:00:00',
-  photo: "https://scontent-mrs2-1.xx.fbcdn.net/v/t1.0-9/66439879_1212642738907403_8080812986958086144_o.jpg?_nc_cat=101&_nc_oc=AQnbIpRwLffcZ1KwlUQAgn6zmAj8A8BAW99OcEtR4HACISFodEWgaX8G31nkTZ1yeyg&_nc_ht=scontent-mrs2-1.xx&oh=a0f6520caba5fa59bc06f6eeb879f8e2&oe=5E10D0F8",
+  title: "Acontraluz 2019",
+  description: "Le festival ACONTRALUZ revient cette année le 6 & 7 Septembre!
+  Au programme, des artistes techno et électro internationaux, des animations, des événements partenaires, un espace VIP et encore beaucoup d'autres surprises...",
+  price: 36,
+  category: "Festival",
+  date: Date.new(2019,9,6),
+  start_time: '18:00:00',
+  end_time: '05:00:00',
+  photo: "http://static.teckyo.com/uploads/2019/07/banni%C3%A8re_AC2019.jpg",
+  buy_link: "https://www.digitick.com/d/event/acontraluz-2019-jour-1/esplanade-du-j4/6136861",
   place: Place.create!(
-    name: "Red Lion",
-    details: "Un Pub irlandais, situé face aux plages de Borély à Marseille, le Red lion vous acceuille dans un cadre sympa et authentique pour déguster toutes ses bières pression, ses meilleurs whisky et pour les fans, les cocktails au « shaker » façon Viny au lounge.",
-    category: "Bar",
-    address: "231 Avenue Pierre Mendès France, 13008 Marseille",
-    photo: "https://www.architecte-agencement-decoration.com/wp-content/uploads/2019/03/Pub-Anglais-Style-Victorien-The-Red-Lion-Marseille-Marseille-Edmond-Garnier-DCA-Decoration-Concept-Amenagement-2.jpg"
+    name: "Esplanade du J4",
+    details: "Lieu incontournable du festival de musique électronique Acontraluz 6ème édition",
+    category: "Festival",
+    address: "Esplanade Du J4, Marseille",
+    photo: "acontraluz.png"
   )
 )
 
 ArtistParticipation.create!(
   artist: Artist.create!(
-    name: "DJ Résident",
+    name: "Solomun",
     category: "Electro",
-    photo: "http://stemfellowship.org/wp-content/uploads/2019/05/unknown-person-1-1.jpg",
-    spotify_link: nil
+    photo: "https://www.acontraluz.fr/wp-content/uploads/2019/06/solomun2019.jpg",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/16683323&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
   ),
-  event: Event.find_by_title("Apéro Mojito Party Au Red Lion")
+  event: Event.find_by_title("Acontraluz 2019")
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "Stephan Bodzin",
+    category: "Electro",
+    photo: "https://www.acontraluz.fr/wp-content/uploads/2019/05/stephanbodzin.jpg",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/235900201&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("Acontraluz 2019")
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "Sam Paganini",
+    category: "Techno",
+    photo: "https://www.acontraluz.fr/wp-content/uploads/2019/07/Sam-Paganini-sq-300x300.jpg",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/603243471&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("Acontraluz 2019")
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "Agoria",
+    category: "Electro",
+    photo: "https://www.acontraluz.fr/wp-content/uploads/2019/05/agoria.jpg",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/555621288&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("Acontraluz 2019")
+)
+
+# -----------------------------------------------------
+
+Event.create!(
+  title: "La frenchie - Ofenbach",
+  description: "Vendredi c’est La Frenchie ! Une soirée qui met à l’honneur les DJ et artistes français. De l’éclosion de la House aux prémices de la Techno en passant par la French Touch 1.0 (et 2.0) et le Disco, La Frenchie te fera voyager à travers cette formidable scène électronique nationale ! De 19h à 21h notre équipe de bartenders vous OFFRE le deuxième verre. Tickets sur place : 10€ de 19h à 20h, 15€ à partir de 20h puis 20€ à partir de 23h.",
+  price: 15,
+  category: "Rooftop",
+  date: Date.new(2019,8,30),
+  start_time: '19:00:00',
+  end_time: '02:00:00',
+  photo: "lafrenchie.png",
+  place: Place.create!(
+    name: "Rooftop R2",
+    details: "Le Rooftop, c’est le lieu incontournable du panorama Marseillais et l’un des toits-terrasse les plus exceptionnels d’Europe… On vient ici défier les lois de la gravité pour « s’envoyer en l’air » au son d’une programmation exceptionnelle.",
+    category: "Rooftop",
+    address: "9 Quai du Lazaret, 13002 Marseille",
+    photo: "http://www.airdemarseille.com/wp-content/uploads/2016/07/IMG_3972-1200x800.jpg"
+  )
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
+    name: "Ofenbach",
+    category: "Electronic",
+    photo: "https://www.sortiraparis.com/images/55/1665/303597-ofenbach-x-zig-zag.jpg",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/603220845&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("La frenchie - Ofenbach")
 )
 
 # -----------------------------------------------------
@@ -235,36 +295,6 @@ ArtistParticipation.create!(
   event: Event.find_by_title("Le Sport Beach - FREAKY FRIDAY")
 )
 
-
-# -----------------------------------------------------
-
-Event.create!(
-  title: "La frenchie - Ofenbach",
-  description: "Vendredi c’est La Frenchie ! Une soirée qui met à l’honneur les DJ et artistes français. De l’éclosion de la House aux prémices de la Techno en passant par la French Touch 1.0 (et 2.0) et le Disco, La Frenchie te fera voyager à travers cette formidable scène électronique nationale ! De 19h à 21h notre équipe de bartenders vous OFFRE le deuxième verre. Tickets sur place : 10€ de 19h à 20h, 15€ à partir de 20h puis 20€ à partir de 23h.",
-  price: 15,
-  category: "Rooftop",
-  date: Date.new(2019,8,30),
-  start_time: '19:00:00',
-  end_time: '02:00:00',
-  photo: "lafrenchie.png",
-  place: Place.create!(
-    name: "Rooftop R2",
-    details: "Le Rooftop, c’est le lieu incontournable du panorama Marseillais et l’un des toits-terrasse les plus exceptionnels d’Europe… On vient ici défier les lois de la gravité pour « s’envoyer en l’air » au son d’une programmation exceptionnelle.",
-    category: "Rooftop",
-    address: "9 Quai du Lazaret, 13002 Marseille",
-    photo: "http://www.airdemarseille.com/wp-content/uploads/2016/07/IMG_3972-1200x800.jpg"
-  )
-)
-
-ArtistParticipation.create!(
-  artist: Artist.create!(
-    name: "Ofenbach",
-    category: "Electronic",
-    photo: "https://www.sortiraparis.com/images/55/1665/303597-ofenbach-x-zig-zag.jpg",
-    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/603220845&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-  ),
-  event: Event.find_by_title("La frenchie - Ofenbach")
-)
 
 # -----------------------------------------------------
 
@@ -470,63 +500,34 @@ ArtistParticipation.create!(
 # -----------------------------------------------------
 
 Event.create!(
-  title: "Acontraluz 2019",
-  description: "Le festival ACONTRALUZ revient cette année le 6 & 7 Septembre!
-  Au programme, des artistes techno et électro internationaux, des animations, des événements partenaires, un espace VIP et encore beaucoup d'autres surprises...",
-  price: 36,
-  category: "Festival",
-  date: Date.new(2019,9,6),
-  start_time: '18:00:00',
-  end_time: '05:00:00',
-  photo: "http://static.teckyo.com/uploads/2019/07/banni%C3%A8re_AC2019.jpg",
-  buy_link: "https://www.digitick.com/d/event/acontraluz-2019-jour-1/esplanade-du-j4/6136861",
+  title: "Apéro Mojito Party Au Red Lion",
+  description: "Tous les lundis, c'est MOJITO PARTY 🍹
+  En partenariat avec Bacardi, viens siroter nos mojitos de 16h à 2h en HAPPY HOUR à 7€ (au lieu de 9€).
+  Au programme : coucher de soleil, musique, goodies, chapeau, lunette de soleil, etc ...
+  Toute la semaine, HAPPY HOUR sur une sélection de bières pression de 17h à 21h ✌✌",
+  price: 0,
+  category: "Bar",
+  date: Date.new(2019,8,26),
+  start_time: '16:00:00',
+  end_time: '02:00:00',
+  photo: "https://scontent-mrs2-1.xx.fbcdn.net/v/t1.0-9/66439879_1212642738907403_8080812986958086144_o.jpg?_nc_cat=101&_nc_oc=AQnbIpRwLffcZ1KwlUQAgn6zmAj8A8BAW99OcEtR4HACISFodEWgaX8G31nkTZ1yeyg&_nc_ht=scontent-mrs2-1.xx&oh=a0f6520caba5fa59bc06f6eeb879f8e2&oe=5E10D0F8",
   place: Place.create!(
-    name: "Esplanade du J4",
-    details: "Lieu incontournable du festival de musique électronique Acontraluz 6ème édition",
-    category: "Festival",
-    address: "Esplanade Du J4, Marseille",
-    photo: "acontraluz.png"
+    name: "Red Lion",
+    details: "Un Pub irlandais, situé face aux plages de Borély à Marseille, le Red lion vous acceuille dans un cadre sympa et authentique pour déguster toutes ses bières pression, ses meilleurs whisky et pour les fans, les cocktails au « shaker » façon Viny au lounge.",
+    category: "Bar",
+    address: "231 Avenue Pierre Mendès France, 13008 Marseille",
+    photo: "https://www.architecte-agencement-decoration.com/wp-content/uploads/2019/03/Pub-Anglais-Style-Victorien-The-Red-Lion-Marseille-Marseille-Edmond-Garnier-DCA-Decoration-Concept-Amenagement-2.jpg"
   )
 )
 
 ArtistParticipation.create!(
   artist: Artist.create!(
-    name: "Solomun",
+    name: "DJ Résident",
     category: "Electro",
-    photo: "https://www.acontraluz.fr/wp-content/uploads/2019/06/solomun2019.jpg",
-    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/16683323&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+    photo: "http://stemfellowship.org/wp-content/uploads/2019/05/unknown-person-1-1.jpg",
+    spotify_link: nil
   ),
-  event: Event.find_by_title("Acontraluz 2019")
-)
-
-ArtistParticipation.create!(
-  artist: Artist.create!(
-    name: "Stephan Bodzin",
-    category: "Electro",
-    photo: "https://www.acontraluz.fr/wp-content/uploads/2019/05/stephanbodzin.jpg",
-    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/235900201&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-  ),
-  event: Event.find_by_title("Acontraluz 2019")
-)
-
-ArtistParticipation.create!(
-  artist: Artist.create!(
-    name: "Sam Paganini",
-    category: "Techno",
-    photo: "https://www.acontraluz.fr/wp-content/uploads/2019/07/Sam-Paganini-sq-300x300.jpg",
-    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/603243471&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-  ),
-  event: Event.find_by_title("Acontraluz 2019")
-)
-
-ArtistParticipation.create!(
-  artist: Artist.create!(
-    name: "Agoria",
-    category: "Electro",
-    photo: "https://www.acontraluz.fr/wp-content/uploads/2019/05/agoria.jpg",
-    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/555621288&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-  ),
-  event: Event.find_by_title("Acontraluz 2019")
+  event: Event.find_by_title("Apéro Mojito Party Au Red Lion")
 )
 
 # -----------------------------------------------------
