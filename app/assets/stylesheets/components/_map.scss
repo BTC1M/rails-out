@@ -29,7 +29,23 @@
 .mapboxgl-popup {
   max-width: 200px;
 }
+.logo {
+z-index: 1;
+}
 
+.btn-filter-map {
+position: absolute;
+left: -5px;
+bottom: -45px;
+border: 2px solid gray;
+background-color: #343434;
+color: gray;
+box-shadow: 3px 3px 0px black;
+width: 70px;
+font-size: 12px;
+letter-spacing: .2rem;
+
+}
 
 .mapboxgl-popup-content {
 	box-shadow: 5px 5px 0px black !important;
@@ -49,15 +65,16 @@
 
 	height: 109px !important;
 	border: 1px solid;
-	border-image:   repeating-linear-gradient(to right,
-	#343434 0px, #343434 9px,
-	red 3px, red 20px,
-	#343434 15px, #343434 31px,
-	yellow 15px, yellow 46px,
-	green 15px, green 62px,
-	blue 15px, blue 77px,
-	pink 15px, pink 93px,
-	purple 15px, purple 120px) 6;
+	border-image:  linear-gradient(to right,
+	pink 0px, pink 35px,
+	orange 35px, orange 71px,
+	yellow 35px, yellow 107px,
+	red 35px, red 142px,
+	blue 35px, blue 178px,
+	green 35px, green 214px,
+	purple 35px, purple 250px,
+	) 1;
+
 }
 
 // .mapboxgl-popup-anchor-left {
