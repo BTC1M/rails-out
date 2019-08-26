@@ -85,7 +85,7 @@ Event.create!(
   date: Date.new(2019,8,30),
   start_time: '19:00:00',
   end_time: '23:00:00',
-  photo: "eventfriche.jpeg",
+  photo: "eventfriche.png",
   place: Place.create!(
     name: "La friche belle de mai",
     details: "Des soirées musicales tous les week-ends de l'été sur le toit-terrasse de la Friche, ouvertes à tous et gratuites. De nombreux artistes assurent ce voyage estival musical avec vue panoramique sur Marseille. À bord, terrain de pétanque, jeux pour enfants, bar à cocktails et délices à grignoter. Prêts pour le décollage ?",
