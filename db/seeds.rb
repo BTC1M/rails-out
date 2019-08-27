@@ -508,6 +508,7 @@ Event.create!(
   price: 0,
   category: "Bar",
   date: Date.new(2019,8,26),
+  #date: Date.today,
   start_time: '16:00:00',
   end_time: '02:00:00',
   photo: "https://scontent-mrs2-1.xx.fbcdn.net/v/t1.0-9/66439879_1212642738907403_8080812986958086144_o.jpg?_nc_cat=101&_nc_oc=AQnbIpRwLffcZ1KwlUQAgn6zmAj8A8BAW99OcEtR4HACISFodEWgaX8G31nkTZ1yeyg&_nc_ht=scontent-mrs2-1.xx&oh=a0f6520caba5fa59bc06f6eeb879f8e2&oe=5E10D0F8",
