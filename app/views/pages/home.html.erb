@@ -12,7 +12,7 @@
       <ul class="hs">
         <%# events_sorted = @events.sort_by {|obj| obj.start_time} %>
         <% @events.order(start_time: 'asc').each do |event| %>
-          <% if event.date == Date.today %>
+          <% if  %>
             <li>
             <%= link_to(event_path(event.id)) do %>
               <div class="card-event ml-2">
