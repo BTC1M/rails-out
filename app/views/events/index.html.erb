@@ -1,10 +1,10 @@
 
- <div class="align-items-start">
-  <div class="logo mx-auto">
-    <p class="out">OUT</p>
-    <br>
-    <button class="btn-filter-map"> FILTER </button>
-  </div>
+<div class="align-items-start">
+<div class="logo mx-auto">
+  <p class="out">OUT</p>
+  <br>
+  <button class="btn-filter-map"> FILTRER </button>
+</div>
 
 <div
   id="map"
@@ -13,6 +13,7 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 >
 </div>
+
 <!-- ----------------------------------- -->
 
 <!-- <!DOCTYPE html>
@@ -32,12 +33,12 @@ body { margin:0; padding:0; }
 
 </head>
 <body>
- 
+
 <div
   id="map"
   height: 600px;
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  data-markers="<%#= @markers.to_json %>"
+  data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>"
 >
 </div>
 
@@ -86,17 +87,17 @@ zoom: 12
   //   });
   //   map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
   //   fitMapToMarkers(map, markers);
- 
+
 // Center the map on the coordinates of any clicked symbol from the 'symbols' layer.
 map.on('click', 'markers', function (e) {
 map.flyTo({center: e.features[0].geometry.coordinates});
 });
- 
+
 // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
 map.on('mouseenter', 'markers', function () {
 map.getCanvas().style.cursor = 'pointer';
 });
- 
+
 // Change it back to a pointer when it leaves.
 map.on('mouseleave', 'markers', function () {
 map.getCanvas().style.cursor = '';
@@ -136,12 +137,12 @@ body { margin:0; padding:0; }
 </style>
 </head>
 <body>
- 
+
 <div
   id="map"
   height: 600px;
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  data-markers="<%#= @markers.to_json %>"
+  data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>"
 >
 </div>
 
@@ -172,7 +173,7 @@ center: [ 5.36, 43.29],
 zoom: 11
 });
 </script>
- 
+
 </body>
 </html>
  -->
@@ -186,8 +187,8 @@ zoom: 11
   id="map"
   style="
   height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  data-markers="<#%= @markers.to_json %>"
+  data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>"
 ></div>
 
 

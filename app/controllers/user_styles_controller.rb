@@ -13,7 +13,7 @@ class UserStylesController < ApplicationController
   end
 
   def destroy
-    #@user_style = UserStyle.where(style: Style.find(params[:id]))
+    # @user_style = UserStyle.where(style: Style.find(params[:id]))
     @user_style = UserStyle.find_by(style: Style.find(params[:id]))
     @user_style.destroy
     redirect_to dashboard_path
