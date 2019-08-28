@@ -7,14 +7,14 @@
       <% end %>
     <% else %>
       <%= link_to like_artist_path(@artist), method: :put do %>
-        <%= image_tag "like.png", size: "30x30", style: "position: relative; left: 6px; bottom: 4px;"%>
+        <%= image_tag "like.png", size: "30x30", style: "position: relative; left: 40px;"%>
       <% end %>
     <% end %>
   </p>
 
 <div class="background-artist-event"></div>
       <div class="ses_prochains_events d-flex justify-content-start mt-3" style="height: 30px;">
-    <p class="taille_texte3 mb-2" style="position: relative;left: -8px; font-size: 18px; color: white !important;">ses prochains évènements</p>
+    <p class="taille_texte3 mb-2" style="position: relative;left: -8px; font-size: 18px; color: white !important;">Ses prochains évènements</p>
   </div>
   <p class="lign-chapiter2 mb-3 mt-3" style="left: 31px;"> </p>
 
@@ -61,10 +61,11 @@
         <% end %>
       </ul>
     </div>
+
 <!-- ----------------------------------------------- -->
 
 <% if @artist.spotify_link != nil %>
-  <iframe style="margin-top: 25px;position: absolute;bottom: -220px;" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src=<%= @artist.spotify_link %>></iframe>
+  <iframe style="margin-top: 25px;position: absolute;bottom: -270px;" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src=<%= @artist.spotify_link %>></iframe>
 <% end %>
 
 

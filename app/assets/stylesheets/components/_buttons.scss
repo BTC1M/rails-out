@@ -65,7 +65,7 @@ display: none;
 .btn_oui, .btn_non, .btn_buy {
 	background-color: transparent;
 	border: 2px solid white;
-	font-size: 12px;
+	font-size: 15px;
 	color: white;
 	padding-top: 12px;
 	padding-bottom: 12px;
@@ -75,7 +75,7 @@ display: none;
 	top: 10px;
 	position: relative;
 	font-weight: bold;
-	left: 34px;
+	left: 15px;
 &:hover {
 	text-decoration: none;
 	color: white;
@@ -92,14 +92,14 @@ display: none;
 	margin-right: auto !important;
 	box-shadow: 2px 2px 0px black !important;
 	text-shadow: 2px 2px 0px black !important;
-	background-color: black !important;
+	background-color: green !important;
 	font-weight: bold !important;
 }
 
 //----------------------//
 
 .modal-header {
-	background-color: black !important;
+	background-color: #433F40 !important;
 	text-align: center !important;
 }
 
@@ -116,10 +116,10 @@ margin: 0px !important;
 text-shadow: 3px 3px 3px black;
 }
 .modal-body {
-	background-color: rgba(0,0,0,.5) !important;
+	background-color: #433F40 !important;
 	height: 300px !important;
 	text-align: center !important;
-	 
+
 }
 
 .modal-body a{
@@ -142,7 +142,7 @@ margin-top: 40px !important;
 }
 
 .modal-footer {
-	background-color: black !important;
+	background-color: #433F40 !important;
 
 }
 

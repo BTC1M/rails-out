@@ -5,7 +5,7 @@
   <p class="marseille">MARSEILLE</p>
   <div class="color-line-top d-flex mb-3"></div>
   <div class="ses_prochains_events d-flex justify-content-start" style="height: 30px;">
-    <p class="taille_texte mb-2" style="position: relative;left: -70px;">évènements ce soir</p>
+    <p class="taille_texte mb-2" style="position: relative;left: -70px;">Evènements ce soir</p>
   </div>
   <p class="lign-chapiter-event-cesoir mb-3" style="left: 0px;"> </p>
 
@@ -19,26 +19,39 @@
               <div class="card-event ml-2">
               <div class="color-line-event"> </div>
               <div class="img_event" style="background-image: url(<%=asset_path(event.photo)%>); background-position: center; background-size: cover;"></div>
-              <h3 class="title-event"><%= event.title.gsub(/^(.{25,}?).*$/m,'\1') %></h3>
-              <p class="title-text-event"><%= event.title.gsub(/^(.{12,}?).*$/m,'\1') %></p>
-              <p class="text-event"> <%= event.category %> -
+              <!-- <h3 class="title-event"><%#= event.title.gsub(/^(.{25,}?).*$/m,'\1') %></h3> -->
+              <h3 class="title-event"><%= event.category %></h3>
+              <!-- <p class="title-text-event"><%#= event.title.gsub(/^(.{12,}?).*$/m,'\1') %></p> -->
+              <p class="title-text-event-discover"><%= event.title %></p>
+              <p class="text-event">
                 <% artist_category_array_home = [] %>
+                <% array_unique = [] %>
                 <% event.artists.each do |artist| %>
-                  <% unless artist_category_array_home.include?(artist.category + " ") %>
-                    <% artist_category_array_home << artist.category + " " %>
+                  <% artist_category_array_home << artist.category %>
+                  <% array_unique = artist_category_array_home.uniq %>
+                <% end %>
+                <% count = 1 %>
+                <% three_dot = false %>
+                <% array_unique.each do |category| %>
+                  <% if count == 1  %>
+                    <%= category %>
+                  <% elsif count == 2 && three_dot == false %>
+                    /
+                    <%= category %>
+                  <!-- <%# elsif count == 3 && three_dot == false %>
+                    ...
+                    <%# three_dot = true %> -->
                   <% end %>
+                  <% count += 1 %>
                 <% end %>
-                <% if artist_category_array_home.length > 1 %>
-                  <%= artist_category_array_home.first(1).join.gsub(/^(.{6,}?).*$/m,'\1') %>
-                <% else %>
-                  <%= artist_category_array_home.join.gsub(/^(.{6,}?).*$/m,'\1') %>
-                <% end %><br>
-                <% placename_for_card = event.place.name%>
-                <% if placename_for_card.length > 12 %>
-                  <%= placename_for_card[0..12]%>
-                <% else %>
-                  <%= event.place.name%>
-                <% end %>
+                <br>
+                <%= event.place.name %>
+                <%# placename_for_card = event.place.name %>
+                <%# if placename_for_card.length > 12 %>
+                  <%#= placename_for_card[0..12]%>
+                <%# else %>
+                  <%#= event.place.name %>
+                <%# end %>
                 </p>
                 <div class="card-next-event-date d-flex flex-column">
                   <% p= event.date %>
@@ -53,7 +66,7 @@
       </ul>
   <div class="background-artist"></div>
       <div class="ses_prochains_events d-flex justify-content-start mt-3" style="height: 30px;">
-    <div class="taille_texte mt-4" style="z-index: 1;" >artistes du moment</div>
+    <div class="taille_texte mt-4" style="z-index: 1;" >Artistes du moment</div>
   </div>
     <p class="lign-chapiter2 mt-4 mb-4" > </p>
       <ul class="hs2">
@@ -64,7 +77,8 @@
               <div class="card-artist mt-4 mb-5 mr-3">
                 <div class="img_artist-card" style="background-image: url(<%=asset_path(artist.photo)%>); background-position: center; background-size: cover;"></div>
               </div>
-              <% end %>
+            <h3 class="card-title-artist"><%= artist.name %></h3>
+            <% end %>
             </li>
           <% end %>
         <% end %>
@@ -75,7 +89,7 @@
   <div class="text-center">
     <div class="ses_prochains_events d-flex justify-content-start" style="height: 30px;">
 
-      <div class="taille_texte mb-2 mt-5" style="position: relative; top: -240px; left: -5px;">évènements à venir</div>
+      <div class="taille_texte mb-2 mt-5" style="position: relative; top: -240px; left: -5px;">Evènements à venir</div>
 
     </div>
     <p class="lign-chapiter3 my-2" style="position: relative; left: 35px;top: -195px;"> </p>
@@ -87,26 +101,40 @@
             <div class="color-line-next-event">
             </div>
             <div class="img_next_event" style="background-image: url(<%=asset_path(event.photo)%>); background-position: center; background-size: cover;"></div>
-            <h3 class="title-event"><%= event.title.gsub(/^(.{25,}?).*$/m,'\1') %></h3>
-            <p class="title-text-event4"><%= event.title.gsub(/^(.{12,}?).*$/m,'\1') %></p>
+            <!-- <h3 class="title-event"><%#= event.title.gsub(/^(.{25,}?).*$/m,'\1') %></h3> -->
+            <h3 class="title-event"><%= event.category %></h3>
+            <!-- <p class="title-text-event4"><%#= event.title.gsub(/^(.{12,}?).*$/m,'\1') %></p> -->
+            <p class="title-text-event-discover"><%= event.title %></p>
             <p class="text-next-event">
-              <%= event.category %> -<% artist_category_array_home = [] %>
-                  <% event.artists.each do |artist| %>
-                    <% unless artist_category_array_home.include?(artist.category + " ") %>
-                      <% artist_category_array_home << artist.category + " " %>
-                    <% end %>
-                  <% end %>
-                  <% if artist_category_array_home.length > 1 %>
-                    <%= artist_category_array_home.first(1).join.gsub(/^(.{5,}?).*$/m,'\1') %>
-                  <% else %>
-                    <%= artist_category_array_home.join %>
-                  <% end %><br>
-              <% placename_for_card = event.place.name %>
-                <% if placename_for_card.length > 12 %>
-                  <%= placename_for_card[0..12]%>
-                <% else %>
-                  <%= event.place.name %>
-                <% end %> </p>
+              <% artist_category_array_home = [] %>
+              <% array_unique = [] %>
+              <% event.artists.each do |artist| %>
+                <% artist_category_array_home << artist.category %>
+                <% array_unique = artist_category_array_home.uniq %>
+              <% end %>
+              <% count = 1 %>
+              <% three_dot = false %>
+              <% array_unique.each do |category| %>
+                <% if count == 1  %>
+                  <%= category %>
+                <% elsif count == 2 && three_dot == false %>
+                  /
+                  <%= category %>
+                <!-- <%# elsif count == 3 && three_dot == false %>
+                  ...
+                  <%# three_dot = true %> -->
+                <% end %>
+                <% count += 1 %>
+              <% end %>
+              <br>
+              <%= event.place.name %>
+              <%# placename_for_card = event.place.name %>
+              <%# if placename_for_card.length > 12 %>
+                <%#= placename_for_card[0..12]%>
+              <%# else %>
+                <%#= event.place.name %>
+              <%# end %>
+            </p>
             <div class="card-next-event-date-last d-flex flex-column">
               <% p= event.date %>
               <h2><%= p.strftime('%d') %></h2>

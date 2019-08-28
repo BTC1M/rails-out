@@ -7,10 +7,13 @@
   <div class="modal-body">
       <h6 class="modal-title" id="myModalLabel">Connectez vous</h6>
       <p></p>
-      <%= f.text_field :email, placeholder: "email", class: "email-text"  %>
-      <%= f.password_field :password, placeholder: "password", class: "password-text"%>
+      <%= f.text_field :email, placeholder: "Email", class: "email-text"  %>
+      <%= f.password_field :password, placeholder: "Mot de passe", class: "password-text"%>
       <p></p>
-      <%= link_to " ", new_password_path(:user) %>
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me, style: "color: white;" %>
+      <p></p>
+      <%= link_to "Mot de passe oublié?", new_password_path(:user), class: "mr-5", style: "font-size: small;" %>
       <%= f.submit 'Login', class: "btn btn-primary" %>
   </div>
   <div class="modal-footer d-flex justify-content-between">

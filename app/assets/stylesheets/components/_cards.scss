@@ -125,7 +125,7 @@ border-radius: 4px;
 }
 
 .card-event .title-event {
-  position: absolute;
+position: absolute;
 width: 170px;
 height: 20px;
 font-family: Roboto;
@@ -219,7 +219,7 @@ top: 55px;
   position: absolute;
   width: 154px;
   height: 58px;
-  bottom: 23px;
+  bottom: 85px;
   left:40px;
   font-family: Avenir Next;
   font-style: normal;
@@ -234,8 +234,8 @@ top: 55px;
   position: absolute;
   width: 154px;
   height: 58px;
-  top: 70px;
-  left: 46px !important;
+  top: 20px;
+  left: 40px !important;
   font-family: Avenir Next;
   font-style: normal;
   font-weight: bold;
@@ -632,7 +632,7 @@ border-radius: 4px;
   width: 154px;
   height: 58px;
   left: 47px !important;
-  bottom: 25px !important;
+  bottom: 85px !important;
   font-family: Avenir Next;
   font-style: normal;
   font-weight: bold;
@@ -866,3 +866,24 @@ transform: rotate(0deg) !important;
 }
 
 
+.card-title-artist {
+  position: relative;
+  // left: 65px;
+  color: white;
+  top: 0px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  text-align: center;
+}
+
+.card-title-artist-dashboard {
+  position: relative;
+  // left: 65px;
+  color: white;
+  top: 40px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  text-align: center;
+}
