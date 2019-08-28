@@ -42,18 +42,16 @@ const initMapbox = () => {
         "data": markersGeoJson
       });
 
-      markersGeoJson.features.forEach(function(feature) {
-        var symbol = feature.properties.icon['icone'];
-        var category = feature.properties['category'];
+      markersGeoJson.features.forEach(function(marker) {
+        var symbol = marker.properties.icon['icone'];
+        var category = marker.properties['category'];
         var layerID = 'poi-' + category;
 
         var el = document.createElement('div');
         el.className = 'my-icon';
 
-        console.log(el);
-
         new mapboxgl.Marker(el)
-          .setLngLat(feature.geometry.coordinates)
+          .setLngLat([ marker.geometry.coordinates[0], marker.geometry.coordinates[1] ])
           .addTo(map);
 
 
