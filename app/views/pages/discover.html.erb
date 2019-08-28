@@ -19,7 +19,7 @@
             <div class="color-line-next-event-discover">
             </div>
             <div class="img_next_event" style="background-image: url(<%=asset_path(event.photo)%>); background-position: center; background-size: cover;"></div>
-            <h3 class="title-event"><%= event.title.gsub(/^(.{12,}?).*$/m,'\1') %></h3>
+            <h3 class="title-event"><%= event.title.gsub(/^(.{25,}?).*$/m,'\1') %></h3>
             <p class="title-text-event-discover"><%= event.title.gsub(/^(.{12,}?).*$/m,'\1') %></p>
             <p class="text-next-event">
            <%= event.category %><% artist_category_array_home = [] %>
