@@ -10,11 +10,23 @@
   id="map"
   height: 100%;
   data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
->
+  data-markersgeojson="<%= @markers_geojson.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
-<!-- ----------------------------------- -->
+<!-- <div
+  id="map"
+  height: 100%;
+  data-markers="<%#= @markers.to_json %>"
+  data-markersgeojson="<%#= @markers_geojson.to_json %>"
+  data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>">
+</div> -->
+
+<!-- Boutons FILTRER -->
+<nav id='filter-group' class='filter-group'></nav>
+
+
+<!-- -------------------------------------------------- -->
 
 <!-- <!DOCTYPE html>
 
@@ -177,22 +189,3 @@ zoom: 11
 </body>
 </html>
  -->
-
-
-
-
-<!-- ------------------------------- -->
-
-<<!-- div
-  id="map"
-  style="
-  height: 600px;"
-  data-markers="<#%= @markers.to_json %>"
-  data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>"
-></div>
-
-
- -->
-
-
-
