@@ -24,7 +24,8 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/dark-v10'
+      // style: 'mapbox://styles/mapbox/dark-v10'
+      style: 'mapbox://styles/remiwagon/cjzjn3hsn50nz1cpgqkuhwfn7'
     });
 
     const markers = JSON.parse(mapElement.dataset.markers);
@@ -54,7 +55,7 @@ const initMapbox = () => {
         //   .setLngLat([ marker.geometry.coordinates[0], marker.geometry.coordinates[1] ])
         //   .addTo(map);
 
-        // Add a layer for this symbol type if it hasn't been added already.
+        // Add a layer for this marker
         if (!map.getLayer(layerID)) {
           map.addLayer({
             "id": layerID,
@@ -64,20 +65,20 @@ const initMapbox = () => {
               'circle-radius': 8,
               'circle-opacity': 0.8,
               'circle-stroke-width': 1,
-              'circle-stroke-color': 'white',
-              'circle-stroke-opacity': 1,
+              /*'circle-stroke-color': 'white',*/
+              /*'circle-stroke-opacity': 1,*/
               'circle-color': [
                 'match',
                 ['get', 'category'],
                 'Festival', '#00FFF3',
                 'Rooftop', 'blue',
                 'Open air', '#FF69B4',
-                'Pool Party', 'pink',
+                'Pool Party', 'orange',
                 'Club', '#088C00',
                 'Beach', 'yellow',
                 'Bar', 'red',
-                'Concert', 'orange',
-                /* other */ '#ccc'
+                'Concert', 'purple',
+                /* other */ 'yellow'
               ]
             },
             "filter": ["==", "category", category]
@@ -106,119 +107,60 @@ const initMapbox = () => {
 
 // ----------------------------------------------------
 
-    // // markers.forEach((marker) => {
-    // markersGeoJson.features.forEach((marker) => {
+    markersGeoJson.features.forEach((marker) => {
 
-      // // const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
-      // const popup = new mapboxgl.Popup().setHTML(marker.properties.infoWindow);
+      const popup = new mapboxgl.Popup().setHTML(marker.properties.infoWindow);
 
-      // // Create a HTML element for your custom marker
-      // const styleDefaultMarker = (element) => {
-      //   element.className = 'my-icon';
-      //   element.style.backgroundSize = 'contain';
-      //   element.style.width = '15px';
-      //   element.style.height = '15px';
-      //   element.style.boxShadow = "0px 0px 12px 1px white";
-      //   element.style.borderRadius = "100px";
-      //   element.style.border ="1px solid white";
-      //   element.style.backgroundColor = "#4d4d4d";
-      //   element.style.position = "absolute";
-      //   // element.style.backgroundImage = `url('${marker.image_url}')`;
-      //   // element.style.backgroundImage = `url('${marker.properties.image_url}')`;
-      // }
+      // Create a HTML element for your custom marker
+      const styleDefaultMarker = (element) => {
+        element.className = 'test';
+        // element.style.backgroundSize = 'contain';
+        element.style.width = '15px';
+        element.style.height = '15px';
+        element.style.boxShadow = "0px 0px 12px 1px white";
+        element.style.borderRadius = "100px";
+        element.style.border ="1px solid white";
+        // element.style.backgroundColor = "#4d4d4d";
+        element.style.position = "absolute";
+        element.style.opacity = "0";
+      }
 
-      // const element = document.createElement('div');
-      // styleDefaultMarker(element)
+      const element = document.createElement('div');
+      styleDefaultMarker(element)
 
-      // new mapboxgl.Marker(element)
-      // // .setLngLat([ marker.lng, marker.lat ])
-      // .setLngLat([ marker.geometry.coordinates[0], marker.geometry.coordinates[1] ])
-      // .setPopup(popup)
-      // .addTo(map);
+      new mapboxgl.Marker(element)
+      .setLngLat([ marker.geometry.coordinates[0], marker.geometry.coordinates[1] ])
+      .setPopup(popup)
+      .addTo(map);
 
-      // element.addEventListener('click', function (e) {
+      element.addEventListener('click', function (e) {
 
-      //   // map.flyTo({center: [ marker.lng, marker.lat ], zoom: 13});
-      //   map.flyTo({center: [ marker.geometry.coordinates[0], marker.geometry.coordinates[1] ], zoom: 13});
-      //   element.style.width = '20px';
-      //   element.style.height = '20px';
-      //   element.style.boxShadow = "0px 0px 20px 4px white";
-      //   element.style.border ="3px solid white";
-      //   element.style.backgroundImage = `url('dot-white.png')`;
-      //   element.style.backgroundColor = "white";
-      //   element.style.position = "absolute";
+        // map.flyTo({center: [ marker.lng, marker.lat ], zoom: 13});
+        map.flyTo({center: [ marker.geometry.coordinates[0], marker.geometry.coordinates[1] ], zoom: 13});
+        element.style.opacity = "1";
+        element.style.width = '20px';
+        element.style.height = '20px';
+        element.style.boxShadow = "0px 0px 20px 4px white";
+        element.style.border ="3px solid white";
+        element.style.backgroundImage = `url('dot-white.png')`;
+        element.style.backgroundColor = "white";
+        element.style.position = "absolute";
 
-      //   let markersElements = document.querySelectorAll('.marker')
-      //   markersElements.forEach(marker => {
-      //     if (marker !== element) {
-      //       styleDefaultMarker(marker)
-      //     }
-      //   } )
-      // });
+        let markersElements = document.querySelectorAll('.test')
+        markersElements.forEach(marker => {
+          if (marker !== element) {
+            styleDefaultMarker(marker)
+          }
+        } )
+      });
 
-    // });
+    });
 
     // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
     fitMapToMarkers(map, markersGeoJson);
-    // fitMapToMarkers(map, markersGeoJson);
 
   }
 };
 
 export { initMapbox };
-
-
-// --------------------------------------------
-
-
-// const zoomMapbox = () => {
-  // marker.addEventListener('click', e => map.flyTo(e.latlng, 15))
-  // map.on('click', 'symbols', function (e) {
-  //       map.flyTo({center: e.features[0].geometry.coordinates});
-// }
-
-//           const zoomMapbox = () => {
-// marker.on('click', function(e){
-//   map.setView(e.latlng, 15);
-
-
-// const mapElement = document.getElementById('map');
-
-// const buildMap = () => {
-//   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-//   return new mapboxgl.Map({
-//     container: 'map',
-//     style: 'mapbox://styles/mapbox/dark-v10'
-//   });
-// };
-
-// const addMarkersToMap = (map, markers) => {
-//   markers.forEach((marker) => {
-//     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // add this
-
-//     new mapboxgl.Marker()
-//       .setLngLat([ marker.lng, marker.lat ])
-//       .setPopup(popup) // add this
-//       .addTo(map);
-//   });
-// };
-
-// const fitMapToMarkers = (map, markers) => {
-//   const bounds = new mapboxgl.LngLatBounds();
-//   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-//   map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
-// };
-
-// const initMapbox = () => {
-//   if (mapElement) {
-//     const map = buildMap();
-//     const markers = JSON.parse(mapElement.dataset.markers);
-//     addMarkersToMap(map, markers);
-//     fitMapToMarkers(map, markers);
-//   }
-// };
-
-
-
-// export { initMapbox };
 
