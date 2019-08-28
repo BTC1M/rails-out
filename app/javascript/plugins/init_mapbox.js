@@ -97,12 +97,8 @@ const initMapbox = () => {
           label.setAttribute('for', layerID);
           label.textContent = category;
 
-
-          //filterGroup.appendChild(input);
-          //filterGroup.appendChild(label);
           inputArray.push(input);
           labelArray.push(label);
-
 
           // When the checkbox changes, update the visibility of the layer.
           input.addEventListener('change', function(e) {
@@ -113,13 +109,23 @@ const initMapbox = () => {
       });
 
       // Pour afficher les checkbox lorsqu'on clique sur Filtrer
-      var filterElement = document.getElementById('btn-filter-map-id');
-      filterElement.addEventListener('click', function() {
+      var menuVisible = false;
+      document.getElementById("btn-filter-map-id").addEventListener("click", function(e) {
+        var menu = document.getElementById("filter-group");
+        e.preventDefault();
+        e.stopPropagation();
         for(let i = 0; i < inputArray.length; i++){
           filterGroup.appendChild(inputArray[i]);
           filterGroup.appendChild(labelArray[i]);
         }
-      });
+        if (menuVisible){
+          menu.style.display = "none";
+          menuVisible = false;
+        } else {
+          menu.style.display = "block";
+          menuVisible = true;
+        }
+      }, false);
 
     });
 
