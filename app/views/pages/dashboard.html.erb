@@ -90,13 +90,11 @@
   <ul class="hs2">
     <% current_user.find_liked_items.each do |artist| %>
       <li class="li_height">
-      <% unless artist.name.match?("Résident") %>
         <%= link_to(artist_path(artist.id)) do %>
           <div class="card-artist">
              <div class="img_artist-card" style="background-image: url(<%=asset_path(artist.photo)%>); background-position: center; background-size: cover;"></div>
           </div>
           <h3 class="card-title-artist-dashboard"><%= artist.name %></h3>
-          <% end %>
         <% end %>
       </li>
     <% end %>
