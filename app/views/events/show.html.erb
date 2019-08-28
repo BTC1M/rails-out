@@ -62,12 +62,12 @@
     <% end %>
 
     <!-- On supprime la bonne participation avec le bouton se désister -->
-    <%= link_to "Je n'y vais plus", event_user_participation_path(@event, particip_id), method: :delete, data: { confirm: "Etes vous sûr?" }, class: "btn btn-secondary ml-4", style: "margin-bottom: 5px;" %>
+    <%= link_to "je n'y vais plus", event_user_participation_path(@event, particip_id), method: :delete, data: { confirm: "Etes vous sûr?" }, class: "btn_non ml-4", style: "margin-bottom: 20px;" %>
     <!-- On ajoute un bouton pour acheter une prévente -->
-    <%= link_to "Acheter un ticket", @event.buy_link, class: "btn btn-secondary ml-4", style: "margin-bottom: 5px;" %>
+    <%= link_to "acheter un ticket", @event.buy_link, class: "btn_buy ml-4", style: "margin-bottom: 20px;" %>
   <% else %>
     <!-- On participe à l'évènement  -->
-    <%= link_to "J'y vais!", event_user_participations_path(@event), method: :create, class: "btn btn-secondary ml-4", style: "margin-bottom: 5px;" %>
+    <%= link_to "j'y vais!", event_user_participations_path(@event), method: :create, class: "btn_oui ml-4", style: "margin-bottom: 20px;" %>
   <% end %>
-  <div class="mb-5"></div>
+  <div style="margin-bottom: 80px;"></div>
 </div>

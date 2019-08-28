@@ -61,3 +61,119 @@ display: none;
 }
 
 //---------------------------------------//
+
+.btn_oui, .btn_non, .btn_buy {
+	background-color: transparent;
+	border: 2px solid white;
+	font-size: 12px;
+	color: white;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 20px !important;
+	top: 10px;
+	position: relative;
+	font-weight: bold;
+	left: 34px;
+&:hover {
+	text-decoration: none;
+	color: white;
+}
+}
+
+//------------ALERTE------//
+.alert {
+	color: white !important;
+	border-radius: 4px !important;
+	border: 1px solid black !important;
+	font-size: 12px !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	box-shadow: 2px 2px 0px black !important;
+	text-shadow: 2px 2px 0px black !important;
+	background-color: black !important;
+	font-weight: bold !important;
+}
+
+//----------------------//
+
+.modal-header {
+	background-color: black !important;
+	text-align: center !important;
+}
+
+.modal-title {
+	font-weight: bold !important;
+	font-size: 18px !important;
+	margin-left: 60px !important;
+	opacity: 1 !important;
+
+}
+
+.modal-body h6 {
+margin: 0px !important;
+text-shadow: 3px 3px 3px black;
+}
+.modal-body {
+	background-color: rgba(0,0,0,.5) !important;
+	height: 300px !important;
+	text-align: center !important;
+	 
+}
+
+.modal-body a{
+	color: white !important;
+	opacity: 1 !important;
+	text-shadow: 2px 2px 0px black !important;
+	font-weight: bold !important;
+	letter-spacing: 0.20em !important;
+
+}
+.modal-title {
+	color: white !important;
+	opacity: 1 !important;
+	letter-spacing: 0.1em !important;
+
+}
+
+.modal-body .modal-title {
+margin-top: 40px !important;
+}
+
+.modal-footer {
+	background-color: black !important;
+
+}
+
+.modal-body .btn {
+	background-color: black;
+	border: 1px solid white;
+	margin-left: 5px;
+	font-weight: bold !important;
+	font-size: 14px !important;
+}
+
+.modal-content {
+	background-color: transparent !important;
+}
+
+.modal-footer .modal-title {
+	font-size: 14px !important;
+}
+
+.modal-footer .btn{
+	background-color: black !important;
+	border: 1px solid white !important;
+	border-radius: 3px !important;
+}
+
+.email-text, .password-text {
+	background-color: rgba(255,255,255,.5) !important;
+	border-radius: 3px !important;
+	font-weight: bold !important;
+	border-radius: 2px solid black !important;
+	letter-spacing: 0.20em !important;
+	width: 250px !important;
+	margin: 5px !important;
+}
