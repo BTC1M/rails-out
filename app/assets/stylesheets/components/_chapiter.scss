@@ -16,7 +16,44 @@
   left: 39px;
   color: #FFFFFF;
   border: 0.5px solid #FFFFFF;
-  margin-bottom: 0px;
+  margin-top: 70px;
+}
+
+.lign-chapiter-vosevenement {
+  position: relative;
+  width: 298px;
+  height: 2px;
+  left: 39px;
+  color: #FFFFFF;
+  border: 0.5px solid #FFFFFF;
+}
+
+.lign-chapiter-vostyles {
+  position: relative;
+  width: 298px;
+  height: 2px;
+  left: 39px;
+  color: #FFFFFF;
+  border: 0.5px solid #FFFFFF;
+}
+
+.lign-chapiter-vosartistes {
+  position: relative;
+  width: 298px;
+  height: 2px;
+  left: 39px;
+  color: #FFFFFF;
+  border: 0.5px solid #FFFFFF;
+}
+
+.lign-chapiter-event-cesoir {
+  position: relative;
+  width: 298px;
+  height: 2px;
+  left: 39px;
+  color: #FFFFFF;
+  border: 0.5px solid #FFFFFF;
+  margin-top: 0px;
 }
 
 .lign-chapiter3 {
@@ -159,6 +196,27 @@ body {
   background-color: black;
 }
 
+.bodyhome2 {
+  display: grid;
+  place-items: center;
+  background-color: #5B5B5B;
+}
+
+.bodydash {
+  height: 100%;
+  place-items: center;
+  background-color: #5B5B5B;
+}
+// .bodyhome2 a {
+//   display: none;
+// }
+.bodyhomeanciens {
+  position: absolute;
+  top: 1350px;
+  height: 100%;
+  place-items: center;
+  background-color: black;
+}
 ul {
   list-style: none;
   padding: 0;
