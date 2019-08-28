@@ -13,7 +13,7 @@
       <ul class="hs">
         <%# events_sorted = @events.sort_by {|obj| obj.start_time} %>
         <% @events.order(start_time: 'asc').each do |event| %>
-          <% if %>
+          <% if event.date == Date.today %>
             <li>
             <%= link_to(event_path(event.id)) do %>
               <div class="card-event ml-2">
@@ -37,7 +37,7 @@
                 <% if placename_for_card.length > 12 %>
                   <%= placename_for_card[0..12]%>
                 <% else %>
-                  <%= event.place.name%> 
+                  <%= event.place.name%>
                 <% end %>
                 </p>
                 <div class="card-next-event-date d-flex flex-column">
@@ -51,8 +51,8 @@
           <% end %>
         <% end %>
       </ul>
-  <div class="background-artist"></div>    
-      <div class="ses_prochains_events d-flex justify-content-start mt-3" style="height: 30px;">   
+  <div class="background-artist"></div>
+      <div class="ses_prochains_events d-flex justify-content-start mt-3" style="height: 30px;">
     <div class="taille_texte mt-4" style="z-index: 1;" >artistes du moment</div>
   </div>
     <p class="lign-chapiter2 mt-4 mb-4" > </p>

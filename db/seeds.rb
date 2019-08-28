@@ -121,6 +121,7 @@ Event.create!(
   start_time: '19:00:00',
   end_time: '02:00:00',
   photo: "lafrenchie.png",
+  buy_link: "https://www.digitick.com/d/event/r2-rooftop-la-frenchie-ofenbach/rooftop-r2-marseille/6471383",
   place: Place.create!(
     name: "Rooftop R2",
     details: "Le Rooftop, c’est le lieu incontournable du panorama Marseillais et l’un des toits-terrasse les plus exceptionnels d’Europe… On vient ici défier les lois de la gravité pour « s’envoyer en l’air » au son d’une programmation exceptionnelle.",
@@ -133,7 +134,7 @@ Event.create!(
 ArtistParticipation.create!(
   artist: Artist.create!(
     name: "Ofenbach",
-    category: "Electron",
+    category: "Electro",
     photo: "https://www.sortiraparis.com/images/55/1665/303597-ofenbach-x-zig-zag.jpg",
     spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/603220845&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
   ),
