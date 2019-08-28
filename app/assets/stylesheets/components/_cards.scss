@@ -380,6 +380,41 @@ background: black;
 border-radius: 19px 19px 0px 0px;
 z-index: 0;
 }
+
+.background-dash-top {
+position: absolute;
+width: 374px;
+height: 800px;
+left: 0px;
+top: 0px;
+
+background: black;
+border-radius: 0px 0px 19px 19px;
+z-index: 0;
+}
+
+.background-dash-bottom {
+position: absolute;
+width: 374px;
+height: 3035px;
+left: 0px;
+bottom: -3330px;
+background: black;
+border-radius: 19px 19px 0px 0px;
+z-index: 0;
+}
+
+// .background-artist-prefere {
+//   position: absolute;
+// width: 374px;
+// height: 270px;
+// left: 0px;
+// top: 830px;
+
+// background: #5B5B5B;
+// border-radius: 19px;
+// z-index: 0;
+// }
 //----------------------------------------------//
 
 //--------------CARD-NEXT-EVENT-----------------//
@@ -597,6 +632,11 @@ border-radius: 4px;
   left: 0px !important;
   top: 50px !important;
 }
+
+.ses_anciens_events {
+  left: 20px !important;
+  top: 600px !important;
+}
 //----------------------------------------------//
 
 //------------CARD-NEXT-EVENT-DATE--------------//
@@ -706,6 +746,52 @@ position: absolute;
 left: 0px;
 color: black;
 top: 7px;
+font-size: 18px;
+font-style: normal;
+font-weight: 900;
+text-align: center;
+transform: rotate(0deg) !important;
+
+}
+
+//----------------USER DATE---------//
+
+.card-next-event-date-last-user {
+position: absolute;
+width: 72px;
+height: 72px;
+top: 0px;
+bottom: 0px;
+background: #ffffff;
+border-radius: 3px;
+margin:auto 0 auto auto;
+right: -33px;
+text-align: center;
+
+width: 113.12px;
+height: 43.55px;
+
+
+transform: rotate(90deg);
+}
+
+
+.card-next-event-date-last-user h2{
+position: absolute;
+left: 15px;
+color: black;
+top: -1px;
+font-size: 40px;
+font-style: normal;
+font-weight: 900;
+text-align: center;
+}
+
+.card-next-event-date-last-user h3{
+position: absolute;
+left: 65px;
+color: black;
+top: 10px;
 font-size: 18px;
 font-style: normal;
 font-weight: 900;
