@@ -78,14 +78,14 @@ const initMapbox = () => {
 // ----------------------------------------------------
 
     // // markers.forEach((marker) => {
-    markersGeoJson.features.forEach((marker) => {
+    // markersGeoJson.features.forEach((marker) => {
 
-      // const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
-      const popup = new mapboxgl.Popup().setHTML(marker.properties.infoWindow);
+      // // const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+      // const popup = new mapboxgl.Popup().setHTML(marker.properties.infoWindow);
 
       // // Create a HTML element for your custom marker
       // const styleDefaultMarker = (element) => {
-      //   element.className = 'marker';
+      //   element.className = 'my-icon';
       //   element.style.backgroundSize = 'contain';
       //   element.style.width = '15px';
       //   element.style.height = '15px';
@@ -98,14 +98,14 @@ const initMapbox = () => {
       //   // element.style.backgroundImage = `url('${marker.properties.image_url}')`;
       // }
 
-      const element = document.createElement('div');
+      // const element = document.createElement('div');
       // styleDefaultMarker(element)
 
-      new mapboxgl.Marker(element)
-      // .setLngLat([ marker.lng, marker.lat ])
-      .setLngLat([ marker.geometry.coordinates[0], marker.geometry.coordinates[1] ])
-      .setPopup(popup)
-      .addTo(map);
+      // new mapboxgl.Marker(element)
+      // // .setLngLat([ marker.lng, marker.lat ])
+      // .setLngLat([ marker.geometry.coordinates[0], marker.geometry.coordinates[1] ])
+      // .setPopup(popup)
+      // .addTo(map);
 
       // element.addEventListener('click', function (e) {
 
@@ -127,7 +127,7 @@ const initMapbox = () => {
       //   } )
       // });
 
-    });
+    // });
 
     // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
     fitMapToMarkers(map, markers);

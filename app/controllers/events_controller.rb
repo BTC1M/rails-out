@@ -43,7 +43,7 @@ class EventsController < ApplicationController
                 {
                   icone: "music",
                   className: 'my-icon',
-                  iconSize: null
+                  iconSize: nil
                 },
               category: place.category,
               infoWindow: render_to_string(partial: "info_window", locals: { event: place.events.where("date >= ?", Date.today).order(start_time: :asc).first }),
