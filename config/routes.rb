@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   get "/dashboard", to: "pages#dashboard"
   get "/discover", to: "pages#discover"
 
+  get "/test", to: "pages#test"
+
   get "/modalsignin" => 'pages#modalsignin', :as => :modalsignin
 
 end

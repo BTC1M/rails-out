@@ -81,7 +81,7 @@ const initMapbox = () => {
                 'Beach', 'yellow',
                 'Bar', 'red',
                 'Concert', 'purple',
-                /* other */ 'yellow'
+                /* other */ '#FF7314'
               ]
             },
             "filter": ["==", "category", category]

@@ -207,7 +207,7 @@ Event.create!(
   end_time: '02:00:00',
   photo: "syndrome.png",
   place: Place.create!(
-    name: "Le Chapiteau - la belle de mai",
+    name: "Le Chapiteau",
     details: "Le Chapiteau est un bar culturel, un bar concert, un espace de création et de liberté où le sound-system ne s’arrête jamais. Ce sont toutes ces choses qui font du Chapiteau un lieu de vie unique à Marseille.",
     category: "Open air",
     address: "38 Traverse Notre Dame du Bon Secours, 13003 Marseille",
@@ -248,7 +248,7 @@ ArtistParticipation.create!(
 ArtistParticipation.create!(
   artist: Artist.create!(
     name: "Matthias Torm",
-    category: "Techno",
+    category: "Autre",
     photo: "matthias-torm.png",
     spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/514632324&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
   ),
@@ -289,7 +289,7 @@ Event.create!(
 ArtistParticipation.create!(
   artist: Artist.create!(
     name: "DJ Résident",
-    category: "Autre",
+    category: "Chill",
     photo: "http://stemfellowship.org/wp-content/uploads/2019/05/unknown-person-1-1.jpg",
     spotify_link: nil
   ),
@@ -300,7 +300,7 @@ ArtistParticipation.create!(
 # -----------------------------------------------------
 
 Event.create!(
-  title: "Baou: barcelona Show with Yaya SEB Zito",
+  title: "Baou: barcelona Show with Yaya",
   description: "🇪🇸 Barcelona SHOW présente Yaya & Seb Zito 🇪🇸
   ▬▬▬▬▬LINE UP▬▬▬▬▬▬
   ➫ Yaya (Desolat Music Group / Get Physical Music - 🇮🇹)
@@ -332,7 +332,7 @@ ArtistParticipation.create!(
     photo: "yaya.png",
     spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/464088450&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
   ),
-  event: Event.find_by_title("Baou: barcelona Show with Yaya SEB Zito")
+  event: Event.find_by_title("Baou: barcelona Show with Yaya")
 )
 
 ArtistParticipation.create!(
@@ -342,17 +342,17 @@ ArtistParticipation.create!(
     photo: "sebzito.png",
     spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/318791023&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
   ),
-  event: Event.find_by_title("Baou: barcelona Show with Yaya SEB Zito")
+  event: Event.find_by_title("Baou: barcelona Show with Yaya")
 )
 
 ArtistParticipation.create!(
   artist: Artist.create!(
     name: "Fab Lo Coco",
-    category: "Tech house",
+    category: "Deep house",
     photo: "fablococo.png",
     spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/408950547&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
   ),
-  event: Event.find_by_title("Baou: barcelona Show with Yaya SEB Zito")
+  event: Event.find_by_title("Baou: barcelona Show with Yaya")
 )
 
 # -----------------------------------------------------
@@ -393,7 +393,7 @@ Event.create!(
   description: "Des murs sombres, une déco aux allures seventies et un nom qui évoque le meilleur de la nuit marseillaise. La programmation musicale est assurée par la maison, avec des djs invités chaque week-end – comme Joie Iacono (Cazzo Pazzo – NYC/Berlin), Kezokichi Miyazaki (Blindetonation Records – Tokyo) ou Pete Herbet (Darkness/Paradise Row – London) & Antho Nabet (Darkness).",
   price: 0,
   category: "Club",
-  date: Date.today,
+  date: Date.new(2019,8,28),
   start_time: '23:00:00',
   end_time: '06:00:00',
   photo: "https://tarpin-bien.com/wp-content/uploads/2016/11/MAT_4444.jpg",
@@ -420,7 +420,7 @@ ArtistParticipation.create!(
 # -----------------------------------------------------
 
 Event.create!(
-  title: "Different mood Family au Chapiteau",
+  title: "Different mood Family live",
   description: "La famille Different Mood est de retour derrière les platines du chapiteau pour une soirée acidulée.
   Dans le sac pour l'occasion beaucoup d'inspiration anglaise, des rythmes breakés, de la 303 en veux tu en voilà, de l'amour et des smileys sur les galettes pour cette soirée à la belle de Mai placée sous le signe de la rave.",
   price: 3,
@@ -429,7 +429,7 @@ Event.create!(
   start_time: '19:00:00',
   end_time: '04:00:00',
   photo: "different-mood.png",
-  place: Place.find_by_name("Le Chapiteau - la belle de mai")
+  place: Place.find_by_name("Le Chapiteau")
 )
 
 ArtistParticipation.create!(
@@ -439,14 +439,14 @@ ArtistParticipation.create!(
     photo: "dmood.png",
     spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/316366105&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
   ),
-  event: Event.find_by_title("Different mood Family au Chapiteau")
+  event: Event.find_by_title("Different mood Family live")
 )
 
 
 # -----------------------------------------------------
 
 Event.create!(
-  title: "La cabane des amis x Plage du Roucas Blanc 29/08",
+  title: "La cabane des amis 29/08",
   description: "Les apéros du jeudi à la Paillote Borely ! 🚨 Une Paillote en bord de plage 🏝 Un beau coucher de soleil 🌅 Des mojitos succulents 🍸 Un Dj de folie 🎤🎧 Une clientèle 30-60 ans 👌❤️ Une ambiance déjantée ! 😱🎉 C’est tous les jeudis de l’été ! ",
   price: 0,
   category: "Beach",
@@ -466,18 +466,18 @@ Event.create!(
 ArtistParticipation.create!(
   artist: Artist.create!(
     name: "DJ Résident",
-    category: "Autre",
+    category: "Chill",
     photo: "http://stemfellowship.org/wp-content/uploads/2019/05/unknown-person-1-1.jpg",
     spotify_link: nil
   ),
-  event: Event.find_by_title("La cabane des amis x Plage du Roucas Blanc 29/08")
+  event: Event.find_by_title("La cabane des amis 29/08")
 )
 
 
 # -----------------------------------------------------
 
 Event.create!(
-  title: "La cabane des amis x Plage du Roucas Blanc 05/09",
+  title: "La cabane des amis 05/09",
   description: "Les apéros du jeudi à la Paillote Borely ! 🚨 Une Paillote en bord de plage 🏝 Un beau coucher de soleil 🌅 Des mojitos succulents 🍸 Un Dj de folie 🎤🎧 Une clientèle 30-60 ans 👌❤️ Une ambiance déjantée ! 😱🎉 C’est tous les jeudis de l’été ! ",
   price: 0,
   category: "Beach",
@@ -491,11 +491,11 @@ Event.create!(
 ArtistParticipation.create!(
   artist: Artist.create!(
     name: "DJ Résident",
-    category: "Autre",
+    category: "Chill",
     photo: "http://stemfellowship.org/wp-content/uploads/2019/05/unknown-person-1-1.jpg",
     spotify_link: nil
   ),
-  event: Event.find_by_title("La cabane des amis x Plage du Roucas Blanc 05/09")
+  event: Event.find_by_title("La cabane des amis 05/09")
 )
 
 # -----------------------------------------------------
@@ -647,7 +647,7 @@ Cette histoire perdure depuis tant d'années, grâce aux nombreux artistes de qu
 ArtistParticipation.create!(
   artist: Artist.create!(
     name: "DJ Résident",
-    category: "Autre",
+    category: "Electronique",
     photo: "http://stemfellowship.org/wp-content/uploads/2019/05/unknown-person-1-1.jpg",
     spotify_link: nil
   ),

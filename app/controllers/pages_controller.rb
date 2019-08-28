@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[home discover] # , :raise => false
+  skip_before_action :authenticate_user!, only: %i[home] # , :raise => false
 
   def home
     @events = Event.all
@@ -24,5 +24,8 @@ class PagesController < ApplicationController
       format.html
       format.js
     end
+  end
+
+  def test
   end
 end

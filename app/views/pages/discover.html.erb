@@ -11,35 +11,74 @@
   </div>
   <p class="lign-chapiter2" style="left: 0px;"></p>
 
+  <!-- Recuperation des evenements correspondant aux styles de l'utilisateur -->
+  <% selected_events = [] %>
+  <% selected_events_uniq = [] %>
+  <% artist_styles = [] %>
+  <% artist_styles_uniq = [] %>
+  <% user_styles = [] %>
+
+  <% current_user.styles.each do |style| %>
+    <% user_styles << style.name %>
+  <% end %>
+
+  <% @events.each do |event| %>
+    <% artist_styles = [] %>
+    <% event.artists.each do |artist| %>
+      <% artist_styles << artist.category %>
+    <% end %>
+    <% artist_styles_uniq = artist_styles.uniq %>
+
+    <% user_styles.each do |style| %>
+      <% if artist_styles_uniq.include?(style) %>
+        <% selected_events << event %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <% selected_events_uniq = selected_events.uniq %>
+
+  <%# ordered_events = selected_events_uniq.order(date: 'asc') %>
+
     <div class="d-flex flex-column justify-content-center" style="position: relative;top: 330px;">
-      <% @events.order(date: 'asc').each do |event| %>
+      <% selected_events_uniq.each do |event| %>
       <%= link_to(event_path(event.id)) do %>
-        <% if event.date < (Date.today + 7.day) %>
+        <% if event.date >= Date.today %>
           <div class="card-next-event-discover" style="position: relative;left: -20px;">
             <div class="color-line-next-event-discover">
             </div>
             <div class="img_next_event" style="background-image: url(<%=asset_path(event.photo)%>); background-position: center; background-size: cover;"></div>
-            <h3 class="title-event"><%= event.title.gsub(/^(.{25,}?).*$/m,'\1') %></h3>
-            <p class="title-text-event-discover"><%= event.title.gsub(/^(.{12,}?).*$/m,'\1') %></p>
+            <!-- <h3 class="title-event"><%#= event.title.gsub(/^(.{25,}?).*$/m,'\1') %></h3> -->
+            <h3 class="title-event"><%= event.category %></h3>
+            <p class="title-text-event-discover"> <%= event.title %></p>
             <p class="text-next-event">
-           <%= event.category %><% artist_category_array_home = [] %>
-                  <% event.artists.each do |artist| %>
-                    <% unless artist_category_array_home.include?(artist.category + " ") %>
-                      <% artist_category_array_home << artist.category + " " %>
-                    <% end %>
-                  <% end %>
-                  <% if artist_category_array_home.length > 2 %>
-                    <%= artist_category_array_home.first(1).join %>...
-                  <% else %>
-                    <%= artist_category_array_home.join %>
-                  <% end %><br>
+            <% artist_category_array_home = [] %>
+            <% array_unique = [] %>
+            <% event.artists.each do |artist| %>
+              <% artist_category_array_home << artist.category %>
+              <% array_unique = artist_category_array_home.uniq %>
+            <% end %>
+            <% count = 1 %>
+            <% three_dot = false %>
+            <% array_unique.each do |category| %>
+              <% if count == 1  %>
+                <%= category %>
+              <% elsif count == 2 && three_dot == false %>
+                /
+                <%= category %>
+              <!-- <%# elsif count == 3 && three_dot == false %>
+                ...
+                <%# three_dot = true %> -->
+              <% end %>
+              <% count += 1 %>
+            <% end %>
+            <br>
 
-               <% adresse_for_card = event.place.address %>
-                <% if adresse_for_card.length > 12 %>
-                  <%= adresse_for_card[0..16]%>
-                <% else %>
-                  <%= event.place.address %>
-                <% end %> </p>
+            <% adresse_for_card = event.place.name %>
+              <% if adresse_for_card.length > 12 %>
+                <%= adresse_for_card[0..16]%>
+              <% else %>
+                <%= event.place.name %>
+              <% end %> </p>
             <div class="card-next-event-date-last d-flex flex-column">
               <% p= event.date %>
               <h2><%= p.strftime('%d') %></h2>

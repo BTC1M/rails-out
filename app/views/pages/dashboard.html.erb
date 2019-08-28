@@ -3,15 +3,16 @@
   <div class="logo mx-auto mt-5 mb-4 " style="z-index: 1;">
     <p class="out" style="z-index: 1;">OUT</p>
   </div>
+  <!-- <p class="marseille " style="z-index: 1;"><%= current_user.username %></p> -->
   <p class="marseille " style="z-index: 1;">F R A N C K</p>
   <div class="color-line-top d-flex mb-3" style="z-index: 1;"></div>
   <div class="d-flex justify-content-end" style="width:100%; z-index: 1">
   <%= link_to 'DECONNEXTION', destroy_user_session_path, class: "btn_deconnexion mt-2 mr-5", style: 'text-decoration: none !important;', method: :delete, data: { confirm: 'Are you sure?' } %>
   <!-- <button class="btn_deconnexion"><p>Deconnexion</p></button> -->
 </div>
-  <div class="avatar-large mt3" style="background-image: url(<%=asset_path('franckphoto')%>); z-index: 1"></div>
-  <div class="ses_prochains_events d-flex flex-row align-items-center justify-content-start" style="width: 80%; margin-top: 20px;">
-    <div class="taille_texte" style="z-index: 1;">vos styles</div>
+  <div class="avatar-very-large mt3" style="background-image: url(<%=asset_path('franckphoto')%>); z-index: 1"></div>
+  <div class="ses_prochains_events d-flex flex-row align-items-center justify-content-start" style="width: 80%; margin-top: 5px;">
+    <div class="taille_texte" style="z-index: 1;">Vos styles</div>
   </div>
   <p class="lign-chapiter-vostyles" style="left: 0px;"> </p>
 
@@ -38,7 +39,7 @@
 
 <!-- ---------------------------------------------- -->
 <div class="ses_prochains_events d-flex flex-row align-items-center justify-content-start " style="height: 30px;">
-    <div class="taille_texte_vosevenements" style="z-index: 1;">vos evènements</div>
+    <div class="taille_texte_vosevenements" style="z-index: 1;">Vos evènements</div>
   </div>
   <p class="lign-chapiter-vosevenement"> </p>
 
@@ -83,19 +84,17 @@
       </ul>
       <div class="background-artist-prefere"></div>
   <div class="ses_prochains_events d-flex justify-content-start mt-5" style="height: 30px;">
-    <div class="taille_texte" style="margin-top: 20px;">vos artistes préférés</div>
+    <div class="taille_texte" style="margin-top: 20px;">Vos artistes préférés</div>
   </div>
   <p class="lign-chapiter-vosartistes" style="margin-top: 20px;"> </p>
   <ul class="hs2">
     <% current_user.find_liked_items.each do |artist| %>
       <li class="li_height">
-      <% unless artist.name.match?("Résident") %>
         <%= link_to(artist_path(artist.id)) do %>
-          <div class="card-artist mt-5">
-            <h3 class="card-title-artist"> <%= artist.name %></h3>
+          <div class="card-artist">
              <div class="img_artist-card" style="background-image: url(<%=asset_path(artist.photo)%>); background-position: center; background-size: cover;"></div>
           </div>
-          <% end %>
+          <h3 class="card-title-artist-dashboard"><%= artist.name %></h3>
         <% end %>
       </li>
     <% end %>
@@ -105,7 +104,7 @@
   <div class="text-center" style="top: 0px;position: relative;">
     <div class="ses_anciens_events d-flex justify-content-start" style="height: 30px;">
 
-      <div class="taille_texte mb-2 mt-5" style="position: relative; top: 0px; left: 35px;">vos anciens évènements</div>
+      <div class="taille_texte mb-2 mt-5" style="position: relative; top: 0px; left: 35px;">Vos anciens évènements</div>
 
     </div>
     <p class="lign-chapiter3 mt-3" style="position: relative; left: 35px;top: 30px;"> </p>
@@ -117,26 +116,32 @@
             <div class="color-line-next-event">
             </div>
             <div class="img_next_event" style="background-image: url(<%=asset_path(event.photo)%>); background-position: center; background-size: cover; filter: grayscale(80%); "></div>
-            <h3 class="title-event"><%= event.title.gsub(/^(.{25,}?).*$/m,'\1') %></h3>
-            <p class="title-text-event4"><%= event.title.gsub(/^(.{12,}?).*$/m,'\1') %></p>
+            <h3 class="title-event"><%= event.category %></h3>
+            <p class="title-text-event4"><%= event.title %></p>
             <p class="text-next-event">
-              <%= event.category %> -<% artist_category_array_home = [] %>
-                  <% event.artists.each do |artist| %>
-                    <% unless artist_category_array_home.include?(artist.category + " ") %>
-                      <% artist_category_array_home << artist.category + " " %>
-                    <% end %>
+              <% artist_category_array_home = [] %>
+                <% array_unique = [] %>
+                <% event.artists.each do |artist| %>
+                  <% artist_category_array_home << artist.category %>
+                  <% array_unique = artist_category_array_home.uniq %>
+                <% end %>
+                <% count = 1 %>
+                <% three_dot = false %>
+                <% array_unique.each do |category| %>
+                  <% if count == 1  %>
+                    <%= category %>
+                  <% elsif count == 2 && three_dot == false %>
+                    /
+                    <%= category %>
+                  <!-- <%# elsif count == 3 && three_dot == false %>
+                    ...
+                    <%# three_dot = true %> -->
                   <% end %>
-                  <% if artist_category_array_home.length > 1 %>
-                    <%= artist_category_array_home.first(1).join.gsub(/^(.{5,}?).*$/m,'\1') %>
-                  <% else %>
-                    <%= artist_category_array_home.join %>
-                  <% end %><br>
-              <% placename_for_card = event.place.name %>
-                <% if placename_for_card.length > 12 %>
-                  <%= placename_for_card[0..12]%>
-                <% else %>
-                  <%= event.place.name %>
-                <% end %> </p>
+                  <% count += 1 %>
+                <% end %>
+                <br>
+                <%= event.place.name %>
+              </p>
             <div class="card-next-event-date-last d-flex flex-column">
               <% p= event.date %>
               <h2><%= p.strftime('%d') %></h2>

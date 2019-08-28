@@ -1,0 +1,30 @@
+<!-- Recuperation des evenements correspondant aux styles de l'utilisateur -->
+<% selected_events = [] %>
+<% selected_events_uniq = [] %>
+<% artist_styles = [] %>
+<% artist_styles_uniq = [] %>
+<% user_styles = [] %>
+
+<% current_user.styles.each do |style| %>
+  <% user_styles << style.name %>
+<% end %>
+
+<% Event.all.each do |event| %>
+  <%= event.title %>
+  <% artist_styles = [] %>
+  <% event.artists.each do |artist| %>
+    <% artist_styles << artist.category %>
+  <% end %>
+  <% artist_styles_uniq = artist_styles.uniq %>
+
+  coucou
+
+  <% user_styles.each do |style| %>
+    <% if artist_styles_uniq.include?(style) %>
+      <% selected_events << event %>
+    <% end %>
+  <% end %>
+<% end %>
+<% selected_events_uniq = selected_events.uniq %>
+
+<%= selected_events_uniq %>
