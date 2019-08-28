@@ -37,10 +37,10 @@
   position: absolute;
   left: -5px;
   bottom: -45px;
-  border: 2px solid gray;
-  background-color: #343434;
-  color: gray;
-  box-shadow: 3px 3px 0px black;
+  border: 2px solid white;
+  background-color: black;
+  color: white;
+  box-shadow: 5px 5px 0px black;
   width: 80px;
   font-size: 12px;
   letter-spacing: .2rem;
@@ -48,9 +48,9 @@
 
 .mapboxgl-popup-content {
 	box-shadow: 5px 5px 0px black !important;
-	background: #343434 !important;
+	background: black !important;
 	border-radius: 1px !important;
-	color: #A0A0A0 !important;
+	color: white !important;
 	font-family: avenir !important;
 	font-style: normal !important;
 	font-weight: normal !important;
@@ -61,19 +61,8 @@
 	width: 250px !important;
 	min-width: 250px !important;
 	max-width: 250px !important;
-
 	height: 109px !important;
-	border: 1px solid;
-	border-image:  linear-gradient(to right,
-	pink 0px, pink 35px,
-	orange 35px, orange 71px,
-	yellow 35px, yellow 107px,
-	red 35px, red 142px,
-	blue 35px, blue 178px,
-	green 35px, green 214px,
-	purple 35px, purple 250px,
-	) 1;
-
+	border: 1px solid white;
 }
 
 // .mapboxgl-popup-anchor-left {
@@ -90,34 +79,48 @@
 .mapboxgl-popup-content a {
 	font-size: 18px;
 	position: absolute;
-	bottom: 75px;
-	left: 95px;
-	text-align: left;
+	top: -4px;
+	left: 4px;
 	// color: #A0A0A0 !important;
 	color: white !important;
 	text-decoration: none !important;
-	font-family: roboto !important;
+	font-family: 'roboto' !important;
+	transform: rotate(-90deg) !important;
+	height: 105px;
+	width: 105px;
+	vertical-align: bottom;
+	font-weight: bold;
+	line-height: 24px;
+	text-align: left !important;
+
+
 
 }
 
 .place-text-map {
-		position: absolute;
+	position: absolute;
 	bottom: 31px;
-	left: 110px;
 	line-height: 20px;
-	text-align: left;
-	color: #A0A0A0 !important;
+	color: white !important;
 	font-size: 14px !important;
+	vertical-align: bottom;
+	text-align: right !important;
+	left: 64px;
+	height:50px;
+	width: 90px;
+
 }
 
 .date-text-map {
 	position: absolute;
 	bottom: -7px;
-	left: 110px;
+	left: 72px;
 	line-height: 20px;
-	text-align: left;
-	color: #A0A0A0 !important;
+	color: white !important;
 	line-height: 180%;
+	vertical-align: bottom;
+	text-align: right;
+
 }
 
 .mapboxgl-popup-content h3 {
@@ -126,8 +129,9 @@
 	bottom: 45px;
 	left: 97px;
 	line-height: 20px;
-	text-align: left;
-	color: #A0A0A0 !important;
+	color: white !important;
+	vertical-align: bottom;
+	text-align: right;
 }
 // .mapboxgl-popup-content p {
 // 	position: absolute;
@@ -142,13 +146,14 @@
 	height: 85px;
 	width: 65px;
 	position: absolute;
-	left: 10px;
+	left: 165px;
 	top: 11px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	margin: auto;
+	border-radius: 3px;
 }
 
 .mapboxgl-popup{
