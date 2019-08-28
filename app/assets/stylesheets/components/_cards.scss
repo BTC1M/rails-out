@@ -136,6 +136,9 @@ line-height: 27px;
 color: #FFFFFF;
 transform: rotate(-90deg);
 left: -58px;
+vertical-align: top;
+text-align: left;
+top: 55px;
 }
 
 //----------------------------------------------//
@@ -467,7 +470,7 @@ z-index: 0;
 
 .card-next-event h3 {
   position: absolute;
-width: 170px;
+width: 168px;
 height: 20px;
 font-family: Roboto;
 font-style: normal;
@@ -477,8 +480,9 @@ line-height: 27px;
 color: #FFFFFF;
 transform: rotate(-90deg);
 left: -58px;
+vertical-align: top;
 text-align: left;
-top: 56px;
+top: 65px;
 }
 
 .card-next-event p {
@@ -567,7 +571,7 @@ border-radius: 4px;
 
 .card-next-event-discover h3 {
   position: absolute;
-width: 170px;
+width: 168px;
 height: 20px;
 font-family: Roboto;
 font-style: normal;
@@ -578,7 +582,7 @@ color: #FFFFFF;
 transform: rotate(-90deg);
 left: -58px;
 text-align: left;
-top: 56px;
+top: 65px;
 }
 
 .card-next-event-discover p {

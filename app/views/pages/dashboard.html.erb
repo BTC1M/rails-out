@@ -6,7 +6,7 @@
   <p class="marseille " style="z-index: 1;">F R A N C K</p>
   <div class="color-line-top d-flex mb-3" style="z-index: 1;"></div>
   <div class="d-flex justify-content-end" style="width:100%; z-index: 1">
-  <%= link_to 'LOG OUT', destroy_user_session_path, class: "btn_deconnexion mt-2 mr-5", style: 'text-decoration: none !important;', method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'DECONNEXTION', destroy_user_session_path, class: "btn_deconnexion mt-2 mr-5", style: 'text-decoration: none !important;', method: :delete, data: { confirm: 'Are you sure?' } %>
   <!-- <button class="btn_deconnexion"><p>Deconnexion</p></button> -->
 </div>
   <div class="avatar-large mt3" style="background-image: url(<%=asset_path('franckphoto')%>); z-index: 1"></div>
@@ -50,7 +50,7 @@
               <div class="card-event ml-2">
               <div class="color-line-event"> </div>
               <div class="img_event" style="background-image: url(<%=asset_path(user_participation.event.photo)%>); background-position: center; background-size: cover;"></div>
-              <h3 class="title-event"><%= user_participation.event.title.gsub(/^(.{12,}?).*$/m,'\1') %></h3>
+              <h3 class="title-event"><%= user_participation.event.title.gsub(/^(.{25,}?).*$/m,'\1') %></h3>
               <p class="title-text-event"><%= user_participation.event.title.gsub(/^(.{12,}?).*$/m,'\1') %></p>
               <p class="text-event"><%= user_participation.event.category %> -
                 <% artist_category_array_home = [] %>
@@ -102,12 +102,10 @@
   </ul>
 
   <div class="bodyhomeanciens">
-  <div class="text-center" style="top: 240px;position: relative;">
+  <div class="text-center" style="top: 0px;position: relative;">
     <div class="ses_anciens_events d-flex justify-content-start" style="height: 30px;">
 
-
-      <div class="taille_texte mb-2 mt-5" style="position: relative; top: -10px; left: 35px;">évènements à venir</div>
-
+      <div class="taille_texte mb-2 mt-5" style="position: relative; top: -240px; left: 35px;">vos anciens évènements</div>
 
     </div>
     <p class="lign-chapiter3 my-2" style="position: relative; left: 35px;top: 30px;"> </p>
@@ -119,7 +117,7 @@
             <div class="color-line-next-event">
             </div>
             <div class="img_next_event" style="background-image: url(<%=asset_path(event.photo)%>); background-position: center; background-size: cover; filter: grayscale(80%); "></div>
-            <h3 class="title-event"><%= event.title.gsub(/^(.{12,}?).*$/m,'\1') %></h3>
+            <h3 class="title-event"><%= event.title.gsub(/^(.{25,}?).*$/m,'\1') %></h3>
             <p class="title-text-event4"><%= event.title.gsub(/^(.{12,}?).*$/m,'\1') %></p>
             <p class="text-next-event">
               <%= event.category %> -<% artist_category_array_home = [] %>
