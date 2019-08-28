@@ -1,24 +1,10 @@
-<div class="align-items-start">
-  <div class="logo mx-auto">
-    <p class="out">OUT</p>
-  </div>
-  <div class="color-line-top"></div>
-
-  <div class="artist_image mt-4" style="background-image: url(<%=asset_path(@event.photo)%>);">
-    <div class="card-next-event-date2 d-flex flex-column justify-content-center align-items-center">
-      <% p= @event.date %>
-      <h2><%= p.strftime('%d') %></h2>
-      <h3> <%= p.strftime('%b') %> </h3>
-    </div>
-  </div>
-  <div class="event_description mx-4 mt-5 d-flex flex-column">
-    <div class="event_name d-flex mb-3">
-      <%= image_tag "heart.png", size: "22x22", class: "mr-2"%>
-      <p class="align-self-center mb-0"><%= @event.title.upcase %></p>
-    </div>
-    <div class="event_category d-flex mb-3">
-      <%= image_tag "note.png", size: "22x22", class: "mr-2"%>
-      <p class="align-self-center mb-0"><%= @event.category %> -
+  <div class="artist_image" style="background-image: url(<%=asset_path(@event.photo)%>);"></div>
+  <div class="description_event ml-4 my-4">
+    <p class="artist_name2">
+      <%= @event.title.upcase.gsub(/^(.{20,}?).*$/m,'\1') %>
+    </p>
+    <div class="d-flex">
+      <p class="align-self-center mb-0 event_category"><%= @event.category %> -
         <% artist_category_array = [] %>
         <% @event.artist_participations.each do |artist_participation| %>
           <% unless artist_category_array.include?(artist_participation.artist.category) %>
@@ -28,46 +14,41 @@
         <% end %>
         </p>
     </div>
-    <div class="event_place d-flex mb-3">
-      <%= image_tag "pin.png", size: "22x22", class: "mr-2"%>
-      <p class="align-self-center mb-0"><%= @event.place.address %></p>
+    <div class="event_place d-flex">
+      <p class="align-self-center mb-0  event_category"><%= @event.place.name %></p>
     </div>
-    <div class="event_hour d-flex mb-3">
-      <%= image_tag "clock.png", size: "22x22", class: "mr-2"%>
+    <div class="event_hour d-flex">
       <% start_time = @event.start_time %>
       <% end_time = @event.end_time %>
-      <p class="align-self-center mb-0"><%= start_time.strftime('%R') %> - <%= end_time.strftime('%R') %></p>
+      <p class="align-self-center mb-0  event_category"><%= start_time.strftime('%R') %> - <%= end_time.strftime('%R') %></p>
     </div>
-    <div class="event_price d-flex mb-3">
-      <%= image_tag "euro.png", size: "22x22", class: "mr-2"%>
-      <p class="align-self-center mb-0"><%= @event.price == 0 ? "gratuit" : @event.price %></p>
+    <div class="event_price d-flex">
+      <p class="align-self-center mb-0 event_category"><%= @event.price == 0 ? "gratuit" : "#{@event.price} €" %></p>
     </div>
   </div>
-
-  <p class="mx-4"><%= @event.description %></p>
-
-  <div class="ses_prochains_events mt-0 mb-2" style="height: 20px;">
-  <div>Les artistes</div>
+  <div class="card-next-event-date-last d-flex flex-column" style="top: 210px;right: 0px;">
+    <% p= @event.date %>
+    <h2 style="left: 9px;top: -2px;"><%= p.strftime('%d') %></h2>
+    <h3 style="top: 11px;position: relative;left: 22px;"> <%= p.strftime('%b') %> </h3>
   </div>
-  <p class="lign-chapiter2 mb-2"> </p>
-  <div class="app2">
-    <div class="d-flex">
-      <ul class="hs2" style="position: relative; top: -10px;">
+  <div class="background-artist" style="top: 600px;background-color: black;"></div>
+  <div class="ses_prochains_events d-flex justify-content-start mt-3" style="height: 30px;">
+    <div class="taille_texte mt-4" style="z-index: 1;" >Artistes de l'évènement</div>
+  </div>
+    <p class="lign-chapiter2 mt-4 mb-4" > </p>
+      <ul class="hs2">
         <% @event.artists.each do |artist| %>
-        <%= link_to(artist_path(artist.id)) do %>
-          <li class="li_height">
-          <%= link_to(artist_path(artist.id)) do %>
-            <div class="card-artist mt-5">
-              <h3 class="card-title-artist"> <%= artist.name %></h3>
-              <div class="img_artist-card" style="background-image: url(<%=asset_path(artist.photo)%>); background-position: center; background-size: cover;"></div>
-            </div>
-            <% end %>
-          </li>
-        <% end %>
+          <% unless artist.name.match?("Résident") %>
+            <li class="li_height mb-5">
+            <%= link_to(artist_path(artist.id)) do %>
+              <div class="card-artist mt-4 mb-5 mr-3">
+                <div class="img_artist-card" style="background-image: url(<%=asset_path(artist.photo)%>); background-position: center; background-size: cover;"></div>
+              </div>
+              <% end %>
+            </li>
+          <% end %>
         <% end %>
       </ul>
-    </div>
-  </div>
 
   <% particip_id = nil %>
   <!-- Si l'utilisateur participe déjà à l'évènement -->
@@ -81,12 +62,12 @@
     <% end %>
 
     <!-- On supprime la bonne participation avec le bouton se désister -->
-    <%= link_to "Je n'y vais plus", event_user_participation_path(@event, particip_id), method: :delete, data: { confirm: "Etes vous sûr?" }, class: "btn btn-secondary ml-4", style: "margin-bottom: 70px;" %>
+    <%= link_to "Je n'y vais plus", event_user_participation_path(@event, particip_id), method: :delete, data: { confirm: "Etes vous sûr?" }, class: "btn btn-secondary ml-4", style: "margin-bottom: 5px;" %>
     <!-- On ajoute un bouton pour acheter une prévente -->
-    <%= link_to "Acheter un ticket", @event.buy_link, class: "btn btn-secondary ml-4", style: "margin-bottom: 70px;" %>
+    <%= link_to "Acheter un ticket", @event.buy_link, class: "btn btn-secondary ml-4", style: "margin-bottom: 5px;" %>
   <% else %>
     <!-- On participe à l'évènement  -->
-    <%= link_to "J'y vais!", event_user_participations_path(@event), method: :create, class: "btn btn-secondary ml-4", style: "margin-bottom: 70px;" %>
+    <%= link_to "J'y vais!", event_user_participations_path(@event), method: :create, class: "btn btn-secondary ml-4", style: "margin-bottom: 5px;" %>
   <% end %>
   <div class="mb-5"></div>
 </div>
