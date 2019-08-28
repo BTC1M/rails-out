@@ -36,6 +36,9 @@ const initMapbox = () => {
 
 // ----------------------------------------------------
 
+    var inputArray = [];
+    var labelArray = [];
+
     map.on('load', function() {
       // Add a GeoJSON source containing place coordinates and information.
       map.addSource("places", {
@@ -89,12 +92,17 @@ const initMapbox = () => {
           input.type = 'checkbox';
           input.id = layerID;
           input.checked = true;
-          filterGroup.appendChild(input);
 
           var label = document.createElement('label');
           label.setAttribute('for', layerID);
           label.textContent = category;
-          filterGroup.appendChild(label);
+
+
+          //filterGroup.appendChild(input);
+          //filterGroup.appendChild(label);
+          inputArray.push(input);
+          labelArray.push(label);
+
 
           // When the checkbox changes, update the visibility of the layer.
           input.addEventListener('change', function(e) {
@@ -103,7 +111,18 @@ const initMapbox = () => {
           });
         }
       });
+
+      // Pour afficher les checkbox lorsqu'on clique sur Filtrer
+      var filterElement = document.getElementById('btn-filter-map-id');
+      filterElement.addEventListener('click', function() {
+        for(let i = 0; i < inputArray.length; i++){
+          filterGroup.appendChild(inputArray[i]);
+          filterGroup.appendChild(labelArray[i]);
+        }
+      });
+
     });
+
 
 // ----------------------------------------------------
 
