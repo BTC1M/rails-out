@@ -61,59 +61,10 @@
         <% end %>
       </ul>
     </div>
-
-  <div class="ses_prochains_events d-flex align-items-center justify-content-between">
-    <div>ses prochains évènements</div>
-  </div>
-  <p class="lign-chapiter2"> </p>
-  <div>
-    <div class="app2">
-      <ul class="hs">
-        <% @artist.artist_participations.each do |artist_part| %>
-        <li>
-        <%= link_to(event_path(artist_part.event.id)) do %>
-          <div class="card-event ml-2">
-            <div class="color-line-event"> </div>
-              <div class="img_event" style="background-image: url(<%=asset_path(artist_part.event.photo)%>); background-position: center; background-size: cover;"></div>
-              <h3 class="title-event"> <%= artist_part.event.title %></h3>
-              <p class="text-event">
-                <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %> <%= artist_part.event.category %> -<% artist_category_array_home = [] %>
-                  <% artist_part.event.artists.each do |artist| %>
-                    <% unless artist_category_array_home.include?(artist.category + " ") %>
-                      <% artist_category_array_home << artist.category + " " %>
-                    <% end %>
-                  <% end %>
-                  <% if artist_category_array_home.length > 3 %>
-                    <%= artist_category_array_home.first(3).join %>...
-                  <% else %>
-                    <%= artist_category_array_home.join %>
-                  <% end %><br>
-                <%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %> <% adresse_for_card = artist_part.event.place.address %>
-                <% if adresse_for_card.length > 25 %>
-                  <%= adresse_for_card[0..25] + '...'%>
-                <% else %>
-                  <%= artist_part.event.place.address %>
-                <% end %>
-              </p>
-          </div>
-        <% end %>
-        </li>
-        <% end %>
-      </ul>
-      <!-- <div class="music d-flex justify-content-around align-items-center mt-4 mx-auto">
-        <p class="titre_music_card align-self-center">ECOUTER UN TITRE DE <%#= @artist.name.upcase %></p>
-        <%#= image_tag "play.png", :size => "30x30", :class => "play align-self-center" %>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-<!-- A supprimer lorsque spotify_link sur seed créés -->
-<%# @artist.spotify_link = "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/269892869&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" %>
 <!-- ----------------------------------------------- -->
 
 <% if @artist.spotify_link != nil %>
-  <iframe style="margin-bottom: 60px; margin-top: 25px;" width="100%" height="250" scrolling="no" frameborder="no" allow="autoplay" src=<%= @artist.spotify_link %>></iframe>
+  <iframe style="margin-top: 25px;position: absolute;bottom: -220px;" width="100%" height="250" scrolling="no" frameborder="no" allow="autoplay" src=<%= @artist.spotify_link %>></iframe>
 <% end %>
 
 
