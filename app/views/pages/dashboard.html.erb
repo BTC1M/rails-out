@@ -105,15 +105,17 @@
   <div class="text-center" style="top: 240px;position: relative;">
     <div class="ses_anciens_events d-flex justify-content-start" style="height: 30px;">
 
-      <div class="taille_texte mb-2 mt-5" style="position: relative; top: -240px; left: 35px;">vos évènements passés</div>
+
+      <div class="taille_texte mb-2 mt-5" style="position: relative; top: -10px; left: 35px;">évènements à venir</div>
+
 
     </div>
-    <p class="lign-chapiter3 my-2" style="position: relative; left: 35px;top: -195px;"> </p>
+    <p class="lign-chapiter3 my-2" style="position: relative; left: 35px;top: 30px;"> </p>
     <div class="d-flex flex-column">
       <% @events.order(date: 'asc').each do |event| %>
       <%= link_to(event_path(event.id)) do %>
         <% if event.date < (Date.today) %>
-          <div class="card-next-event ml-5 mb-3" style="position: relative;left: -15px;top: -180px;">
+          <div class="card-next-event ml-5 mb-3" style="position: relative;left: -15px;top: 60px;">
             <div class="color-line-next-event">
             </div>
             <div class="img_next_event" style="background-image: url(<%=asset_path(event.photo)%>); background-position: center; background-size: cover; filter: grayscale(80%); "></div>
