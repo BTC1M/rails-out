@@ -17,9 +17,11 @@
 
 .artist_image {
   width: 100%;
+  background-position:center center;
   height: 415px;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
+  // background-size: cover;
   border-radius: 0px 0px 25px 25px;
 }
 
