@@ -50,6 +50,8 @@
         <% end %>
       </ul>
 
+  <div class="mx-4" style="color: white;"><%= @event.description %></div>
+
   <% particip_id = nil %>
   <!-- Si l'utilisateur participe déjà à l'évènement -->
   <% if @event.users.include?(current_user) %>
