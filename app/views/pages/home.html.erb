@@ -1,66 +1,68 @@
-<div class="bodyhome d-flex flex-column mt-4">
-  <div class="logo mx-auto my-5">
+<div class="bodyhome d-flex flex-column">
+  <div class="logo mx-auto mt-5 mb-4">
     <p class="out">OUT</p>
   </div>
+  <p class="marseille">MARSEILLE</p>
   <div class="color-line-top d-flex mb-3"></div>
   <div class="ses_prochains_events d-flex justify-content-start" style="height: 30px;">
-    <div class="taille_texte mb-2" style="position: relative;left: -70px;">Evènements ce soir</div>
+    <p class="taille_texte mb-2" style="position: relative;left: -70px;">évènements ce soir</p>
   </div>
-  <p class="lign-chapiter2 mb-2" style="left: 0px;"> </p>
+  <p class="lign-chapiter2 mb-3" style="left: 0px;"> </p>
 
     <div class="app" style="margin-top: 0px;">
       <ul class="hs">
         <%# events_sorted = @events.sort_by {|obj| obj.start_time} %>
         <% @events.order(start_time: 'asc').each do |event| %>
-          <% if event.date == Date.today %>
+          <% if %>
             <li>
             <%= link_to(event_path(event.id)) do %>
               <div class="card-event ml-2">
               <div class="color-line-event"> </div>
               <div class="img_event" style="background-image: url(<%=asset_path(event.photo)%>); background-position: center; background-size: cover;"></div>
-              <h3 class="title-event"><%= event.title %></h3>
-              <p class="text-event"> <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_event" %> <%= event.category %> -
+              <h3 class="title-event"><%= event.title.gsub(/^(.{12,}?).*$/m,'\1') %></h3>
+              <p class="title-text-event"><%= event.title.gsub(/^(.{12,}?).*$/m,'\1') %></p>
+              <p class="text-event"> <%= event.category %> -
                 <% artist_category_array_home = [] %>
                 <% event.artists.each do |artist| %>
                   <% unless artist_category_array_home.include?(artist.category + " ") %>
                     <% artist_category_array_home << artist.category + " " %>
                   <% end %>
                 <% end %>
-                <% if artist_category_array_home.length > 2 %>
-                  <%= artist_category_array_home.first(2).join %>...
+                <% if artist_category_array_home.length > 1 %>
+                  <%= artist_category_array_home.first(1).join.gsub(/^(.{6,}?).*$/m,'\1') %>
                 <% else %>
-                  <%= artist_category_array_home.join %>
+                  <%= artist_category_array_home.join.gsub(/^(.{6,}?).*$/m,'\1') %>
                 <% end %><br>
-                <%= image_tag "time.png", :size => "15x15", :class => "logo_event" %>
-                  <% start_time = event.start_time %>
-                  <% end_time = event.end_time %>
-                  <%= start_time.strftime('%R') %> - <%= end_time.strftime('%R') %><br>
-                <%= image_tag "location-point.png", :size => "15x15", :class => "logo_event" %>
-                <% placename_for_card = event.place.name %>
-                <% if placename_for_card.length > 25 %>
-                  <%= placename_for_card[0..25] + '...'%>
+                <% placename_for_card = event.place.name%>
+                <% if placename_for_card.length > 12 %>
+                  <%= placename_for_card[0..12]%>
                 <% else %>
-                  <%= event.place.name %>
+                  <%= event.place.name%> 
                 <% end %>
                 </p>
+                <div class="card-next-event-date d-flex flex-column">
+                  <% p= event.date %>
+                  <h2 style="color: black;"><%= p.strftime('%d') %></h2>
+                  <h3 style="color: black;"> <%= p.strftime('%b') %> </h3>
+                </div>
               </div>
             <% end %>
             </li>
           <% end %>
         <% end %>
       </ul>
-      <div class="ses_prochains_events d-flex justify-content-start mt-3" style="height: 30px;">
-    <div class="taille_texte">Artistes du moment</div>
+  <div class="background-artist"></div>    
+      <div class="ses_prochains_events d-flex justify-content-start mt-3" style="height: 30px;">   
+    <div class="taille_texte mt-4" style="z-index: 1;" >Artistes du moment</div>
   </div>
-    <p class="lign-chapiter2 mb-2"> </p>
+    <p class="lign-chapiter2 mt-4 mb-4" > </p>
       <ul class="hs2">
         <% @artists.first(15).each do |artist| %>
           <% unless artist.name.match?("Résident") %>
-            <li class="li_height">
+            <li class="li_height mb-5">
             <%= link_to(artist_path(artist.id)) do %>
-              <div class="card-artist mt-4">
+              <div class="card-artist mt-4 mb-5 mr-3">
                 <div class="img_artist-card" style="background-image: url(<%=asset_path(artist.photo)%>); background-position: center; background-size: cover;"></div>
-                <h3 class="card-title-artist"> <%= artist.name %></h3>
               </div>
               <% end %>
             </li>
@@ -69,44 +71,43 @@
       </ul>
   </div>
 </div>
+<div class="bodyhome">
   <div class="text-center">
     <div class="ses_prochains_events d-flex justify-content-start" style="height: 30px;">
 
-      <div class="taille_texte my-2" style="position: relative; top: -320px; left: -5px;">Evènements à venir</div>
+      <div class="taille_texte mb-2 mt-5" style="position: relative; top: -240px; left: -5px;">Evènements à venir</div>
 
     </div>
-    <p class="lign-chapiter2 my-2" style="position: relative;left: 35px;top: -320px;"> </p>
+    <p class="lign-chapiter3 my-2" style="position: relative; left: 35px;top: -195px;"> </p>
     <div class="d-flex flex-column">
       <% @events.order(date: 'asc').each do |event| %>
       <%= link_to(event_path(event.id)) do %>
         <% if event.date < (Date.today + 30.day) && event.date > Date.today %>
-          <div class="card-next-event" style="position: relative;left: -15px;">
+          <div class="card-next-event ml-5 mb-3" style="position: relative;left: -15px;top: -180px;">
             <div class="color-line-next-event">
             </div>
             <div class="img_next_event" style="background-image: url(<%=asset_path(event.photo)%>); background-position: center; background-size: cover;"></div>
-            <h3 class="title-event"><%= event.title %></h3>
+            <h3 class="title-event"><%= event.title.gsub(/^(.{12,}?).*$/m,'\1') %></h3>
+            <p class="title-text-event4"><%= event.title.gsub(/^(.{12,}?).*$/m,'\1') %></p>
             <p class="text-next-event">
-              <%= image_tag "musical-note.png", :size => "15x15", :class => "logo_next_event" %><%= event.category %> -<% artist_category_array_home = [] %>
+              <%= event.category %> -<% artist_category_array_home = [] %>
                   <% event.artists.each do |artist| %>
                     <% unless artist_category_array_home.include?(artist.category + " ") %>
                       <% artist_category_array_home << artist.category + " " %>
                     <% end %>
                   <% end %>
-                  <% if artist_category_array_home.length > 2 %>
-                    <%= artist_category_array_home.first(2).join %>...
+                  <% if artist_category_array_home.length > 1 %>
+                    <%= artist_category_array_home.first(1).join.gsub(/^(.{5,}?).*$/m,'\1') %>
                   <% else %>
                     <%= artist_category_array_home.join %>
                   <% end %><br>
-              <%= image_tag "time.png", :size => "15x15", :class => "logo_next_event" %><% start_time = event.start_time %>
-                  <% end_time = event.end_time %>
-                  <%= start_time.strftime('%R') %> - <%= end_time.strftime('%R') %><br>
-              <%= image_tag "location-point.png", :size => "15x15", :class => "logo_next_event" %> <% placename_for_card = event.place.name %>
-                <% if placename_for_card.length > 20 %>
-                  <%= placename_for_card[0..20] + '...'%>
+              <% placename_for_card = event.place.name %>
+                <% if placename_for_card.length > 12 %>
+                  <%= placename_for_card[0..12]%>
                 <% else %>
                   <%= event.place.name %>
                 <% end %> </p>
-            <div class="card-next-event-date d-flex flex-column">
+            <div class="card-next-event-date-last d-flex flex-column">
               <% p= event.date %>
               <h2><%= p.strftime('%d') %></h2>
               <h3> <%= p.strftime('%b') %> </h3>
@@ -117,4 +118,4 @@
       <% end %>
     </div>
   </div>
-
+</div>
