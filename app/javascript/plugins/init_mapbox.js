@@ -1,9 +1,15 @@
 import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
+// const fitMapToMarkers = (map, markers) => {
+//   const bounds = new mapboxgl.LngLatBounds();
+//   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+//   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+// };
+
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
-  markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+  markers.features.forEach(marker => bounds.extend([ marker.geometry.coordinates[0], marker.geometry.coordinates[1] ]));
   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
 };
 
@@ -41,37 +47,47 @@ const initMapbox = () => {
         var category = feature.properties['category'];
         var layerID = 'poi-' + category;
 
-        // Add a layer for this symbol type if it hasn't been added already.
-        if (!map.getLayer(layerID)) {
-          map.addLayer({
-            "id": layerID,
-            "type": "symbol",
-            "source": "places",
-            "layout": {
-              "icon-image": symbol + "-15",
-              "icon-allow-overlap": true
-            },
-            "filter": ["==", "category", category]
-          });
+        var el = document.createElement('div');
+        el.className = 'my-icon';
 
-          // Add checkbox and label elements for the layer.
-          var input = document.createElement('input');
-          input.type = 'checkbox';
-          input.id = layerID;
-          input.checked = true;
-          filterGroup.appendChild(input);
+        console.log(el);
 
-          var label = document.createElement('label');
-          label.setAttribute('for', layerID);
-          label.textContent = category;
-          filterGroup.appendChild(label);
+        new mapboxgl.Marker(el)
+          .setLngLat(feature.geometry.coordinates)
+          .addTo(map);
 
-          // When the checkbox changes, update the visibility of the layer.
-          input.addEventListener('change', function(e) {
-            map.setLayoutProperty(layerID, 'visibility',
-              e.target.checked ? 'visible' : 'none');
-          });
-        }
+
+        // // Add a layer for this symbol type if it hasn't been added already.
+        // if (!map.getLayer(layerID)) {
+        //   map.addLayer({
+        //     "id": layerID,
+        //     "type": "symbol",
+        //     "source": "places",
+        //     "layout": {
+        //       "icon-image": symbol + "-15",
+        //       "icon-allow-overlap": true
+        //     },
+        //     "filter": ["==", "category", category]
+        //   });
+
+        //   // Add checkbox and label elements for the layer.
+        //   var input = document.createElement('input');
+        //   input.type = 'checkbox';
+        //   input.id = layerID;
+        //   input.checked = true;
+        //   filterGroup.appendChild(input);
+
+        //   var label = document.createElement('label');
+        //   label.setAttribute('for', layerID);
+        //   label.textContent = category;
+        //   filterGroup.appendChild(label);
+
+        //   // When the checkbox changes, update the visibility of the layer.
+        //   input.addEventListener('change', function(e) {
+        //     map.setLayoutProperty(layerID, 'visibility',
+        //       e.target.checked ? 'visible' : 'none');
+        //   });
+        // }
       });
     });
 
@@ -130,7 +146,7 @@ const initMapbox = () => {
     // });
 
     // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
-    fitMapToMarkers(map, markers);
+    fitMapToMarkers(map, markersGeoJson);
     // fitMapToMarkers(map, markersGeoJson);
 
   }
