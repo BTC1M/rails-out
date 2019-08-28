@@ -1,5 +1,5 @@
 <div class="bodydash d-flex flex-column">
-  <div class="background-dash-top"></div>  
+  <div class="background-dash-top"></div>
   <div class="logo mx-auto mt-5 mb-4 " style="z-index: 1;">
     <p class="out" style="z-index: 1;">OUT</p>
   </div>
@@ -81,7 +81,7 @@
             </li>
         <% end %>
       </ul>
-      <div class="background-artist-prefere"></div> 
+      <div class="background-artist-prefere"></div>
   <div class="ses_prochains_events d-flex justify-content-start mt-5" style="height: 30px;">
     <div class="taille_texte">vos artistes préférés</div>
   </div>
@@ -102,18 +102,18 @@
   </ul>
 
   <div class="bodyhomeanciens">
-  <div class="text-center">
+  <div class="text-center" style="top: 0px;position: relative;">
     <div class="ses_anciens_events d-flex justify-content-start" style="height: 30px;">
 
       <div class="taille_texte mb-2 mt-5" style="position: relative; top: -240px; left: 35px;">vos anciens évènements</div>
 
     </div>
-    <p class="lign-chapiter3 my-2" style="position: relative; left: 35px;top: -195px;"> </p>
+    <p class="lign-chapiter3 my-2" style="position: relative; left: 35px;top: 30px;"> </p>
     <div class="d-flex flex-column">
       <% @events.order(date: 'asc').each do |event| %>
       <%= link_to(event_path(event.id)) do %>
         <% if event.date < (Date.today) %>
-          <div class="card-next-event ml-5 mb-3" style="position: relative;left: -15px;top: -180px;">
+          <div class="card-next-event ml-5 mb-3" style="position: relative;left: -15px;top: 60px;">
             <div class="color-line-next-event">
             </div>
             <div class="img_next_event" style="background-image: url(<%=asset_path(event.photo)%>); background-position: center; background-size: cover; filter: grayscale(80%); "></div>
@@ -148,6 +148,5 @@
       <% end %>
     </div>
   </div>
-</div> 
 </div>
-<div class="background-dash-bottom" style="z-index: -1"></div>
+</div>
