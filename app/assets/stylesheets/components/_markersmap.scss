@@ -1,0 +1,14 @@
+.my-icon {
+  background-size: 'contain';
+  width: 15px;
+  height: 15px;
+  box-shadow: 0px 0px 12px 1px white;
+  border-radius: 100px;
+  border: 1px solid white;
+  background-color: #4d4d4d;
+  position: absolute;
+  // backgroundImage = `url('${marker.image_url}')`;
+  // background-image: `url('${marker.properties.image_url}')`;
+  // background-image: url('point-grey.png');
+}
+
