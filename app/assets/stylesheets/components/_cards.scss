@@ -363,11 +363,22 @@ width: 374px;
 height: 270px;
 left: 0px;
 top: 450px;
-
 background: #5B5B5B;
 border-radius: 19px;
 z-index: 0;
 }
+
+.background-artist-event {
+  position: absolute;
+width: 374px;
+height: 270px;
+left: 0px;
+top: 480px;
+background: black;
+border-radius: 19px;
+z-index: 0;
+}
+
 //----------------------------------------------//
 
 //--------------CARD-NEXT-EVENT-----------------//
