@@ -108,7 +108,7 @@
       <div class="taille_texte mb-2 mt-5" style="position: relative; top: 0px; left: 35px;">vos anciens évènements</div>
 
     </div>
-    <p class="lign-chapiter3 my-2" style="position: relative; left: 35px;top: 30px;"> </p>
+    <p class="lign-chapiter3 mt-3" style="position: relative; left: 35px;top: 30px;"> </p>
     <div class="d-flex flex-column">
       <% @events.order(date: 'asc').each do |event| %>
       <%= link_to(event_path(event.id)) do %>
