@@ -45,47 +45,59 @@ const initMapbox = () => {
       markersGeoJson.features.forEach(function(marker) {
         var symbol = marker.properties.icon['icone'];
         var category = marker.properties['category'];
-        var layerID = 'poi-' + category;
+        var layerID = category;
 
-        var el = document.createElement('div');
-        el.className = 'my-icon';
+        // var el = document.createElement('div');
+        // el.className = 'my-icon';
 
-        new mapboxgl.Marker(el)
-          .setLngLat([ marker.geometry.coordinates[0], marker.geometry.coordinates[1] ])
-          .addTo(map);
+        // new mapboxgl.Marker(el)
+        //   .setLngLat([ marker.geometry.coordinates[0], marker.geometry.coordinates[1] ])
+        //   .addTo(map);
 
+        // Add a layer for this symbol type if it hasn't been added already.
+        if (!map.getLayer(layerID)) {
+          map.addLayer({
+            "id": layerID,
+            "type": "circle",
+            "source": "places",
+            "paint": {
+              'circle-radius': 7,
+              'circle-blur': 1,
+              'circle-color': [
+                'match',
+                ['get', 'category'],
+                'Festival', '#fbb03b',
+                'Rooftop', '#223b53',
+                'Open air', '#e55e5e',
+                'Pool Party', '#3bb2d0',
+                'Club', '#3bb2d0',
+                'Beach', '#3bb2d0',
+                'Bar', '#3bb2d0',
+                'Concert', '#3bb2d0',
+                /* other */ '#ccc'
+              ]
+            },
+            "filter": ["==", "category", category]
+          });
 
-        // // Add a layer for this symbol type if it hasn't been added already.
-        // if (!map.getLayer(layerID)) {
-        //   map.addLayer({
-        //     "id": layerID,
-        //     "type": "symbol",
-        //     "source": "places",
-        //     "layout": {
-        //       "icon-image": symbol + "-15",
-        //       "icon-allow-overlap": true
-        //     },
-        //     "filter": ["==", "category", category]
-        //   });
+          // Add checkbox and label elements for the layer.
+          var input = document.createElement('input');
+          input.type = 'checkbox';
+          input.id = layerID;
+          input.checked = true;
+          filterGroup.appendChild(input);
 
-        //   // Add checkbox and label elements for the layer.
-        //   var input = document.createElement('input');
-        //   input.type = 'checkbox';
-        //   input.id = layerID;
-        //   input.checked = true;
-        //   filterGroup.appendChild(input);
+          var label = document.createElement('label');
+          label.setAttribute('for', layerID);
+          label.textContent = category;
+          filterGroup.appendChild(label);
 
-        //   var label = document.createElement('label');
-        //   label.setAttribute('for', layerID);
-        //   label.textContent = category;
-        //   filterGroup.appendChild(label);
-
-        //   // When the checkbox changes, update the visibility of the layer.
-        //   input.addEventListener('change', function(e) {
-        //     map.setLayoutProperty(layerID, 'visibility',
-        //       e.target.checked ? 'visible' : 'none');
-        //   });
-        // }
+          // When the checkbox changes, update the visibility of the layer.
+          input.addEventListener('change', function(e) {
+            map.setLayoutProperty(layerID, 'visibility',
+              e.target.checked ? 'visible' : 'none');
+          });
+        }
       });
     });
 
