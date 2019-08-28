@@ -96,6 +96,14 @@ const initMapbox = () => {
           var label = document.createElement('label');
           label.setAttribute('for', layerID);
           label.textContent = category;
+          label.style.backgroundColor = 'black';
+          label.style.fontSize = '12px';
+          label.style.border = '2px solid white';
+          label.style.top = '35px';
+          label.style.marginTop = '6px';
+          label.style.marginRight = '15px';
+          label.style.borderRadius = '4px';
+          label.style.boxShadow = '3px 3px 0px white';
 
           inputArray.push(input);
           labelArray.push(label);
@@ -142,9 +150,9 @@ const initMapbox = () => {
         // element.style.backgroundSize = 'contain';
         element.style.width = '15px';
         element.style.height = '15px';
-        element.style.boxShadow = "0px 0px 12px 1px white";
+        //element.style.boxShadow = "0px 0px 3px 1px white";
         element.style.borderRadius = "100px";
-        element.style.border ="1px solid white";
+        //element.style.border ="1px solid white";
         // element.style.backgroundColor = "#4d4d4d";
         element.style.position = "absolute";
         element.style.opacity = "0";
