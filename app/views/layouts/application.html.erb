@@ -24,6 +24,11 @@
     <meta property="og:description" content="<%= meta_description %>" />
     <meta property="og:site_name" content="<%= meta_title %>" />
 
+    <% content_for :meta_title, "Bienvenue sur OUT Marseille" %>
+    <% content_for :meta_description, "Retrouvez tous les évènements musicaux sur marseille" %>
+    <% content_for :meta_image, image_path("cover.png") %>
+    <%# content_for :meta_image, cl_image_path(@offer.photo.path) %>
+
     <!-- Twitter Card data -->
 <!--     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="<%#= DEFAULT_META["twitter_account"] %>">
