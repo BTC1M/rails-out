@@ -4,7 +4,7 @@
       <%= @event.title.upcase.gsub(/^(.{28,}?).*$/m,'\1') %>
     </p>
     <div class="d-flex">
-      <%= image_tag "note.png", size: "22x22", class: "mr-2"%>
+      <%= image_tag "note.png", size: "20x20", class: "mr-2"%>
       <p class="align-self-center mb-0 event_category"><%= @event.category %> -
         <% artist_category_array = [] %>
         <% array_unique = [] %>
@@ -29,17 +29,17 @@
         </p>
     </div>
     <div class="event_place d-flex">
-      <%= image_tag "pin.png", size: "22x22", class: "mr-2"%>
+      <%= image_tag "pin.png", size: "20x20", class: "mr-2"%>
       <p class="align-self-center mb-0  event_category"><%= @event.place.name %></p>
     </div>
     <div class="event_hour d-flex">
-      <%= image_tag "clock.png", size: "22x22", class: "mr-2"%>
+      <%= image_tag "clock.png", size: "20x20", class: "mr-2"%>
       <% start_time = @event.start_time %>
       <% end_time = @event.end_time %>
       <p class="align-self-center mb-0  event_category"><%= start_time.strftime('%R') %> - <%= end_time.strftime('%R') %></p>
     </div>
     <div class="event_price d-flex">
-      <%= image_tag "euro.png", size: "22x22", class: "mr-2"%>
+      <%= image_tag "euro.png", size: "20x20", class: "mr-2"%>
       <p class="align-self-center mb-0 event_category"><%= @event.price == 0 ? "gratuit" : "#{@event.price} €" %></p>
     </div>
   </div>
