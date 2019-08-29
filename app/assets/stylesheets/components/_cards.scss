@@ -137,7 +137,7 @@ color: #FFFFFF;
 transform: rotate(-90deg);
 left: -58px;
 vertical-align: top;
-text-align: left;
+text-align: center;
 top: 55px;
 }
 
@@ -202,10 +202,10 @@ top: 55px;
 
 .text-event{
   position: relative;
-  width: 114px;
+  width: 174px;
   height: 58px;
-  left: -20px;
-  bottom: -50px;
+  left: -50px;
+  bottom: -55px;
   font-family: Avenir Next;
   font-style: normal;
   font-weight: bold;
@@ -479,10 +479,10 @@ font-size: 23px;
 line-height: 27px;
 color: #FFFFFF;
 transform: rotate(-90deg);
-left: -58px;
+left: -60px;
 vertical-align: top;
-text-align: left;
-top: 65px;
+text-align: middle;
+top: 75px;
 }
 
 .card-next-event p {
@@ -627,12 +627,18 @@ border-radius: 4px;
   color: #A0A0A0;
 }
 
+// .title_place {
+//   height: 58px;
+//   position: absolute;
+//   bottom: 0px;
+// }
+
 .title-text-event-discover {
   position: absolute;
   width: 154px;
   height: 58px;
   left: 47px !important;
-  bottom: 85px !important;
+  bottom: 80px !important;
   font-family: Avenir Next;
   font-style: normal;
   font-weight: bold;
