@@ -337,6 +337,16 @@ ArtistParticipation.create!(
 
 ArtistParticipation.create!(
   artist: Artist.create!(
+    name: "Fab Lo Coco",
+    category: "Deep house",
+    photo: "fablococo.png",
+    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/408950547&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ),
+  event: Event.find_by_title("Baou: barcelona Show with Yaya")
+)
+
+ArtistParticipation.create!(
+  artist: Artist.create!(
     name: "Seb Zito",
     category: "Techno",
     photo: "sebzito.png",
@@ -345,15 +355,6 @@ ArtistParticipation.create!(
   event: Event.find_by_title("Baou: barcelona Show with Yaya")
 )
 
-ArtistParticipation.create!(
-  artist: Artist.create!(
-    name: "Fab Lo Coco",
-    category: "Deep house",
-    photo: "fablococo.png",
-    spotify_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/408950547&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-  ),
-  event: Event.find_by_title("Baou: barcelona Show with Yaya")
-)
 
 # -----------------------------------------------------
 
