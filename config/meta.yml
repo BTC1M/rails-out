@@ -1,0 +1,5 @@
+meta_product_name: "OUT Marseille"
+meta_title: "OUT Marseille - Suivez le son"
+meta_description: "Retrouvez tous les évènements musicaux sur marseille"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
